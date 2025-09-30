@@ -1,0 +1,99 @@
+@use "../global/global.variables.scss" as global;
+
+$lyteDateTimeInputBoxWrapperMap: (
+	"border": 1px solid global.$lyteDateTimeInputBorderColor,
+	"border-radius": global.$lyteDateTimeInputBorderRadius,
+) !default;
+
+$lyteDateTimeInputBoxHoverWrapperMap: (
+	"border": 1px solid global.$lyteDateTimeInputBorderHover,
+) !default;
+
+$lyteDateInputFocusedBoxWrapperMap: (
+	"border": 1px solid global.$lyteDateTimeInputBorderFocus,
+) !default;
+
+$lyteDateTimeInputBoxWrapperInputMap: (
+	"border-right": 1px solid global.$lyteDateTimeInputBorderColor,
+	"border-radius": global.$lyteDateTimeInputBorderRadius 0 0 global.$lyteDateTimeInputBorderRadius,
+) !default;
+
+$lyteDateTimeInputBoxWrapperDivInputMap: (
+	"border-radius": 0 global.$lyteDateTimeInputBorderRadius global.$lyteDateTimeInputBorderRadius 0,
+) !default;
+
+$lyteDateTimeInputFlatWrapperMap: (
+	"border-bottom": 1px solid global.$lyteDateTimeInputBorderColor,
+) !default;
+
+$lyteDateTimeInputFlatHoverWrapperMap: (
+	"border-bottom": 1px solid global.$lyteDateTimeInputBorderHover,
+) !default;
+
+$lyteDateInputFocusedFlatWrapperMap: (
+	"border-bottom": 1px solid global.$lyteDateTimeInputBorderFocus,
+) !default;
+
+$lyteDateTimeInputWrapperInputMap: (
+	"font-family": global.$primaryFont,
+	"font-size": global.$lyteDateTimeInputFontSize,
+	"background": global.$lyteDateTimeInputBg,
+	"color": global.$lyteDateTimeInputTextColor,
+	"border": 0,
+	"box-shadow": none,
+	"outline": 0,
+) !default;
+
+$lyteDateTimeInputBoxInputMap: (
+	"padding": 9px 10px,
+) !default;
+
+$lyteDateTimeInputFlatInputMap: (
+	"padding": 9px 0,
+) !default;
+
+$lyteDateTimeInputWrapperDropButtonMap: (
+	"padding": 0,
+	"border": 0,
+	"box-shadow": none,
+) !default;
+
+$lyteDateTimeInputWormholeMap: (
+	"left": -9999px,
+	"top": -9999px,
+	"z-index": global.$calzIndex,
+) !default;
+
+$lyteDateTimezoneMap: (
+	"right": 0,
+	"top": 0,
+	"bottom": 0,
+	"padding": 0 5px,
+	"color": global.$lyteDateTimeInputTextColor,
+) !default;
+
+
+$lyteDateInputCalendarIconMap: (
+    "mask-image": global.$lytesprite no-repeat -224px -81px,
+    "width": 16px,
+    "height": 17px,
+    "background-color": #585858,
+    "left": calc(50% - 25px),
+) !default;
+$lyteDateTimeInputBoxAriaFirstInputMap: (
+	"padding-right": 30px,
+    "width": 50%,
+) !default;
+$lyteDateTimeInputWrapperDivAriaMap: (
+	"width": 50%,
+) !default;
+$lyteDateTimeInputFlatAriaCalendarIconMap: (
+	"bottom": 10px,
+) !default;
+$lyteDateTimeInputCalendarIconHoverMap: (
+	"background-color": #333,
+) !default;
+$lyteDateTimeInputCalendarIconFocusMap: (
+	"outline": 0,
+	"background-color": global.$lyteDateTimeInputCalendarFocusIconColor
+) !default;

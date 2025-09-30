@@ -1,0 +1,69 @@
+/* Default theme imported */
+
+@import "../themes/default/ui-elements/emoji/emoji.variables.less";
+
+/* Loading theme in configuration */
+
+@import "../config.less";
+
+
+@import (multiple,optional) "../themes/default/global/@{direction}.less";
+
+.lyteNoteEmojiPopover .lytePopover {
+	.lyteNoteEmojiPopoverMixin();
+	padding: @padding;
+	border-radius: @border-radius;
+}
+lyte-emoji {
+	.lyteEmojiTagMixin();
+	display: block;
+	width: @w;
+}
+.lyteEmojiInputElement {
+	.lyteEmojiInputElementMixin();
+	padding: @padding;
+}
+.lyteEmojiInputElement lyte-input {
+	.lyteEmojiInputElementLyteInputMixin();
+	display: flex;
+	width: @w;
+}
+.lyteEmojiWrapper {
+	.lyteEmojiWrapperMixin();
+	padding: @padding;
+	height: @h;
+	overflow: auto;
+}
+.lyteEmojiGroup {
+	display: flex;
+	flex-wrap: wrap;
+}
+.lyteEmoji {
+	.lyteEmojiMixin();
+	font-size: @font-size;
+	padding: @padding;
+	border-radius: @border-radius;
+	cursor: pointer;
+	width: @w;
+	height: @h;
+	border: @border;
+	line-height: @line-height;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+.lyteEmoji:hover {
+	.lyteEmojiHoverMixin();
+	background: @bg;
+}
+.lyteEmojiNoResult {
+	.lyteEmojiNoResultMixin();
+	height: @h;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: @color;
+}
+.lyteEmojiHidden {
+	display: none !important;
+}

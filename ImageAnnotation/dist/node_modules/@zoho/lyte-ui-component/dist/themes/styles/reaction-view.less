@@ -1,0 +1,179 @@
+/* Default theme imported */
+
+@import "../themes/default/ui-elements/reactionview/reaction-view.variables.less";
+
+/* Loading theme in configuration */
+
+@import "../config.less";
+
+
+@import (multiple,optional) "../themes/default/global/@{direction}.less";
+
+.lyteNoteReactionViewModal .lyteModalClose {
+	.lyteNoteReactionViewModalCloseMixin();
+	top: @top;
+	@{property-right}: @right;
+}
+.lyteNoteReactionTable {
+	.lyteNoteReactionTableMixin();
+	width: @w;
+}
+.lyteReactionAvatar {
+	.lyteReactionAvatarMixin();
+	width: @w;
+	height: @h;
+	display: inline-block;
+	position: relative;
+	@{property-margin-left}: @margin-left;
+	@{property-margin-right}: @margin-right;
+}
+.lyteReactionAvatar::after {
+	.lyteReactionAvatarAfterMixin();
+	content: attr(data-reaction-value);
+	width: @w;
+	height: @h;
+	border: @border;
+	border-radius: @border-radius;
+	display: flex;
+	position: absolute;
+	bottom: @bottom;
+	@{property-right}: @right;
+	background: @bg;
+	font-size: @font-size;
+	justify-content: center;
+	align-items: center;
+}
+.lyteReactionAvatar[data-reaction-value=""]::after {
+	content: '';
+}
+.lyteReactionAvatar[data-reaction-value=""]::before {
+	.lyteReactionAvatarMainLikeBeforeMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+	display: inline-block;
+	position: absolute;
+	@{property-right}: @right;
+	bottom: @bottom;
+	z-index: @z-index;
+}
+.lyteReactionAvatar img {
+	.lyteReactionAvatarImgMixin();
+	width: @w;
+	height: @h;
+	border-radius: @border-radius;
+	object-fit: cover;
+}
+.lyteNoteReactionViewModal lyte-modal-header {
+	.lyteNoteReactionViewModalHeaderMixin();
+	padding: @padding;
+}
+.lyteNoteReactionTabHeader {
+	.lyteNoteReactionTabHeaderMixin();
+	display: flex;
+	align-items: center;
+	padding: @padding;
+}
+.lyteReactionTab {
+	.lyteReactionTabMixin();
+	font-family: @font-family;
+	padding: @padding;
+	border-bottom: @border-bottom;
+	cursor: pointer;
+	font-size: @font-size;
+}
+.lyteReactionEmoji.lyteNoteLikeReaction {
+	.lyteReactionEmojiLikereactionMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+	display: inline-block;
+}
+.lyteReactionActive {
+	.lyteReactionActiveMixin();
+	border-bottom: @border-bottom;
+	color: @color;
+}
+.lyteNoteReactionSearchWrapper {
+	.lyteNoteReactionSearchWrapperMixin();
+	padding: @padding;
+}
+.lyteNoteReactionViewModal lyte-modal-content{
+	.lyteNoteReactionViewModalContentMixin();
+	display: flex;
+	min-height: @min-height;
+	position: relative;
+}
+.lyteNoteReactionTable lyte-td {
+	.lyteNoteReactionTableTdMixin();
+	display: flex;
+	border-bottom: @border-bottom;
+	padding: @padding;
+}
+.lyteReactionDetailWrapper {
+	flex-grow: 1;
+}
+.lyteReactionDetail {
+	display: flex;
+	justify-content: space-between;
+}
+.lyteReactionName {
+	.lyteReactionNameMixin();
+	color: @color;
+}
+.lyteReactionEmail {
+	.lyteReactionEmailMixin();
+	color: @color;
+}
+.lyteReactionTime {
+	.lyteReactionTimeMixin();
+	color: @color;
+	visibility: hidden;
+	font-size: @font-size;
+}
+lyte-tr:hover .lyteReactionTime {
+	visibility: visible;
+}
+.lyteNoteReactionSearchInput {
+	.lyteNoteReactionSearchInputMixin();
+	font-family: @font-family;
+	font-size: @font-size;
+	color: @color;
+	outline: @outline;
+	box-sizing: border-box;
+	background: @bg;
+	border: @border;
+	border-radius: @border-radius;
+	padding: @padding;
+	width: @w;
+	display: block;
+	box-shadow: @box-shadow;
+}
+.lyteNoteReactionSearchInput:focus {
+	.lyteNoteReactionSearchInputFocusMixin();
+	border: @border;
+}
+.lyteReactionNoResult {
+	.lyteReactionNoResultMixin();
+	position: absolute;
+	top: @top;
+	@{property-left}: @left;
+	@{property-right}: @right;
+	text-align: center;
+	height: @h;
+	line-height: @line-height;
+	color: @color;
+}

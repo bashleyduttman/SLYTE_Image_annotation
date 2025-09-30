@@ -1,0 +1,160 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/modal.variables.scss";
+
+@use "../default/variables/modal.variables.scss" as *;
+
+.lyteModal {
+	background: map.get($lyteModalMap, "background");
+	box-shadow: map.get($lyteModalMap, "box-shadow");
+	position: absolute;
+	z-index: map.get($lyteModalMap,"z-index");
+	opacity: map.get($lyteModalMap,"opacity");
+	box-sizing: border-box;
+	font-family: $primaryFont;
+	border-radius: map.get($lyteModalMap,"border-radius");
+	border: map.get($lyteModalMap,"border");
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	@include addExtraStyles($lyteModalMap);
+}
+.bodyWrapper {
+	overflow: hidden;
+}
+.modalWrapper {
+	top: map.get($lyteModalWrapperMap, "top");
+	bottom: map.get($lyteModalWrapperMap, "bottom");
+	left: map.get($lyteModalWrapperMap, "left");
+	right: map.get($lyteModalWrapperMap, "right");
+	z-index: map.get($lyteModalWrapperMap,"z-index");
+	position: fixed;
+	overflow: auto;
+	@include addExtraStyles($lyteModalWrapperMap);
+}
+.modalWrapper.noFreeze {
+	pointer-events: none;
+}
+.modalWrapper.noFreeze .lyteModal {
+	pointer-events: auto;
+}
+lyte-modal-header {
+	font-size: map.get($lyteModalHeaderMap, "font-size");
+	color: map.get($lyteModalHeaderMap, "color");
+	font-family: $secondaryFont;
+	padding: map.get($lyteModalHeaderMap, "padding");
+	overflow-wrap: break-word;
+	@include addExtraStyles($lyteModalHeaderMap);
+}
+lyte-modal-content {
+	padding: map.get($lyteModalContentMap, "padding");
+	box-sizing: border-box;
+	font-size: map.get($lyteModalContentMap, "font-size");
+	color: map.get($lyteModalContentMap, "color");
+	@include addExtraStyles($lyteModalContentMap);
+}
+lyte-modal-footer {
+	padding: map.get($lyteModalFooterMap, "padding");
+	@include addExtraStyles($lyteModalFooterMap);
+}
+lyte-modal-header, 
+lyte-modal-content, 
+lyte-modal-footer {
+	display: block;
+	box-sizing: border-box;
+}
+.modalWrapper.scrollable {
+	overflow: hidden;
+}
+.modalWrapper.scrollable lyte-modal-content {
+	overflow: auto;
+}
+.lyteModalHidden lyte-modal-freeze {
+	pointer-events: none;
+	opacity: map.get($lyteModalHiddenFreezeMap, "opacity");
+	@include addExtraStyles($lyteModalHiddenFreezeMap);
+}
+lyte-modal-freeze {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: map.get($lyteModalFreezeMap, "z-index");
+	background: map.get($lyteModalFreezeMap, "background");
+	display: block;
+	opacity: map.get($lyteModalFreezeMap, "opacity");
+	transition: opacity ease 0.15s;
+	transform: translate3d(0, 0, 0);
+	@include addExtraStyles($lyteModalFreezeMap);
+}
+.lyteModalClose {
+	@if $useCssMaskForBg {
+		mask-image: map.get($lyteModalCloseMap, "mask-img");
+		mask-position: map.get($lyteModalCloseMap, "mask-position");
+		background-color: map.get($lyteModalCloseMap, "background-color");
+	} @else {
+		background-image: map.get($lyteModalCloseMap, "background-image");
+		background-position: map.get($lyteModalCloseMap, "background-position");
+	}
+	width: map.get($lyteModalCloseMap, "width");
+	height: map.get($lyteModalCloseMap, "height");
+	opacity: map.get($lyteModalCloseMap, "opacity");
+	cursor: pointer;
+	position: absolute;
+	top: map.get($lyteModalCloseMap, "top");
+	#{$property-right}: map.get($lyteModalCloseMap, "right");
+	display: inline-block;
+	transform: scale(1.3);
+	z-index: map.get($lyteModalCloseMap, "z-index");
+	outline: none;
+	@include addExtraStyles($lyteModalCloseMap);
+}
+.lyteModalClose:hover {
+	opacity: map.get($lyteModalCloseHoverMap, "opacity");
+	@include addExtraStyles($lyteModalCloseHoverMap);
+}
+lyte-modal-footer.left {
+	text-align: $value-textalign-left;
+}
+lyte-modal-footer.center {
+	text-align: center;
+}
+lyte-modal-footer.right {
+	text-align: $value-textalign-right;
+}
+lyte-modal-footer lyte-button {
+	#{$property-margin-left}: map.get($lyteModalFooterBtnMap, "margin-left");
+	@include addExtraStyles($lyteModalFooterBtnMap);
+}
+lyte-modal-footer lyte-button:first-child {
+	#{$property-margin-left}: 0;
+}
+.lyteModalFromLeft,
+.lyteModalFromRight,
+.lyteModalFromTop,
+.lyteModalFromBottom,
+.lyteModalFadeIn {
+	opacity: map.get($lyteModalFadeinMap, "opacity");
+	@include addExtraStyles($lyteModalFadeinMap);
+}
+.lyteModalHeaderDraggable {
+	cursor: move;
+	touch-action: none;
+}
+.lyteModal.lyteZoom {
+	transform-origin: center;
+}
+.lyteModal.lyteModalFromRight {
+	left: 100%;
+}
+.lyteModalYieldWithPadding {
+	display: flex;
+	flex-direction: column;
+	max-height: inherit;
+	height: inherit;
+	padding: var(--lyte-modal-yield-padding);
+	box-sizing: border-box;
+}

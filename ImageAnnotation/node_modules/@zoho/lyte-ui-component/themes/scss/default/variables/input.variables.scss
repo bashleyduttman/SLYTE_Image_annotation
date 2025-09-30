@@ -1,0 +1,257 @@
+@use "../global/global.variables.scss" as global;
+
+$cssMaskIconLyteInputIconsCommonColor: global.$lyteIconsThemeColor !default;
+$cssMaskIconLyteInputResizeIconColor: $cssMaskIconLyteInputIconsCommonColor !default;
+$cssMaskIconLyteInputSearchIconColor: $cssMaskIconLyteInputIconsCommonColor !default;
+$cssMaskIconLyteInputCloseIconColor: $cssMaskIconLyteInputIconsCommonColor !default;
+
+$isLyteInputAppearanceFlatEnabled: true;
+$isLyteInputAppearanceBoxEnabled: true;
+$isLyteInputTypeTextareaEnabled: true;
+$isLyteInputTypeSearchEnabled: true;
+$isLyteInputCloseIconEnabled: true;
+$isLyteInputTypeDateTimeEnabled: true;
+$isLyteInputTypePasswordEnabled: true;
+$isLyteInputCalendarIconEnabled: true;
+
+$lyteInputLabelMap: (
+	"font-size": global.$lyteInputFontSize,
+	"padding-right": 30px,
+	"color": global.$lyteInputLabelColor
+) !default;
+
+$lyteInputBoxFieldMap: (
+	"border": 1px solid global.$lyteInputBorderColor,
+	"border-radius": global.$lyteInputBorderRadius
+) !default;
+
+$lyteInputBoxInputMap: (
+	"background": global.$lyteInputBg,
+	"border": 0,
+	"border-radius": global.$lyteInputBorderRadius,
+	"padding": 7px 10px,
+	"color": global.$lyteInputTextColor,
+	"font-size": global.$lyteInputFontSize
+) !default;
+$lyteInputBoxInputDisabledMap: (
+	"background": global.$lyteInputDisabled,
+	"color": #999
+) !default;
+$lyteInputTextareaMap: (
+	"min-height": 70px
+) !default;
+$lyteInputTextareaFieldAfterMap: (
+	"width": 17px,
+	"height": 17px,
+	"background": global.$lyteInputBg,
+	"right": 0,
+	"bottom": 0,
+	"z-index": 5,
+	"border-radius": 0 0 2px
+) !default;
+$lyteInputBoxFieldHoverMap: (
+	"border": 1px solid global.$lyteInputBorderHover
+) !default;
+$lyteInputBoxFieldFocusMap: (
+	"border": 1px solid global.$lyteInputBorderFocus
+) !default;
+$lyteInputBoxInputHoverMap: (
+	"border": 0
+) !default;
+$lyteInputBoxInputFocusMap: (
+	"border": 0
+) !default;
+$lyteTextareaResizeMap: (
+	"background-image": global.$lytesprite,
+	"background-position": -267px -4px,
+	"mask-img": global.$lytesprite,
+	"mask-position": -267px -4px,
+	"background-color": $cssMaskIconLyteInputResizeIconColor,
+	"width": 13px,
+	"height": 13px,
+	"right": 1px,
+	"bottom": 1px,
+	"opacity": 0.5,
+	"z-index": 10
+) !default;
+$lyteInputBoxFieldDisabledHoverMap: (
+	"border": 1px solid global.$lyteInputBorderColor
+) !default;
+$lyteInputPlaceholderMap: (
+	"color": #a6a6a6
+) !default;
+$lyteInputHorizontalLabelMap: (
+	"min-width": 40%,
+	"width": 40%
+) !default;
+$lyteInputHorizontalLyteFieldMap: (
+	"min-width": 60%,
+	"width": 60%
+) !default;
+$lyteFlatInputFieldMap: (
+	"border-bottom": 1px solid global.$lyteInputBorderColor
+) !default;
+$lyteFlatInputMap: (
+	"background": global.$lyteInputBg,
+	"border": 0,
+	"padding": 6px 10px
+) !default;
+$lyteFlatInputLabelMap: (
+	"border-bottom": 1px solid global.$lyteInputBorderColor,
+	"padding": 5px 50px 5px 2px
+) !default;
+$lyteFlatInputFieldHoverMap: (
+	"border-bottom": 1px solid global.$lyteInputBorderHover
+) !default;
+$lyteFlatInputFieldDisabledHoverMap: (
+	"border-bottom": 1px solid global.$lyteInputBorderColor
+) !default;
+$lyteFlatInputFieldFocusMap: (
+	"border-bottom": 1px solid global.$lyteInputBorderFocus
+) !default;
+$lyteVerticalInputLabelMap: (
+	"padding-right": 0,
+	"margin-bottom": 10px
+) !default;
+$lyteFlatInputVertLabelMap: (
+	"padding": 0,
+	"margin-bottom": 0,
+	"border-bottom": 0
+) !default;
+$lyteFlatInputVertInputMap: (
+	"padding-left": 0
+) !default;
+$lyteInputSearchInputElemMap: (
+	"padding-left": 35px
+) !default;
+$lyteInputSearchIconMap: (
+	"background-image": global.$lytesprite,
+	"background-position": -180px -4px,
+	"mask-img": global.$lytesprite,
+	"mask-position": -180px -4px,
+	"background-color": $cssMaskIconLyteInputSearchIconColor,
+	"width": 15px,
+	"height": 15px,
+	"left": 10px,
+	"top": calc(50% - 8px),
+	"opacity": 0.6,
+	"margin": 0
+) !default;
+$lyteInputWithCloseMap: (
+	"padding-right": 30px
+) !default;
+$lyteInputCloseIconWrapMap: (
+	"padding": 8px,
+	"z-index": 10,
+	"opacity": 0.7,
+	"top": calc(50% - 12px),
+	"right": 4px
+) !default;
+$lyteInputCloseIconWrapHoverMap: (
+    "opacity": 1
+) !default;
+$lyteInputCloseIconBeforeMap: (
+	"background-image": global.$lytesprite,
+	"background-position": -54px -2px,
+	"mask-img": global.$lytesprite,
+	"mask-position": -54px -2px,
+	"background-color": $cssMaskIconLyteInputCloseIconColor,
+	"width": 8px,
+	"height": 8px,
+	"transform": scale(1.25)
+) !default;
+$lyteInputCalendarMap: (
+	"z-index": global.$calzIndex
+) !default;
+$lyteInputDateTimeMap: (
+	"width": 50%
+) !default;
+$lyteInputDateTimeFirstChildMap: (
+	"border-radius": global.$lyteInputBorderRadius 0 0 global.$lyteInputBorderRadius,
+	"border-right": 1px solid global.$lyteInputBorderColor
+) !default;
+$lyteInputDateTimePlaceholderMap: (
+	"left": 1px,
+	"right": 1px,
+	"top": 1px,
+	"bottom": 1px,
+	"font-size": 14px,
+	"color": #a6a6a6,
+	"padding": 9px 10px,
+	"background": global.$lyteInputBg
+) !default;
+
+$lyteInputWithPasswordToggleButtonInputMap: (
+	"padding-right": 25px
+) !default;
+$lyteInputWithPasswordToggleButtonAndCloseIconInputMap: (
+	"padding-right": 50px
+) !default;
+$lyteInputWithPasswordToggleButtonCloseIconMap: (
+	"right": 26px
+) !default;
+$lyteInputPasswordToggleIconMap: (
+	"padding": 5px,
+	"right": 0,
+	"top": calc(50%),
+	"transform": translateY(-50%)
+) !default;
+$lyteInputPasswordToggleIconAfterMap: (
+	"background-image": global.$lytesprite,
+	"mask-img": global.$lytesprite,
+	"background-color": #313949,
+	"width": 16px,
+	"opacity": 0.7
+) !default;
+$lyteInputPasswordToggleIconHoverAfterMap: (
+	"opacity": 1
+) !default;
+$lyteInputShowPasswordIconAfterMap: (
+	"height": 12px,
+	"background-position": -212px -63px,
+	"mask-position": -212px -63px
+) !default;
+$lyteInputHidePasswordIconAfterMap: (
+	"height": 16px,
+	"background-position": -238px -61px,
+	"mask-position": -238px -61px
+) !default;
+$lyteInputCalendarIconMap: (
+	"mask-image": global.$lytesprite,
+	"mask-position": -201px -81px,
+	"background-color": #676869,
+	"width": 16px,
+	"height": 17px,
+	"top": 50%,
+	"transform": translateY(-50%)
+) !default;
+$lyteInputWithCalendarIconMap: (
+	"padding-right": 30px
+) !default;
+$lyteInputCalendarIconHoverMap: (
+	"background-color": #333
+) !default;
+$lyteInputCalendarIconFocusMap: (
+	"outline": 0,
+	"background-color": global.$lyteInputCalendarFocusIcon
+) !default;
+$lyteInputFlatCalendarIconMap: (
+	"right": 0
+) !default;
+$lyteInputBoxCalendarIconMap: (
+	"right": 10px
+) !default;
+$lyteInputDateTimeCalendarIconMap: (
+	"right": unset,
+	"left": calc(50% - 10px),
+	"transform": translate(-100%, -50%)
+) !default;
+$lyteInputTimeDropdownMap: (
+	"top": 0,
+	"left": 0,
+	"right": 0,
+	"bottom": 0
+) !default;
+$lyteInputDateTimeDropdownMap: (
+	"left": 50%
+) !default;

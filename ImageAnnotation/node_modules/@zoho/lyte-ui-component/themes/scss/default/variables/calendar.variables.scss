@@ -1,0 +1,340 @@
+@use "../global/global.variables.scss" as global;
+
+$cssMaskIconLyteCalendarNavIconColor: global.$lyteIconsThemeColor !default;
+
+$lyteCalendarPopupMap: (
+    "background": global.$lyteCalendarPopupBG,
+    "z-index": global.$lyteCalendarzIndex,
+    "box-shadow": 0 1px 3px 1px rgba(0, 0, 0, 0.1),
+    "font-size": 14px,
+    "border": 1px solid #d1d1d1,
+) !default;
+
+$lyteCalendarNavigatorMap: (
+    "padding": 15px 20px 10px 20px,
+) !default;
+
+$lyteCalMonthDDMap: (
+    "max-width": 150px,
+) !default;
+
+$lyteCalPopDropBtnMap: (
+    "color": global.$lyteCalendarDropdownColor,
+    "padding": 3px 25px 3px 1px,
+) !default;
+
+$lyteCalMonthDropBtnMap: (
+    "font-size": 18px,
+) !default;
+
+$lyteCalYearDropBtnMap: (
+    "font-size": 16px,
+) !default;
+
+$lyteCalPopDropiconMap: (
+    "top": calc(50% - 2px),
+) !default;
+
+$lyteCalPopDropBtnHoverMap: (
+    "color": global.$lyteCalendarDropdownHoverColor,
+    "padding": 3px 25px 3px 1px,
+) !default;
+
+$lyteCalPopDropItemMap: (
+    "min-width": 40px,
+) !default;
+
+$lyteCalNavMap: (
+    "width": 20px,
+    "height": 20px,
+    "border": 1px solid #999,
+) !default;
+
+$lyteCalNavHoverMap: (
+    "border": 1px solid #333,    
+) !default;
+
+$lyteCaldLftMap: (
+    "top": 6px,
+    "left": 5px,
+    "width": 10px,
+    "height": 10px,
+    "background-image": global.$lytesprite,
+    "background-position": -40px -1px,
+	"mask-image": global.$lytesprite,
+	"mask-position": -40px -1px,
+	"background-color": $cssMaskIconLyteCalendarNavIconColor,
+    "opacity": 0.5,
+) !default;
+
+$lyteCalyearNavLftBeforeMap: (
+    "top": 5px,
+    "left": 5px,
+    "width": 10px,
+    "height": 10px,
+	"background-image": global.$lytesprite,
+	"background-position": -351px -278px,
+	"mask-image": global.$lytesprite,
+	"mask-position": -351px -278px,
+	"background-color": $cssMaskIconLyteCalendarNavIconColor,
+    "opacity": 0.5,
+) !default;
+
+$lyteCaldRgtMap: (
+    "margin-left": 10px,
+) !default;
+
+$lyteCalyearNavRgtMap: (
+	"margin-left": 5px,
+) !default;
+
+$lyteCalyearNavLftMap: (
+    "margin-right": 5px,
+) !default;
+
+$lyteCaldLftBeforeMap: (
+    "top": 5px,
+) !default;
+
+$lyteCalNavHoverBeforeMap: (
+    "opacity": 1,
+) !default;
+
+$lyteCalMonthYearMap: (
+    "color": global.$lyteCalendarTextColor,
+) !default;
+
+$lyteCalMonthTextMap: (
+    "font-size": 18px,
+) !default;
+
+$lyteCalYearTextMap: (
+    "font-size": 16px,
+) !default;
+
+$lyteCalTableContainerMap: (
+    "border-spacing": global.$lyteCalendarHorizontalCellSpacing 5px,
+    "padding": 0 12px 8px,
+) !default;
+
+$lyteCalTableCellHeaderMap: (
+    "color": #777,
+    "font-size": 13px,
+    "text-transform": uppercase,
+    "padding-bottom": 6px,
+) !default;
+
+$lyteCalTableCellMap: (
+    "border": 1px solid transparent,
+    "color": global.$lyteCalendarTextColor,
+    "font-size": 14px,
+    "line-height": 28px,
+    "padding": 0,
+    "width": 30px,
+    "height": 30px,
+    "border-radius": 50%,
+) !default;
+
+$lyteCalGrayMap: (
+    "opacity": 0.4,
+) !default;
+
+$lyteCalTodayMap: (
+    "background": global.$lyteCalendarPopupBG,
+    "color": global.$lyteCalendarSelElemBg,
+    "border": 1px solid global.$lyteCalendarSelElemBg,
+) !default;
+
+$lyteCalTodayHoverMap: (
+    "background": global.$lyteCalendarHoverElemBg,
+) !default;
+
+$lyteCalSelHoverMap: (
+    "background": global.$lyteCalendarSelElemBg,
+    "color": #fff,
+    "border": 1px solid global.$lyteCalendarSelElemBg,
+) !default;
+
+$lyteCalBtnsMap: (
+    "padding": 10px,
+    "border-top": 1px solid #e0e0e0,
+) !default;
+
+$lyteCalCurrentDateMap: (
+    "color": global.$themeActiveElementColor,
+) !default;
+
+$lyteCalDropdownOpenedMap: (
+    "border": 0,
+    "box-shadow": none,
+) !default;
+
+$lyteCalDisabledMap: (
+    "background": transparent,
+    "opacity": 0.5,
+) !default;
+
+$lyteCalDisabledDateMap: (
+	"background": transparent,
+	"opacity": 0.5,
+) !default;
+
+$lyteCalDisabledDateHoverMap: (
+	"background": transparent,
+) !default;
+
+$lyteDrillCalYearViewMap: (
+    "border-spacing": 20px 40px,
+) !default;
+
+$lyteDrillCalYearViewCellMap: (
+    "width": 40px,
+    "padding": 0 5px,
+    "border-radius": 3px,
+) !default;
+
+$lyteDrillCalCurrentYearMap: (
+    "color": global.$lyteCalendarSelElemBg,
+    "border": 1px solid global.$lyteCalendarSelElemBg,
+) !default;
+
+$lyteDrillCalHeaderButtonMap: (
+    "background": transparent,
+    "padding": 2px 10px,
+    "color": #777,
+    "border": 1px solid #bbb,
+    "border-radius": 3px,
+    "font-size": 16px,
+) !default;
+
+$lyteDrillCalHeaderButtonHoverMap: (
+    "background": #eee,
+) !default;
+
+$lyteDrillCalYearListHeaderMap: (
+    "border-color": transparent,
+    "background": transparent,
+) !default;
+
+$lyteDrillCalHeaderButtonCalMonthMap: (
+    "font-size": 16px,
+) !default;
+
+$lyteCalDisableNavMap: (
+    "opacity": 0.5,
+) !default;
+
+$lyteCalWeekSelTypeTableCellMap: (
+	"border-radius": 0,
+) !default;
+
+$lyteCalWeekSelTypeRowHoverTableCellMap: (
+	"background": global.$lyteCalendarHoverElemBg,
+	"color": global.$lyteCalendarTextColor,
+) !default;
+
+$lyteCalWeekSelTypeTodayWeekSelMap: (
+	"border-radius": 0,
+	"color": global.$lyteCalendarTextColor,
+	"border-color": transparent,
+) !default;
+
+$lyteCalWeekSelMap: (
+	"background": global.$lyteCalendarHoverElemBg,
+) !default;
+
+$lyteCalWeekSelTypeFirstTableCellMap: (
+	"border-radius": 50% 0 0 50%,
+) !default;
+
+$lyteCalWeekSelTypeLastTableCellMap: (
+	"border-radius": 0 50% 50% 0,
+) !default;
+
+$lyteCalWeekSelTypeTodayCellMap: (
+	"border-radius": 50%,
+) !default;
+
+$lyteCalWeekSelTypeWeekSelFirstAndLastChildMap: (
+	"color": #fff,
+	"z-index": 0,
+) !default;
+
+$lyteCalWeekSelTypeRowHoverWeekSelFirstAndLastChildMap: (
+	"color": #fff,
+) !default;
+
+$lyteCalWeekSelFirstAndLastChildBeforeMap: (
+	"background": global.$lyteCalendarSelElemBg,
+	"width": 100%,
+	"height": 100%,
+	"border-radius": 50%,
+	"z-index": -1,
+) !default;
+
+$lyteCalWeekSelFirstChildBeforeMap: (
+	"left": 0,
+) !default;
+
+$lyteCalWeekSelLastChildBeforeMap: (
+	"right": 0,
+) !default;
+
+$lyteCalWeekSelTypeTableCellAfterMap: (
+	"left": calc(100% + 1px),
+	"width": global.$lyteCalendarHorizontalCellSpacing,
+	"top": -1px,
+	"height": 32px,
+) !default;
+
+$lyteCalWeekSelTypeRowHoverTableCellAfterMap: (
+	"background": global.$lyteCalendarHoverElemBg,
+) !default;
+
+$lyteCalMonthSelTypeMap: (
+	"border-spacing": 16px 40px,
+) !default;
+
+$lyteCalMonthSelTypeTableCellMap: (
+	"height": auto,
+	"width": 40px,
+	"padding": 0 5px,
+	"border-radius": 3px,
+) !default;
+
+$lyteCalMonthSelMap: (
+	"background": global.$lyteCalendarSelElemBg,
+	"color": #fff,
+) !default;
+
+$lyteCalWeekendHolidayMap: (
+	"color": #E74C3C,
+) !default;
+
+$lyteWeekNumberGridMap: (
+    "color": #7B7C7D,
+    "font-size": 14px,
+    "padding": 0,
+    "width": 30px,
+    "min-width": 30px,
+    "height": 30px,
+	"padding-right": 10px,
+) !default;
+
+$lyteWeekNumContainerTableContainerBeforeMap: (
+    "border-radius": 0 5px 0 0,
+	"border": 1px solid #DCDBDC,
+	"background": #F5F7F9,
+    "width": 42px,
+    "left": 0,
+    "height": calc(100% - 6px),
+	"z-index": 0,
+) !default;
+
+$lyteCalTableCellHeaderWeekNumGridMap: (
+	"padding-right": 10px,
+) !default;
+
+$lyteCalCurWeekNumMap: (
+	"color": #4497DD,
+) !default;

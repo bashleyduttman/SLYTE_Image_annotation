@@ -1,0 +1,181 @@
+/* Default theme imported */
+@import "../themes/default/ui-elements/timeline/timeline.variables.less";
+
+/* Loading theme in configuration */
+@import "../config.less";
+@import (optional) "../themes/@{timeline}/ui-elements/timeline/timeline.variables.less";
+
+/* rtl files loading */
+
+@import (multiple,optional) "../themes/default/global/@{direction}.less";
+
+@import (multiple,optional) "../themes/@{timeline}/global/@{direction}.less";
+
+lyte-timeline {
+	.lyteTimelineMixin();
+	display: block;
+	font-size: @font-size;
+}
+lyte-timeline-group-header {
+	.lyteTimelineGroupHeaderMixin();
+	border: @border;
+	background: @bg;
+	border-radius: @border-radius;
+	padding: @padding;
+	font-size: @font-size;
+	color: @color;
+	font-family: @font-family;
+	display: inline-block;
+	min-width: @min-w;
+}
+lyte-timeline-item {
+	.lyteTimelineItemMixin();
+	display: flex;
+	min-height: @min-height;
+}
+lyte-timeline-group-header ~ lyte-timeline-item:first-of-type lyte-timeline-item-label,
+lyte-timeline-group-header ~ lyte-timeline-item:first-of-type lyte-timeline-item-content {
+	.lyteTimelineGroupHeaderTimelineItemFirstOfTypeItemContentMixin();
+	margin-top: @margin-top;
+}
+lyte-timeline-item-icon {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+lyte-timeline-item-circle {
+	.lyteTimelineItemCircleMixin();
+	width: @w;
+	height: @h;
+	background: @bg;
+	border: @border;
+	border-radius: @border-radius;
+	margin: @margin;
+	display: block;
+	box-sizing: border-box;
+}
+.lyteTimelineOutlineCircle lyte-timeline-item-circle {
+	.lyteTimelineOutlineCircleItemCircleMixin();
+	background: @bg;
+}
+.lyteTimelinePrimaryCircle {
+	.lyteTimelinePrimaryCircleMixin();
+	border: @border;
+	background: @bg;
+}
+.lyteTimelineSecondaryCircle {
+	.lyteTimelineSecondaryCircleMixin();
+	border: @border;
+	background: @bg;
+}
+.lyteTimelineSuccessCircle {
+	.lyteTimelineSuccessCircleMixin();
+	border: @border;
+	background: @bg;
+}
+.lyteTimelineFailureCircle {
+	.lyteTimelineFailureCircleMixin();
+	border: @border;
+	background: @bg;
+}
+lyte-timeline-item-line {
+	.lyteTimelineItemLineMixin();
+	width: @w;
+	background: @bg;
+	flex-grow: 1;
+}
+.lyteTimelineIconTopLine {
+	.lyteTimelineIconTopLineMixin();
+	height: @h;
+	flex-grow: 0;
+}
+lyte-timeline-group:last-of-type lyte-timeline-item:last-of-type lyte-timeline-item-line,
+lyte-timeline-item:first-of-type .lyteTimelineIconTopLine {
+	display: none;
+}
+lyte-timeline-item:first-of-type lyte-timeline-item-circle {
+	.lyteTimelineItemFirstOfTypeItemCircle();
+	margin-top: @margin-top;
+}
+lyte-timeline-group-header ~ lyte-timeline-item:first-of-type .lyteTimelineIconTopLine {
+	.lyteTimelineGroupHeaderTimelineItemFirstOfTypeTopLineMixin();
+	display: block;
+	height: @h;
+}
+lyte-timeline-group-header ~ lyte-timeline-item:first-of-type lyte-timeline-item-circle {
+	margin-top: 0;
+}
+lyte-timeline-group:last-of-type lyte-timeline-item:last-of-type .lyteTimelineIconTopLine {
+	display: block;
+}
+lyte-timeline-item-content {
+	.lyteTimelineItemContentMixin();
+	padding: @padding;
+	color: @color;
+	flex: 1;
+}
+lyte-timeline-item-label {
+	.lyteTimelineItemLabelMixin();
+	padding: @padding;
+	flex-basis: @flex-basis;
+	flex-grow: 0;
+	margin-left: @margin-left;
+	font-size: @font-size;
+	color: @color;
+	text-align: @text-align;
+}
+.lyteTimelineMixedSizeCircles lyte-timeline-item.lyteTimelineLargeCircleItem .lyteTimelineIconTopLine,
+.lyteTimelineLargeCircles lyte-timeline-group:last-of-type lyte-timeline-item:last-of-type .lyteTimelineIconTopLine,
+.lyteTimelineLargeCircles .lyteTimelineIconTopLine {
+	display: none;
+}
+.lyteTimelineLargeCircles lyte-timeline-group:last-of-type lyte-timeline-item:only-of-type .lyteTimelineIconTopLine,
+.lyteTimelineMixedSizeCircles lyte-timeline-group-header ~ lyte-timeline-item:first-of-type .lyteTimelineIconTopLine {
+	display: block;
+}
+.lyteTimelineMixedSizeCircles lyte-timeline-item.lyteTimelineLargeCircleItem lyte-timeline-item-circle,
+.lyteTimelineLargeCircles lyte-timeline-item-circle {
+	.lyteTimelineLargeCirclesItemCircleMixin();
+	width: @w;
+	height: @h;
+	border-radius: @border-radius;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: @margin;
+}
+.lyteTimelineLargeCircles lyte-timeline-item-label,
+.lyteTimelineLargeCircles lyte-timeline-item-content {
+	.lyteTimelineLargeCirclesItemContentMixin();
+	margin-top: @margin-top;
+}
+.lyteTimelineLargeCircles lyte-timeline-group-header ~ lyte-timeline-item:first-of-type lyte-timeline-item-label,
+.lyteTimelineLargeCircles lyte-timeline-group-header ~ lyte-timeline-item:first-of-type lyte-timeline-item-content {
+	.lyteTimelineLargeCirclesGroupHeaderTimelineItemFirstOfTypeItemContentMixin();
+	margin-top: @margin-top;
+}
+.lyteTimelineMixedSizeCircles lyte-timeline-group-header ~ lyte-timeline-item.lyteTimelineLargeCircleItem:first-of-type,
+.lyteTimelineLargeCircles lyte-timeline-group-header ~ lyte-timeline-item:first-of-type {
+	.lyteTimelineLargeCirclesGroupHeaderTimelineItemFirstOfTypeMixin();
+	min-height: @min-h;
+}
+.lyteTimelineMixedSizeCircles lyte-timeline-item-icon {
+	.lyteTimelineMixedSizeCirclesItemIconMixin();
+	width: @w;
+}
+.lyteTimelineContentAlternative lyte-timeline-item:nth-of-type(2n),
+.lyteTimelineContentLeftPosition lyte-timeline-item {
+	flex-direction: row-reverse;
+}
+.lyteTimelineContentAlternative lyte-timeline-item-label {
+	flex: 1;
+}
+.lyteTimelineContentAlternative  lyte-timeline-item:nth-of-type(2n) lyte-timeline-item-content,
+.lyteTimelineContentLeftPosition lyte-timeline-item-content {
+	.lyteTimelineContentLeftPositionItemContentMixin();
+	text-align: @text-align;
+}
+.lyteTimelineContentAlternative lyte-timeline-item:nth-of-type(2n) lyte-timeline-item-label {
+	.lyteTimelineContentAlternativeEvenChildItemLabelMixin();
+	text-align: @text-align;
+}

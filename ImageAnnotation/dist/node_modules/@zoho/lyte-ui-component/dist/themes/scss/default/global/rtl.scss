@@ -1,0 +1,35 @@
+@use "./global.variables.scss" as *;
+
+// $direction: rtl;
+
+@if ($direction == rtl) {
+	$property-left: right !global;
+	$property-right: left !global;
+	$property-margin-right: margin-left !global;
+	$property-margin-left: margin-right !global;
+	$property-padding-left: padding-right !global;
+	$property-padding-right: padding-left !global;
+	$property-border-right: border-left !global;
+	$property-border-left: border-right !global;
+	$property-border-left-color: border-right-color !global;
+	$property-border-right-color: border-left-color !global;
+	$property-border-bottom-left-radius: border-bottom-right-radius !global;
+	$property-border-bottom-right-radius: border-bottom-left-radius !global;
+	$property-border-top-right-radius: border-top-left-radius !global;
+	$property-border-top-left-radius: border-top-right-radius !global;
+	$property-border-right-width: border-left-width !global;
+	$property-border-left-width: border-right-width !global;
+
+	$value-float-left: right !global;
+	$value-textalign-left: right !global;
+	$value-textalign-right: left !global;
+	$value-transition-left: right !global;
+	$value-position-left: right !global;
+	$value-position-right: left !global;
+	$value-sw-resize: se-resize !global;
+	$value-se-resize: sw-resize !global;
+	$value-nw-resize: ne-resize !global;
+	$value-ne-resize: nw-resize !global;
+	$value-rotate-0deg: rotate(180deg) !global;
+	$value-rotate-180deg: rotate(0deg) !global;
+}

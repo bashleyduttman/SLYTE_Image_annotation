@@ -1,0 +1,47 @@
+<template tag-name="image-comp">
+ <!-- <div class="edit-header">
+        <div class="edit-rectangle">Draw Rectangle</div>
+        <div class="edit-download" onclick="{{action('handleDownload')}}">Download</div>
+        <div class="edit-delete" onclick="{{action('handleDelete')}}">Delete All</div>
+    </div> -->
+    <div class="image-main">
+        <div class="image-drawer">
+            <lyte-drawer lt-prop-selected-class="activeclass" lt-prop-close-on-select=true lt-prop-layout="overlay" lt-prop-yield=true lt-prop-show=true class="drawer" lt-prop-freeze=true lt-prop-animation-duration="0.3s" lt-prop-show-close-button="true">
+                <template is = "registerYield" yield-name = "drawerPanel">
+                    <lyte-drawer-body class="image-body" >
+                        <lyte-drawer-label class="image-label"> Shapes</lyte-drawer-label>
+                        
+                        <lyte-drawer-item onclick="{{action('handleRectangleClick')}}" data-value="sent" class="image-label-items image-rect"> Rectangle  </lyte-drawer-item>
+                        <lyte-drawer-item data-value="draft"  class="image-label-items"> circle  </lyte-drawer-item>
+                        <lyte-drawer-item data-value="spam"  class="image-label-items"> square  </lyte-drawer-item>
+                    </lyte-drawer-body>
+                </template>
+            </lyte-drawer>
+        </div>
+        <div class="edit-image-container" 
+         onmousedown="{{action('handleRectangleCreation', event)}}" 
+         onmousemove="{{action('resizeRectangle', event)}}" 
+         onmouseup="{{action('handleRectangleRelease')}}">
+        
+    
+        <img class="edit-image" 
+             src="{{imageUrl}}" 
+             alt="Editable Image" 
+             draggable="false" 
+        />
+        <!-- <div  lyte-for="{{Bbox}} as item ind" class="edit-rectangle-box" style="width:{{item.Bbox.width}}px;height:{{item.Bbox.height}}px;top:{{item.Bbox.x}}px;left:{{item.Bbox.y}}px;position: absolute;"></div> -->
+       
+    </div>
+    
+        
+           
+           
+           
+            
+    </div>
+
+     
+    
+    
+
+</template>

@@ -1,0 +1,67 @@
+/* Default theme imported */
+/*	Icon Colors */
+/* Loading theme in configuration */
+/* Themes of components */
+/*	Icon Colors */
+/* Loading custom themes */
+/* import theme overrides */
+/* import custom css */
+/* Default theme imported */
+/* Loading theme in configuration */
+/* rtl files loading */
+/* Loading final tweaks to your variables */
+lyte-badge {
+  --lyte-badge-circle-radius: 6px;
+  --lyte-badge-width: var(--lyte-badge-circle-radius);
+  --lyte-badge-height: var(--lyte-badge-circle-radius);
+}
+.lyteBadge {
+  font-family: 'LatoRegular', 'Open Sans', sans-serif;
+  position: absolute;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 12px;
+  background: #f06060;
+  border: 1px solid #fff;
+}
+.lyteBadgeContent {
+  color: #fff;
+  font-size: 8px;
+  margin: auto;
+}
+.lyteBadgeWidHeiD {
+  min-width: 10px;
+  height: 10px;
+  line-height: 10px;
+}
+.lyteBadgeWidHeiWD {
+  min-width: 6px;
+  min-height: 6px;
+}
+.lyteBadgeWithSize .lyteBadgeWidHeiWD {
+  width: var(--lyte-badge-width);
+  height: var(--lyte-badge-height);
+  border-radius: 50%;
+}
+.lyteBadgeTopRight {
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+.lyteBadgeTopLeft {
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+.lyteBadgeBottomRight {
+  right: 0px;
+  bottom: 0px;
+  transform: translate(50%, 50%);
+}
+.lyteBadgeBottomLeft {
+  left: 0px;
+  bottom: 0px;
+  transform: translate(-50%, 50%);
+}

@@ -1,0 +1,71 @@
+@use "../global/global.variables.scss" as global;
+
+$cssMaskIconLyteAccordionArrowColor: global.$lyteIconsThemeColor;
+$cssMaskIconLyteAccordionActiveArrowColor: #2C7BD0;
+
+$lyteAccordionItemMap: (
+	"margin": 3px,
+	"border-bottom": 1px solid global.$lyteAccordionBorderColor,
+	"background": global.$lyteAccordionBg,
+) !default;
+
+$lyteAccordionItemhoverMap: (
+	"border-bottom-color": global.$lyteAccordionBorderHover,
+) !default;
+
+$lyteAccordionHeaderMap: (
+    "padding": 15px 15px 10px,
+    "color": global.$lyteAccordionHeaderColor,
+	"font-size": global.$lyteAccordionHeaderFontSize,
+) !default;
+
+$lyteAccordionHeaderhoverMap: (
+	"color": global.$lyteAccordionHeaderHoverColor,
+) !default;
+
+$lyteAccordionActiveMap: (
+	"border-bottom-color": global.$lyteAccordionBorderActive,
+) !default;
+
+$lyteAccordionActiveHeaderMap: (
+	"color": global.$lyteAccordionHeaderActiveColor,
+) !default;
+
+$lyteAccordionBodyMap: (
+	"width": 400px,
+	"padding": 0 15px,
+	"color": global.$lyteAccordionColor,
+    "font-size": global.$lyteAccordionBodyFontSize,
+) !default;
+
+$lyteNestedAccordionBodyMap: (
+    "width": 100%,
+) !default;
+
+$lyteNestedAccordionActiveBodyMap: (
+    "padding-bottom": 0,
+) !default;
+
+$lyteAccordionActiveBodyMap: (
+    "padding-bottom": 10px,
+) !default;
+
+$lyteAccordionArrowMap: (
+	"background-image": global.$lytesprite,
+	"background-position": -42px 0,
+	"mask-image": global.$lytesprite,
+	"mask-position": -42px 0,
+	"background-color": $cssMaskIconLyteAccordionArrowColor,
+	"width": 6px,
+	"height": 10px,
+    "left": 0,
+	"margin-top": 7px,
+) !default;
+
+$lyteAccordionActiveArrowMap: (
+	"background-position": -28px 0px,
+	"mask-position": -28px 0px,
+	"background-color": $cssMaskIconLyteAccordionActiveArrowColor,
+	"width": 9px,
+	"height": 7px,
+) !default;

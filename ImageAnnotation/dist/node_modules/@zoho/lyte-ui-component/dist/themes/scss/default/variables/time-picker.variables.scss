@@ -1,0 +1,127 @@
+@use "../global/global.variables.scss" as global;
+
+$lyteTimePickerFieldMap: (
+	"border": 1px solid global.$lyteTimepickerBorderColor,
+	"border-radius": global.$lyteTimepickerBorderRadius,
+) !default;
+
+$lyteTimePickerFieldHoverMap: (
+	"border": 1px solid global.$lyteTimepickerHoverBorderColor,
+) !default;
+
+$lyteTimePickerFieldFocusWithinMap: (
+	"border": 1px solid global.$lyteTimepickerFocusBorderColor,
+) !default;
+
+$lyteTimePickerInputMap: (
+	"padding": 7px 10px,
+	"border": 0,
+	"border-radius": 1px 0 0 1px,
+	"outline": 0,
+	"font-size": global.$lyteTimepickerFontSize,
+	"background": global.$lyteTimepickerBg,
+	"color": global.$lyteTimepickerTextColor,
+) !default;
+
+$lyteTimePickerInputplaceholderMap: (
+	"font-family": global.$primaryFont,
+	"color": #a6a6a6,
+) !default;
+
+$lyteTimePickerButtonMap: (
+	"padding": 5px,
+	"background": #eee,
+	"border-radius": 0 1px 1px 0,
+	"border": 0,
+) !default;
+
+$lyteTimePickerBtnIconMap: (
+    "mask-image": global.$lytesprite,
+	"mask-position": -176px -132px,
+	"background-color": #555,
+	"width": 16px,
+	"height": 16px,
+) !default;
+
+$lyteTimePickerDropdownMap: (
+	"border": 1px solid global.$lyteTimepickerBorderColor,
+	"z-index": 5,
+	"background": global.$lyteTimepickerBg,
+) !default;
+
+$lyteTimePickerDropdownValuesMap: (
+	"height": 200px,
+) !default;
+
+$lyteTimePickerUlMap: (
+	"width": 55px,
+	"padding": 5px 0,
+	"margin": 0,
+	"border-right": 1px solid global.$lyteTimepickerBorderColor,
+) !default;
+
+$lyteTimePickerUlLastOfTypeMap: (
+	"border-right": 0,
+) !default;
+
+$lyteTimePickerDropdownValuesLiMap: (
+	"font-size": 15px,
+	"padding": 7px,
+	"color": global.$lyteTimepickerDropboxTextColor,
+) !default;
+
+$lyteTimePickerItemFocusedMap: (
+	"background": #e6f3fd,
+	"outline": 0,
+) !default;
+
+$lyteTimePickerItemSelectedMap: (
+	"background-color": #5ba1e5,
+	"color": #fff,
+) !default;
+
+$lyteTimePickerDropdownButtonMap: (
+	"padding": 10px,
+	"border-top": 1px solid global.$lyteTimepickerBorderColor,
+	"text-align": global.$value-textalign-right,
+) !default;
+
+$lyteTimePickerBlurMap: (
+	"opacity": 0.6,
+) !default;
+
+$lyteTimePickerDisabledInputMap: (
+	"background": global.$lyteTimepickerDisabledBg,
+	"color": #999,
+) !default;
+
+$lyteTimePickerDisabledFieldHoverMap: (
+	"border": 1px solid global.$lyteTimepickerBorderColor,
+) !default;
+
+$lyteTimePickerDecButtonMap: ( 
+	"border": 0,
+	"border-left": 1px solid #C4C9CC,
+	"padding": 0 7px,
+	"background-color": transparent,
+) !default;
+
+$lyteTimePickerIncButtonMap: (
+	"border-bottom": 1px solid #C4C9CC,
+) !default;
+
+$lyteTimePickerIncIconMap: (
+    "mask-img": global.$lytesprite  no-repeat -14px -2px,
+	"background-color": #5B5D5F,
+	"width": 9px,
+	"height": 5px,
+) !default;
+
+$lyteTimePickerIncButtonHoverMap: (
+	"background-color": #eee,
+) !default;
+
+$lyteTimePickerInvalidTimeFieldMap: (
+	"border-color": global.$lyteTimepickerErrorBorderColor,
+	"box-shadow": global.$lyteTimepickerErrorShadow,
+) !default;

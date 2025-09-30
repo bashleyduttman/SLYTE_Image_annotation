@@ -1,0 +1,106 @@
+*{
+    margin:0px;
+    padding: 0px;
+    
+}
+body{
+  background-color: black;
+   overflow-x: hidden; 
+}
+.header{
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color:white;
+    padding: 20px;
+    
+}
+.home-details{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width:100vw;
+    height: 100px;
+    justify-content: space-between;
+    border-bottom: solid 2px black;
+}
+.home-image-edit-container{
+    position: relative;
+}
+.home-image-edit{
+    position: absolute;
+    top: 0px;
+    right:10px;
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(3px);
+    cursor: pointer;
+}
+.border{
+    border: black 2px solid;
+}
+.home-images-container{
+    padding: 50px;
+    display: flex;
+   gap:10px;
+   width: 100%;
+    flex-wrap: wrap;
+    background-color: black;
+    justify-content: center;
+   
+
+}
+.home-images-container img{
+    
+    border-radius: 10px;
+    width: 500px;   
+    height: 300px;  
+        
+    
+    object-fit: cover; 
+    flex: 1 1 auto;
+    
+}
+.home-details-sec{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    
+   
+    justify-content: space-around;
+
+}
+.home-file-uploader{
+    display: block;
+    text-align: center;
+    border-bottom: black solid 2px;
+    padding: 20px;
+    width: 100%;
+    background-color: white;
+}
+.home-details-sec div:first-child{
+    width: 100%;
+  background-color: white;
+    text-align: center;
+    border-bottom: black dashed 2px;
+   
+}
+.home-preview-available{
+    max-width:400px;
+    max-height: 400px;
+    height: auto;
+    border: black solid 2px;
+}
+.home-img-upload-btn{
+    width: 60px;
+    height: 30px;
+    background-color: black;
+    color:white;
+    cursor:pointer;
+    border-radius: 3px;
+}
+.home-preview-notAvailable{
+ display: none;
+}

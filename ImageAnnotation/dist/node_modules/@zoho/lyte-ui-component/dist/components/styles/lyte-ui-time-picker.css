@@ -1,0 +1,122 @@
+lyte-time-picker {
+	position: relative;
+	display: inline-block;
+}
+.lyteTimePickerField {
+	display: inline-flex;
+	border: 1px solid #d6d6d6;
+	border-radius: 2px;
+}
+.lyteTimePickerField:hover {
+	border: 1px solid #c1c1c1;
+}
+.lyteTimePickerDropdownOpened .lyteTimePickerField,
+.lyteTimePickerField:focus-within {
+	border: 1px solid #7fceef;
+}
+.lyteTimePickerInput {
+    padding: 7px 10px;
+	border: 0;
+	border-radius: 1px 0 0 1px;
+	outline: 0;
+	font-size: 15px;
+	background: #fff;
+	color: #111;
+}
+.lyteTimePickerInput::placeholder {
+	font-family: 'LatoRegular', 'Open Sans', sans-serif;
+	color: #a6a6a6;
+}
+.lytetimePickerButton {
+	padding: 5px;
+	background: #eee;
+	border-radius: 0px 1px 1px 0px;
+	cursor: pointer;
+	border: 0;
+}
+.lyteTimePickerBtnIcon {
+	-webkit-mask-image: url(../images/sprite_lyte.svg);
+	-webkit-mask-position: -176px -132px;
+	mask-image: url(../images/sprite_lyte.svg);
+	mask-position: -176px -132px;
+	background-color: #555;
+	width: 16px;
+	height: 16px;
+	display: block;
+}
+.lyteTimePickerDropdownNone {
+	display: none;
+}
+lyte-time-picker-dropdown {
+	display: block;
+	position: absolute;
+	border: 1px solid #d6d6d6;
+	z-index: 5;
+	background: #fff;
+}
+.lyteTimePickerDropdownValues {
+	display: flex;
+	height: 200px;
+}
+.lyteTimePickerUl {
+	list-style-type: none;
+	width: 55px;
+	overflow-y: hidden;
+	padding: 5px 0;
+	margin: 0;
+	border-right: 1px solid #d6d6d6;
+	scroll-behavior: smooth;
+}
+.lyteTimePickerUl:last-of-type {
+	border-right: 0;
+}
+.lyteTimePickerUl:hover {
+	overflow-y: scroll;
+}
+.lyteTimePickerDropdownValues li {
+	font-size: 15px;
+	padding: 7px;
+	color: #111;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+.lyteTimePickerItemFocused {
+	background: #e6f3fd;
+}
+li.lyteTimePickerItemSelected {
+	background-color: #5ba1e5;
+	color: #fff;
+}
+.lyteTimePickerDropdownButton {
+	padding: 10px;
+	border-top: 1px solid #d6d6d6;
+	text-align: right;
+}
+li.lyteTimePickerBlur {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.lyteTimePickerDisabled .lytetimePickerButton,
+.lyteTimePickerDisabled .lyteTimePickerInput {
+	background: #f3f3f3;
+	cursor: not-allowed;
+	color: #999;
+}
+.lyteTimePickerDisabled .lyteTimePickerField:hover {
+	border: 1px solid #d6d6d6;
+}
+#lyteTimePickerFreezeLayer{
+	left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    opacity: 0.1;
+    position: fixed;
+    overflow: hidden;
+	display: none;
+}
+.lyteTimePickerOpenFreeze{
+	overflow: hidden;
+}

@@ -1,0 +1,276 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/radiobutton.variables.scss";
+
+@use "../default/variables/radiobutton.variables.scss" as *;
+
+lyte-radiobutton {
+	color: map.get($lyteRadiobuttonMap, "color");
+	font-family: $primaryFont;
+	font-size: map.get($lyteRadiobuttonMap, "font-size");
+	display: inline-block;
+    position: relative;
+    @include addExtraStyles($lyteRadiobuttonMap);
+}
+lyte-radiobutton label {
+	cursor: pointer;
+}
+lyte-radiobutton.lyteRadioDisabled label {
+	cursor: not-allowed;
+}
+lyte-radiobutton input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+.lyteRadioLayer {
+	width: map.get($lyteRadioLayerMap, "width");
+	height: map.get($lyteRadioLayerMap, "height");
+	border: map.get($lyteRadioLayerMap, "border");
+	border-radius: map.get($lyteRadioLayerMap, "border-radius");
+	display: inline-block;
+    #{$property-margin-right}: map.get($lyteRadioLayerMap, "margin-right");
+	vertical-align: middle;
+	background: map.get($lyteRadioLayerMap, "background");
+	position: relative;
+    @include addExtraStyles($lyteRadioLayerMap);
+}
+.lyteRadioLayer .lyteRadioCheck {
+	width: map.get($lyteRadioCheckMap, "width");
+	height: map.get($lyteRadioCheckMap, "height");
+	border-radius: map.get($lyteRadioCheckMap, "border-radius");
+	position: absolute;
+	top: map.get($lyteRadioCheckMap, "top");
+    #{$property-left}: map.get($lyteRadioCheckMap, "left");
+	background: map.get($lyteRadioCheckMap, "background");
+	transform: scale(0);
+	transition: transform 0.2s ease;
+    @include addExtraStyles($lyteRadioCheckMap);
+}
+.lyteRadioDisabled input[type="radio"]:checked + .lyteRadioLayer,
+lyte-radiobutton label:hover .lyteRadioLayer,
+lyte-radiobutton input[type="radio"]:focus + .lyteRadioLayer,
+lyte-radiobutton input[type="radio"]:active + .lyteRadioLayer,
+lyte-radiobutton input[type="radio"]:checked + .lyteRadioLayer {
+	border: map.get($lyteCheckedRadioLayerMap, "border");
+    @include addExtraStyles($lyteCheckedRadioLayerMap);
+}
+lyte-radiobutton input[type="radio"]:focus + .lyteRadioLayer {
+    box-shadow: map.get($lyteDefaultRadioFocusMap, "box-shadow");
+    @include addExtraStyles($lyteDefaultRadioFocusMap);
+}
+lyte-radiobutton input[type="radio"]:checked + .lyteRadioLayer .lyteRadioCheck {
+	transform: scale(1);
+}
+.lyteRadioLabel {
+	display: inline-block;
+	vertical-align: middle;
+}
+lyte-radiobutton input[type="radio"]:focus ~ .lyteRadioLabel,
+lyte-radiobutton label:hover .lyteRadioLabel {
+    color: map.get($lyteRadioLabelHoverMap, "color");
+    @include addExtraStyles($lyteRadioLabelHoverMap);
+}
+lyte-radiobutton .lytePrimary .lyteRadioLayer .lyteRadioCheck {
+    background: map.get($lyteRadioPrimaryCheckMap, "background");
+    @include addExtraStyles($lyteRadioPrimaryCheckMap);
+}
+lyte-radiobutton label.lytePrimary:hover .lyteRadioLayer,
+lyte-radiobutton .lytePrimary input[type="radio"]:focus + .lyteRadioLayer,
+lyte-radiobutton .lytePrimary input[type="radio"]:active + .lyteRadioLayer,
+lyte-radiobutton .lytePrimary input[type="radio"]:checked + .lyteRadioLayer {
+	border: map.get($lyteCheckedRadioPrimaryLayerMap, "border");
+    @include addExtraStyles($lyteCheckedRadioPrimaryLayerMap);
+}
+lyte-radiobutton .lytePrimary input[type="radio"]:focus + .lyteRadioLayer {
+    box-shadow: map.get($lytePrimaryRadioFocusMap, "box-shadow");
+    @include addExtraStyles($lytePrimaryRadioFocusMap);
+}
+lyte-radiobutton .lyteSecondary .lyteRadioLayer .lyteRadioCheck {
+    background: map.get($lyteRadioSecondaryCheckMap, "background");
+    @include addExtraStyles($lyteRadioSecondaryCheckMap);
+}
+lyte-radiobutton label.lyteSecondary:hover .lyteRadioLayer,
+lyte-radiobutton .lyteSecondary input[type="radio"]:focus + .lyteRadioLayer,
+lyte-radiobutton .lyteSecondary input[type="radio"]:active + .lyteRadioLayer,
+lyte-radiobutton .lyteSecondary input[type="radio"]:checked + .lyteRadioLayer {
+	border: map.get($lyteCheckedRadioSecondaryLayerMap, "border");
+    @include addExtraStyles($lyteCheckedRadioSecondaryLayerMap);
+}
+lyte-radiobutton .lyteSecondary input[type="radio"]:focus + .lyteRadioLayer {
+    box-shadow: map.get($lyteSecondaryRadioFocusMap, "box-shadow");
+    @include addExtraStyles($lyteSecondaryRadioFocusMap);
+}
+
+.lyteRadioSwitch {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	width: map.get($lyteRadioSwitchMap, "width");
+	height: map.get($lyteRadioSwitchMap, "height");
+	border-radius: map.get($lyteRadioSwitchMap, "border-radius");
+	background: map.get($lyteRadioSwitchMap, "background");
+    @include addExtraStyles($lyteRadioSwitchMap);
+}
+.lyteRadioSwitch .on-btn {
+	display: inline-block;
+	position: absolute;
+	width: map.get($lyteRadioSwitchCircleMap, "width");
+	height: map.get($lyteRadioSwitchCircleMap, "height");
+	background: map.get($lyteRadioSwitchCircleMap, "background");
+	border-radius: map.get($lyteRadioSwitchCircleMap, "border-radius");
+    #{$property-left}: map.get($lyteRadioSwitchCircleMap, "left");
+	top: map.get($lyteRadioSwitchCircleMap, "top");
+    #{$property-right}: auto;
+    transition: $value-transition-left 200ms ease;
+    @include addExtraStyles($lyteRadioSwitchCircleMap);
+}
+lyte-radiobutton .on-off-sw:focus + .lyteRadioSwitch {
+    box-shadow: map.get($lyteRadioSwitchFocusMap, "box-shadow");
+    @include addExtraStyles($lyteRadioSwitchFocusMap);
+}
+.on-off-sw:checked + .lyteRadioSwitch {
+    background: map.get($lyteRadioSwitchOnMap, "background");
+    @include addExtraStyles($lyteRadioSwitchOnMap);
+}
+lyte-radiobutton .on-off-sw:checked:focus + .lyteRadioSwitch {
+    box-shadow: map.get($lyteRadioSwitchCheckedFocusMap, "box-shadow");
+    @include addExtraStyles($lyteRadioSwitchCheckedFocusMap);
+}
+lyte-radiobutton .on-off-sw:checked + .lyteRadioSwitch .on-btn {
+	#{$property-left}: map.get($lyteRadioSwitchOnCircleMap, "left");
+    @include addExtraStyles($lyteRadioSwitchOnCircleMap);
+}
+
+.lyteRadioSliderLabel {
+	box-sizing: border-box;
+	cursor: pointer;
+	position: relative;
+}
+.lyteRadioSlider {
+	position: relative;
+	display: inline-flex;
+    align-items: center;
+	height: map.get($lyteRadioSliderMap, "height");
+    @include addExtraStyles($lyteRadioSliderMap);
+}
+.lyteRadioSlider::before {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	z-index: 1;
+	width: map.get($lyteRadioSliderCircleMap, "width");
+	height: map.get($lyteRadioSliderCircleMap, "height");
+	background: map.get($lyteRadioSliderCircleMap, "background");
+	box-shadow: map.get($lyteRadioSliderCircleMap, "box-shadow");
+	border-radius: map.get($lyteRadioSliderCircleMap, "border-radius");
+	#{$property-left}: map.get($lyteRadioSliderCircleMap, "left");
+	transition: $value-transition-left 200ms ease;
+    @include addExtraStyles($lyteRadioSliderCircleMap);
+}
+input[type="radio"]:checked + .lyteRadioSlider::before {
+    #{$property-left}: map.get($lyteRadioSliderCircleCheckedMap, "left");
+    @include addExtraStyles($lyteRadioSliderCircleCheckedMap);
+}
+.lyteRadioSlider::after {
+	content: '';
+	position: absolute;
+	display: inline-block;
+	z-index: 0;
+	width: map.get($lyteRadioSliderBarMap, "width");
+	height: map.get($lyteRadioSliderBarMap, "height");
+	top: map.get($lyteRadioSliderBarMap, "top");
+	#{$property-left}: map.get($lyteRadioSliderBarMap, "left");
+	background: map.get($lyteRadioSliderBarMap, "background");
+    @include addExtraStyles($lyteRadioSliderBarMap);
+}
+input[type="radio"]:checked + .lyteRadioSlider::after {
+	background: map.get($lyteRadioSliderBarCheckedMap, "background");
+    @include addExtraStyles($lyteRadioSliderBarCheckedMap);
+}
+.lyteRadioSliderText {
+    #{$property-padding-left}: map.get($lyteRadioSliderTextMap, "padding-left");
+	vertical-align: middle;
+    @include addExtraStyles($lyteRadioSliderTextMap);
+}
+
+.lyteRadioDisabled .lyteRadioSlider::after,
+.lyteRadioDisabled .lyteRadioSwitch,
+.lyteRadioDisabled .lyteRadioLayer {
+    opacity: map.get($lyteDisabledRadioLayerMap, "opacity");
+    @include addExtraStyles($lyteDisabledRadioLayerMap);
+}
+.lyteRadioDisabled .lyteRadioSlider::before {
+    opacity: map.get($lyteDisabledRadioSliderBeforeMap, "opacity");
+    background: map.get($lyteDisabledRadioSliderBeforeMap, "background");
+    @include addExtraStyles($lyteDisabledRadioSliderBeforeMap);
+}
+.lyteRadioDisabled input[type="radio"]:active + .lyteRadioLayer,
+.lyteRadioDisabled .lytePrimary input[type="radio"]:active + .lyteRadioLayer,
+.lyteRadioDisabled .lyteSecondary input[type="radio"]:active + .lyteRadioLayer,
+.lyteRadioDisabled label.lyteSecondary:hover .lyteRadioLayer,
+.lyteRadioDisabled label.lytePrimary:hover .lyteRadioLayer,
+.lyteRadioDisabled label:hover .lyteRadioLayer {
+    border: map.get($lyteDisabledRadioLayerHoverMap, "border");
+    @include addExtraStyles($lyteDisabledRadioLayerHoverMap);
+}
+.lyteRadioDisabled label:hover .lyteRadioLabel {
+    color: map.get($lyteDisabledRadioLabelHoverMap, "color");
+    @include addExtraStyles($lyteDisabledRadioLabelHoverMap);
+}
+
+/*	CSS for handling bigger labels in Radio button BEGINS	*/
+lyte-radiobutton.lyteRadioLabelBiggerCase {
+	max-width: 100%;
+}
+lyte-radiobutton.lyteRadioLabelBiggerCase label {
+	display: flex;
+}
+lyte-radiobutton.lyteRadioLabelBiggerCase .lyteRadioLayer {
+	flex-shrink: 0;
+}
+lyte-radiobutton.lyteRadioLabelBiggerCase .lyteRadioLabel {
+	overflow: auto;
+	overflow-wrap: break-word;
+	white-space: normal;
+}
+/*	CSS for handling bigger labels in Radio button ENDS	*/
+
+.lyteRadioCheckbox {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: map.get($lyteRadioCheckboxMap, "border");
+	width: map.get($lyteRadioCheckboxMap, "width");
+	height: map.get($lyteRadioCheckboxMap, "height");
+	border-radius: map.get($lyteRadioCheckboxMap, "border-radius");
+    @include addExtraStyles($lyteRadioCheckboxMap);
+}
+
+input[type="radio"]:checked + .lyteRadioCheckbox {
+	border: map.get($lyteInputradiocheckedlyteRadioCheckboxMap, "border");
+	background-color: map.get($lyteInputradiocheckedlyteRadioCheckboxMap, "background-color");
+    @include addExtraStyles($lyteInputradiocheckedlyteRadioCheckboxMap);
+}
+
+input[type="radio"]:hover + .lyteRadioCheckbox {
+	border: map.get($lyteInputradiohoverlyteRadioCheckboxMap, "border");
+    @include addExtraStyles($lyteInputradiohoverlyteRadioCheckboxMap);
+}
+
+lyte-radiobutton input[type="radio"]:checked + .lyteRadioCheckbox::after {
+	content: "";
+    display:block;
+	-webkit-mask-image: map.get($lyteradiobuttonradiocheckedlyteRadioCheckboxafterMap, "mask-image");
+	-webkit-mask-position: map.get($lyteradiobuttonradiocheckedlyteRadioCheckboxafterMap, "mask-position");
+	mask-image: map.get($lyteradiobuttonradiocheckedlyteRadioCheckboxafterMap, "mask-image");
+	mask-position: map.get($lyteradiobuttonradiocheckedlyteRadioCheckboxafterMap, "mask-position");
+	background-color: map.get($lyteradiobuttonradiocheckedlyteRadioCheckboxafterMap, "background-color");
+	width: map.get($lyteradiobuttonradiocheckedlyteRadioCheckboxafterMap, "width");
+	height: map.get($lyteradiobuttonradiocheckedlyteRadioCheckboxafterMap, "height");
+    @include addExtraStyles($lyteradiobuttonradiocheckedlyteRadioCheckboxafterMap);
+}
+

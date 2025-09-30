@@ -1,0 +1,155 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/tooltip.variables.scss";
+
+@use "../default/variables/tooltip.variables.scss" as *;
+
+.lyteTooltip {
+	font-family: $primaryFont;
+	font-size: map.get($lyteTooltipMap, "font-size");
+	padding: map.get($lyteTooltipMap, "padding");
+	position: absolute;
+	background: map.get($lyteTooltipMap, "background");
+	color: map.get($lyteTooltipMap, "color");
+	text-align: center;
+	border-radius: map.get($lyteTooltipMap, "border-radius");
+	z-index: map.get($lyteTooltipMap, "z-index");
+	white-space: pre-wrap;
+    #{$property-left}: -9999px;
+    top: -9999px;
+    @include addExtraStyles($lyteTooltipMap);
+}
+.lyteTooltip.lyteTooltipHidden {
+	display: none !important;
+}
+
+.lyteTooltip.lyteTooltipCallout .lyteTooltipInnerSpan,
+.lyteTooltip.lyteTooltipCallout::before {
+	content: "";
+	position: absolute;
+    width: map.get($lyteTooltipBeforeMap, "width");
+    height: map.get($lyteTooltipBeforeMap, "height");
+    background: inherit;
+    transform: rotate(45deg);
+    z-index: -1;
+    @include addExtraStyles($lyteTooltipBeforeMap);
+}
+.lyteTooltip.lyteTooltipCallout .lyteTooltipInnerSpan {
+    transform: map.get($lyteTooltipInnerSpanMap, "transform");
+    @include addExtraStyles($lyteTooltipInnerSpanMap);
+}
+.lyteTooltip.lyteRight .lyteTooltipInnerSpan,
+.lyteTooltip.lyteRight::before {
+    #{$property-left}: map.get($lyteTooltipBeforeRightMap, "left");
+    top: map.get($lyteTooltipBeforeRightMap, "top");
+    @include addExtraStyles($lyteTooltipBeforeRightMap);
+}
+.lyteTooltip.lyteLeft .lyteTooltipInnerSpan,
+.lyteTooltip.lyteLeft::before {
+    #{$property-right}: map.get($lyteTooltipBeforeLeftMap, "right");
+    top: map.get($lyteTooltipBeforeLeftMap, "top");
+    @include addExtraStyles($lyteTooltipBeforeLeftMap);
+}
+.lyteTooltip.lyteBottom .lyteTooltipInnerSpan,
+.lyteTooltip.lyteBottom::before {
+    #{$property-left}: map.get($lyteTooltipBeforeBottomMap, "left");
+    top: map.get($lyteTooltipBeforeBottomMap, "top");
+    @include addExtraStyles($lyteTooltipBeforeBottomMap);
+}
+.lyteTooltip.lyteTop .lyteTooltipInnerSpan,
+.lyteTooltip.lyteTop::before {
+    #{$property-left}: map.get($lyteTooltipBeforeTopMap, "left");
+    bottom: map.get($lyteTooltipBeforeTopMap, "bottom");
+    @include addExtraStyles($lyteTooltipBeforeTopMap);
+}
+.lyteTooltip.lyteTopright .lyteTooltipInnerSpan,
+.lyteTooltip.lyteTopright::before {
+    #{$property-left}: map.get($lyteTooltipBeforeTopRightMap, "left");
+    bottom: map.get($lyteTooltipBeforeTopRightMap, "bottom");
+    @include addExtraStyles($lyteTooltipBeforeTopRightMap);
+}
+.lyteTooltip.lyteTopleft .lyteTooltipInnerSpan,
+.lyteTooltip.lyteTopleft::before {
+    bottom: map.get($lyteTooltipBeforeTopleftMap, "bottom");
+    #{$property-left}: map.get($lyteTooltipBeforeTopleftMap, "left");
+    @include addExtraStyles($lyteTooltipBeforeTopleftMap);
+}
+.lyteTooltip.lyteBottomright .lyteTooltipInnerSpan,
+.lyteTooltip.lyteBottomright::before {
+    top: map.get($lyteTooltipBeforeBottomrightMap, "top");
+    #{$property-left}: map.get($lyteTooltipBeforeBottomrightMap, "left");
+    @include addExtraStyles($lyteTooltipBeforeBottomrightMap);
+}
+.lyteTooltip.lyteBottomleft .lyteTooltipInnerSpan,
+.lyteTooltip.lyteBottomleft::before {
+    top: map.get($lyteTooltipBeforeBottomleftMap, "top");
+    #{$property-left}: map.get($lyteTooltipBeforeBottomleftMap, "left");
+    @include addExtraStyles($lyteTooltipBeforeBottomleftMap);
+}
+.lyteTooltip.lyteInnerToolAdded::before {
+    content: none;
+}
+
+.lyteTooltip.whiteBg {
+	background: map.get($lyteTooltipWhiteMap, "background");
+	border: map.get($lyteTooltipWhiteMap, "border");
+	color: map.get($lyteTooltipWhiteMap, "color");
+    @include addExtraStyles($lyteTooltipWhiteMap);
+}
+.lyteTooltip.whiteBg::before {
+    background: map.get($lyteWhiteTooltipBeforeMap, "background");
+    @include addExtraStyles($lyteWhiteTooltipBeforeMap);
+}
+.lyteTooltip.whiteBg.lyteRight::before {
+    box-shadow: map.get($lyteWhiteTooltipBeforeRightMap, "box-shadow");
+    #{$property-left}: map.get($lyteWhiteTooltipBeforeRightMap, "left");
+    top: map.get($lyteWhiteTooltipBeforeRightMap, "top");
+    @include addExtraStyles($lyteWhiteTooltipBeforeRightMap);
+}
+.lyteTooltip.whiteBg.lyteLeft::before {
+    box-shadow: map.get($lyteWhiteTooltipBeforeLeftMap, "box-shadow");
+    #{$property-right}: map.get($lyteWhiteTooltipBeforeLeftMap, "right");
+    top: map.get($lyteWhiteTooltipBeforeLeftMap, "top");
+    @include addExtraStyles($lyteWhiteTooltipBeforeLeftMap);
+}
+.lyteTooltip.whiteBg.lyteBottom::before {
+    box-shadow: map.get($lyteWhiteTooltipBeforeBottomMap, "box-shadow");
+    #{$property-left}: map.get($lyteWhiteTooltipBeforeBottomMap, "left");
+    top: map.get($lyteWhiteTooltipBeforeBottomMap, "top");
+    @include addExtraStyles($lyteWhiteTooltipBeforeBottomMap);
+}
+.lyteTooltip.whiteBg.lyteTop::before {
+    box-shadow: map.get($lyteWhiteTooltipBeforeTopMap, "box-shadow");
+    #{$property-left}: map.get($lyteWhiteTooltipBeforeTopMap, "left");
+    bottom: map.get($lyteWhiteTooltipBeforeTopMap, "bottom");
+    @include addExtraStyles($lyteWhiteTooltipBeforeTopMap);
+}
+.lyteTooltip.whiteBg.lyteTopright::before {
+    box-shadow: map.get($lyteWhiteTooltipBeforeToprightMap, "box-shadow");
+    #{$property-left}: map.get($lyteWhiteTooltipBeforeToprightMap, "left");
+    bottom: map.get($lyteWhiteTooltipBeforeToprightMap, "bottom");
+    @include addExtraStyles($lyteWhiteTooltipBeforeToprightMap);
+}
+.lyteTooltip.whiteBg.lyteTopleft::before {
+    box-shadow: map.get($lyteWhiteTooltipBeforeTopleftMap, "box-shadow");
+    bottom: map.get($lyteWhiteTooltipBeforeTopleftMap, "bottom");
+    #{$property-left}: map.get($lyteWhiteTooltipBeforeTopleftMap, "left");
+    @include addExtraStyles($lyteWhiteTooltipBeforeTopleftMap);
+}
+.lyteTooltip.whiteBg.lyteBottomright::before {
+    box-shadow: map.get($lyteWhiteTooltipBeforeBottomrightMap, "box-shadow");
+    top: map.get($lyteWhiteTooltipBeforeBottomrightMap, "top");
+    #{$property-left}: map.get($lyteWhiteTooltipBeforeBottomrightMap, "left");
+    @include addExtraStyles($lyteWhiteTooltipBeforeBottomrightMap);
+}
+.lyteTooltip.whiteBg.lyteBottomleft::before {
+    box-shadow: map.get($lyteWhiteTooltipBeforeBottomleftMap, "box-shadow");
+    top: map.get($lyteWhiteTooltipBeforeBottomleftMap, "top");
+    #{$property-left}: map.get($lyteWhiteTooltipBeforeBottomleftMap, "left");
+    @include addExtraStyles($lyteWhiteTooltipBeforeBottomleftMap);
+}
+

@@ -1,0 +1,89 @@
+@use "../global/global.variables.scss" as global;
+
+$cssMaskIconLytePopoverCloseIconColor: global.$lyteIconsThemeColor !default;
+
+$lytePopoverWrapperMap: (
+    "top": 0,
+    "bottom": 0,
+    "left": 0,
+    "right": 0,
+    "z-index": global.$lytePopoverzIndex
+) !default;
+
+$lytePopoverMap: (
+	"background": global.$lytePopoverBg,
+	"border": 1px solid global.$lytePopoverOuterBorder,
+	"box-shadow": 0 0 4px 1px rgba(0, 0, 0, 0.1),
+	"z-index": calc(global.$lytePopoverzIndex + 10),
+	"border-radius": 3px,
+	"top": -9999px,
+	"left": -9999px
+) !default;
+
+$lytePopoverZoomMap: (
+    "transition" : (transform 0.4s ease, opacity 0.4s ease),
+    "transform": scale(0),
+) !default;
+
+$lytePopoverHeaderMap: (
+	"padding": 15px 30px,
+	"font-size": 16px,
+	"color": global.$lytePopoverTextColor,
+) !default;
+
+$lytePopoverContentMap: (
+	"padding": 15px 30px,
+) !default;
+
+$lytePopoverFooterMap: (
+	"padding": 15px 30px,
+) !default;
+
+$lytePopoverFreezeMap: (
+	"z-index": 5,
+	"background": global.$lytePopoverFreezeBg,
+	"opacity": 0.4
+) !default;
+
+$lytePopoverCloseMap: (
+	"background-image": global.$lytesprite,
+	"background-position": -52px 0px,
+	"mask-image": global.$lytesprite,
+	"mask-position": -52px 0px,
+	"bg-color": $cssMaskIconLytePopoverCloseIconColor,
+	"width": 13px,
+	"height": 13px,
+	"right": 20px,
+	"top": 14px,
+    "z-index": 5,
+) !default;
+
+$lytePopoverFooterButtonMap: (
+    "margin-left": 7px,
+) !default;
+
+$lytePopoverArrowMap: (
+    "width": 11px,
+    "height": 11px,
+    "background": global.$lytePopoverBg,
+) !default;
+
+$lytePopoverArrowTopMap: (
+    "box-shadow": -1px -1px 0 0 global.$lytePopoverOuterBorder,
+    "top": -5px,
+) !default;
+
+$lytePopoverArrowBottomMap: (
+    "box-shadow": 1px 1px 0 0 global.$lytePopoverOuterBorder,
+    "bottom": -5px,
+) !default;
+
+$lytePopoverArrowRightMap: (
+    "box-shadow": 1px -1px 0 0 global.$lytePopoverOuterBorder,
+    "right": -5px,
+) !default;
+
+$lytePopoverArrowLeftMap: (
+    "box-shadow": -1px 1px 0 0 global.$lytePopoverOuterBorder,
+    "left": -5px,
+) !default;

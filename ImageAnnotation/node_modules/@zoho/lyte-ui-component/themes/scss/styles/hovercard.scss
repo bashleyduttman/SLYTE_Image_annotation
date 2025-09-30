@@ -1,0 +1,82 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/hovercard.variables.scss";
+
+@use "../default/variables/hovercard.variables.scss" as *;
+
+.lyteHovercardPopover.popoverWrapper {
+	z-index: map.get($lyteHovercardPopoverWrapperMap, "z-index");
+    @include addExtraStyles($lyteHovercardPopoverWrapperMap);
+}
+.lyteHovercardPopover .lytePopover {
+    background: map.get($lyteHovercardPopoverMap,"background");
+    color: map.get($lyteHovercardPopoverMap,"color");
+    border-radius: map.get($lyteHovercardPopoverMap,"border-radius");
+    border: map.get($lyteHovercardPopoverMap,"border");
+    @include addExtraStyles($lyteHovercardPopoverMap);
+}
+.lyteHovercardPopover .lytePopoverArrowIcon {
+    background: map.get($lyteHovercardArrowMap,"background");
+    @include addExtraStyles($lyteHovercardArrowMap);
+}
+.lyteHovercardPopover .lytePopoverArrowIcon.lytePopoverArrowTop {
+	box-shadow: map.get($lyteHovercardArrowTopMap,"box-shadow");
+    @include addExtraStyles($lyteHovercardArrowTopMap);
+}
+.lyteHovercardPopover .lytePopoverArrowIcon.lytePopoverArrowBottom {
+	box-shadow: map.get($lyteHovercardArrowBottomMap,"box-shadow");
+    @include addExtraStyles($lyteHovercardArrowBottomMap);
+}
+.lyteHovercardPopover .lytePopoverArrowIcon.lytePopoverArrowRight {
+	box-shadow: map.get($lyteHovercardArrowRightMap,"box-shadow");
+    @include addExtraStyles($lyteHovercardArrowRightMap);
+}
+.lyteHovercardPopover .lytePopoverArrowIcon.lytePopoverArrowLeft {
+	box-shadow: map.get($lyteHovercardArrowLeftMap,"box-shadow");
+    @include addExtraStyles($lyteHovercardArrowLeftMap);
+}
+lyte-hovercard-content {
+    padding: map.get($lyteHovercardContentMap,"padding");
+    display: block;
+    max-width: map.get($lyteHovercardContentMap,"max-width");
+    overflow-wrap: break-word;
+    @include addExtraStyles($lyteHovercardContentMap);
+}
+.lyteHovercardPopover.lytePopTopToOrig .lytePopover::before,
+.lyteHovercardPopover.lytePopBottomToOrig .lytePopover::before {
+	content: '';
+	width: map.get($lyteHovercardTopBottomPopoverBeforeMap,"width");
+	height: map.get($lyteHovercardTopBottomPopoverBeforeMap,"height");
+	background: transparent;
+	position: absolute;
+    @include addExtraStyles($lyteHovercardTopBottomPopoverBeforeMap);
+}
+.lyteHovercardPopover.lytePopBottomToOrig .lytePopover::before {
+    top: map.get($lyteHovercardBottomPopoverBeforeMap,"top");
+    @include addExtraStyles($lyteHovercardBottomPopoverBeforeMap);
+}
+.lyteHovercardPopover.lytePopTopToOrig .lytePopover::before {
+    bottom: map.get($lyteHovercardTopPopoverBeforeMap,"bottom");
+    @include addExtraStyles($lyteHovercardTopPopoverBeforeMap);
+}
+.lyteHovercardPopover.lytePopLeftToOrig .lytePopover::before,
+.lyteHovercardPopover.lytePopRightToOrig .lytePopover::before {
+    content: '';
+    height: map.get($lyteHovercardLeftRightPopoverBeforeMap,"height");
+    width: map.get($lyteHovercardLeftRightPopoverBeforeMap,"width");
+    background: transparent;
+    position: absolute;
+    @include addExtraStyles($lyteHovercardLeftRightPopoverBeforeMap);
+}
+.lyteHovercardPopover.lytePopRightToOrig .lytePopover::before {
+    #{$property-left}: map.get($lyteHovercardRightPopoverBeforeMap,"left");
+    @include addExtraStyles($lyteHovercardRightPopoverBeforeMap);
+}
+.lyteHovercardPopover.lytePopLeftToOrig .lytePopover::before {
+    #{$property-right}: map.get($lyteHovercardLeftPopoverBeforeMap,"right");
+    @include addExtraStyles($lyteHovercardLeftPopoverBeforeMap);
+}

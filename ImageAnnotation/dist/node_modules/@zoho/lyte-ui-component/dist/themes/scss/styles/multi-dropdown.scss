@@ -1,0 +1,91 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/multi-dropdown.variables.scss";
+
+@use "../default/variables/multi-dropdown.variables.scss" as *;
+
+lyte-multi-dropdown {
+	max-width: map.get($lyteMultiDropdownMap, "max-width");
+	display: inline-block;
+	@include addExtraStyles($lyteMultiDropdownMap);
+}
+lyte-multi-dropdown lyte-dropdown {
+	max-width: 100%;
+	display: block;
+}
+lyte-multi-dropdown lyte-dropdown[lt-prop-type="multiple"] lyte-drop-button {
+	padding: map.get($lyteMultiDropdownDropButtonMap, "padding");
+	@include addExtraStyles($lyteMultiDropdownDropButtonMap);
+}
+.lyteMultiDropdownDropbox lyte-drop-item {
+	padding: map.get($lyteMultiDropdownDropboxItemMap, "padding");
+	display: block;
+	@include addExtraStyles($lyteMultiDropdownDropboxItemMap);
+}
+lyte-multi-dropdown .lyteMultipleSelect {
+	margin: 0;
+	padding: 0;
+}
+lyte-multi-dropdown .lyteMultipleSelect li {
+	margin-bottom: 0;
+}
+lyte-multi-dropdown .lyteMultipleSelect .lyteMultiDropdownNmoreElem {
+	background: map.get($lyteMultiDropdownNmoreElemMap, "background");
+	border: map.get($lyteMultiDropdownNmoreElemMap, "border");
+	color: map.get($lyteMultiDropdownNmoreElemMap, "color");
+	padding: map.get($lyteMultiDropdownNmoreElemMap, "padding");
+	cursor: pointer;
+	@include addExtraStyles($lyteMultiDropdownNmoreElemMap);
+}
+.lyteMultiDropdownTagHovercard.lyteHovercardPopover .lytePopover {
+	background: map.get($lyteMultiDropdownTagHovercardPopoverMap, "background");
+	border: map.get($lyteMultiDropdownTagHovercardPopoverMap, "border");
+	@include addExtraStyles($lyteMultiDropdownTagHovercardPopoverMap);
+}
+.lyteMultiDropdownTagHovercard.lyteHovercardPopover .lytePopoverArrowIcon {
+	background: map.get($lyteMultiDropdownTagHovercardArrowIconMap, "background");
+	@include addExtraStyles($lyteMultiDropdownTagHovercardArrowIconMap);
+}
+.lyteMultiDropdownTagHovercard .lytePopoverArrowIcon.lytePopoverArrowBottom {
+	box-shadow: map.get($lyteMultiDropdownTagHovercardArrowBottomMap, "box-shadow");
+	@include addExtraStyles($lyteMultiDropdownTagHovercardArrowBottomMap);
+}
+.lyteMultiDropdownTagHovercard .lytePopoverArrowIcon.lytePopoverArrowTop {
+	box-shadow: map.get($lyteMultiDropdownTagHovercardArrowTopMap, "box-shadow");
+	@include addExtraStyles($lyteMultiDropdownTagHovercardArrowTopMap);
+}
+.lyteMultiDropdownTagHovercard .hoverCardWrapper {
+	max-width: map.get($lyteMultiDropdownTagHovercardWrapperMap, "max-width");
+	@include addExtraStyles($lyteMultiDropdownTagHovercardWrapperMap);
+}
+.lyteMultiDropdownTagHovercard .lyteMultipleSelect {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+}
+lyte-multi-dropdown .lyteMultipleSelect lyte-text {
+	vertical-align: bottom;
+}
+.lyteMultiDropdownCheckBoxTypeDropbox lyte-drop-group.lyteDropdownHideGroup,
+.lyteMultiDropdownDropbox lyte-drop-group.lyteDropdownHideGroup,
+.lyteMultiDropdownCheckBoxTypeDropbox lyte-drop-item {
+	display: block;
+}
+.lyteMultiDropdownCheckBoxTypeDropbox lyte-drop-item::before {
+	content: none;
+}
+lyte-multi-dropdown .lyteDropPlaceholderMultiple {
+	padding: map.get($lyteMultiDropdownDropPlaceholderMultipleMap, "padding");
+	@include addExtraStyles($lyteMultiDropdownDropPlaceholderMultipleMap);
+}
+.lyteMultiDropSelectedText {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+}

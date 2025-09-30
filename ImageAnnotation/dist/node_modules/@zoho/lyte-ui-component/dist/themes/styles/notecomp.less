@@ -1,0 +1,815 @@
+/* Default theme imported */
+
+@import "../themes/default/ui-elements/notecomp/notecomp.variables.less";
+
+/* Loading theme in configuration */
+
+@import "../config.less";
+
+
+@import (multiple,optional) "../themes/default/global/@{direction}.less";
+
+lyte-notecomp {
+	.lyteNotecompMixin();
+	display: flex;
+	flex-direction: column;
+	box-shadow: @box-shadow;
+	border-radius: @border-radius;
+	padding-bottom: @padding-bottom;
+	font-family: @font-family;
+	max-height: @max-height;
+	overflow: auto;
+	box-sizing: border-box;
+}
+.lyteNoteMainComment {
+	.lyteNoteMainCommentMixin();
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: @margin-bottom;
+	padding: @padding;
+}
+.lyteNoteMainCommentAvatar {
+	.lyteNoteMainCommentAvatarMixin();
+	width: @w;
+	height: @h;
+	border-radius: @border-radius;
+	margin: @margin;
+}
+lyte-notecomp lyte-note-editor {
+	.lyteNotecompEditorMixin();
+	display: block;
+	flex-grow: 1;
+	overflow: auto;
+	padding: @padding;
+}
+.lyteNoteFakeElement {
+	.lyteNoteFakeElementMixin();
+	padding: @padding;
+	border: @border;
+	border-radius: @border-radius;
+	color: @color;
+	font-family: @font-family;
+	font-size: @font-size;
+	cursor: text;
+	position: relative;
+}
+.lyteNoteFakeElement:hover {
+	.lyteNoteFakeElementHoverMixin();
+	background: @bg;
+	border: @border;
+}
+.lyteNoteFakeElement.lyteNoteDraft {
+	.lyteNoteFakeElementDraftMixin();
+	overflow: hidden;
+	height: @h;
+	border: @border;
+}
+.lyteNoteDraft::after {
+	.lyteNoteDraftAfterMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+	display: block;
+	position: absolute;
+	@{property-right}: @right;
+	top: @top;
+}
+.lyteNoteDraftWrapper {
+	.lyteNoteDraftWrapperMixin();
+	opacity: @opacity;
+}
+.lyteNoteEditorWrapper {
+	.lyteNoteEditorWrapperMixin();
+	border: @border;
+	border-radius: @border-radius;
+	position: relative;
+	transition: height 0.3s ease;
+}
+.lyteNoteEditorWrapper.lyteNoteEditorWhiteBg {
+	.lyteNoteEditorWrapperEditorWhiteBgMixin();
+	box-shadow: @box-shadow;
+}
+lyte-notecomp lyte-texteditor {
+	.lyteNotecompTexteditorMixin();
+	min-height: @min-height;
+	height: @h;
+	box-sizing: border-box;
+	border-radius: @border-radius;
+	border: @border;
+	overflow: auto;
+}
+lyte-notecomp lyte-texteditor.lyteEditorFocused {
+	.lyteNotecompTexteditorFocusedMixin();
+	border: @border;
+}
+lyte-notecomp .lyteEditorMainDiv {
+	.lyteNotecompEditorMainDivMixin();
+	@{property-padding-right}: @padding-right;
+}
+.lyteNoteEditorFooter {
+	.lyteNoteEditorFooterMixin();
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: @bg;
+	padding: @padding;
+	border-radius: @border-radius;
+}
+.lyteNoteCancelSaveWrap,
+.lyteNoteFooterActions {
+	display: flex;
+}
+.lyteNoteCancelSaveWrap lyte-button:last-child {
+	.lyteNoteCancelSaveWrapButtonLastChildMixin();
+	@{property-margin-left}: @margin-left;
+}
+.lyteNoteCommentWrapper {
+	.lyteNoteCommentWrapperMixin();
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+	padding: @padding;
+	position: relative;
+}
+.lyteEditorContent {
+	.lyteEditorContentMixin();
+	padding: @padding;
+	border: @border;
+	border-radius: @border-radius;
+	background: @bg;
+	max-width: @max-w;
+}
+lyte-comment:hover .lyteEditorContent {
+	.lyteCommentHoverMixin();
+	border: @border;
+}
+.lyteEditorContent ol,
+.lyteEditorContent ul {
+	.lyteEditorContentOlMixin();
+	@{property-padding-left}: @padding-left;
+}
+
+.lyteCommentEmojiWrapper {
+	.lyteCommentEmojiWrapperMixin();
+	display: flex;
+	flex-wrap: wrap;
+	@{property-margin-right}: @margin-right;
+}
+lyte-emoji-container {
+	.lyteEmojiContainerMixin();
+	display: inline-flex;
+	background: @bg;
+	border-radius: @border-radius;
+	padding: @padding;
+	font-size: @font-size;
+	line-height: @line-height;
+	border: @border;
+	cursor: pointer;
+	@{property-margin-right}: @margin-right;
+	align-items: center;
+	margin-bottom: @margin-bottom;
+}
+.lyte_emoji_reactions_0 {
+	.lyte_emoji_reactions_0Mixin();
+	background: @bg;
+	padding: @padding;
+}
+.lyte_emoji_reactions_0:hover {
+	.lyte_emoji_reactions_0HoverMixin();
+	background: @bg;
+}
+.lyteNoteLikeReaction lyte-emoji-holder {
+	.lyteNoteLikeReactionEmojiHolderMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+.lyteNoteLikeReaction.lyteEmojiSelected lyte-emoji-holder {
+	.lyteNoteLikeReactionEmojiselectedHolderMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+}
+lyte-emoji-count {
+	.lyteEmojiCountMixin();
+	@{property-margin-left}: @margin-left;
+}
+.lyte_emoji_reactions_0 lyte-emoji-count {
+	display: none;
+}
+lyte-emoji-container:hover {
+	.lyteEmojiContainerHoverMixin();
+	border: @border;
+}
+.lyteEmojiSelected:hover,
+.lyteEmojiSelected {
+	.lyteEmojiSelectedMixin();
+	color: @color;
+	background: @bg;
+	border: @border;
+}
+
+
+.lyteNoteEmojiTooltipTitle {
+	.lyteNoteEmojiTooltipTitleMixin();
+	font-family: @font-family;
+	margin-bottom: @margin-bottom;
+	font-size: @font-size;
+}
+.lyteNoteEmojiTooltipWrapper lyte-hovercard-content {
+	.lyteNoteEmojiTooltipHovercardContentMixin();
+	padding: @padding;
+}
+.lyteNoteEmojiTooltipNames {
+	.lyteNoteEmojiTooltipNamesMixin();
+	list-style: none;
+	font-size: @font-size;
+	color: @color;
+}
+
+.lyteNoteBgSwitcher {
+	.lyteNoteBgSwitcherMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+	position: absolute;
+	top: @top;
+	@{property-right}: @right;
+	cursor: pointer;
+}
+.lyteNoteFileUpload,
+.lyteNoteEditorIcon,
+.lyteNoteSmileyIcon {
+	.lyteNoteFileUpd_Editor_SmileyIconMixin();
+	width: @w;
+	height: @h;
+	border-radius: @border-radius;
+	border: @border;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+.lyteNoteSmileyIcon,
+.lyteNoteIconHolder {
+	.lyteNoteSmiley_IconHolderMixin();
+	@{property-margin-left}: @margin-left;
+}
+.lyteNoteEditorIcon::before,
+.lyteNoteFileUpload::before,
+.lyteNoteSmileyIcon::before {
+	.lyteNoteFileUpd_Editor_SmileyIconBeforeMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		-webkit-mask-image: @mask-img;
+		mask-image: @mask-img;
+		background-color: @bg-color;
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+	}
+}
+.lyteNoteSmileyIcon::before {
+	.lyteNoteSmileyIconBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, '');
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+.lyteNoteFileUpload::before {
+	.lyteNoteFileUploadBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, '');
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+lyte-note-editor .lyteFileUpdBtnType .lyteFileUpdMsgWrap {
+	display: none;
+}
+.lyteNoteFileUpload .multiFileupload .lyteFileUpdList {
+	.lyteNoteFileUploadFileUpdListMixin();
+	margin: @margin;
+}
+.lyteNoteFileUpload:hover,
+.lyteNoteEditorIcon.lyteEditorPanelHidden:hover,
+.lyteNoteSmileyIcon:hover {
+	.lyteNoteSmileyIconHoverMixin();
+	border: @border;
+}
+.lyteNoteIconHolder {
+	.lyteNoteIconHolderMixin();
+	display: flex;
+	@{property-margin-right}: @margin-right;
+	align-items: center;
+}
+.lyteNoteEditorIcon {
+	.lyteNoteEditorIconMixin();
+	background: @bg;
+	box-shadow: @box-shadow;
+	border-radius: @border-radius;
+}
+.lyteEditorPanelHidden {
+	.lyteEditorPanelHiddenMixin();
+	background: @bg;
+	box-shadow: @box-shadow;
+	border-radius: @border-radius;
+}
+.lyteNoteEditorIcon::before {
+	.lyteNoteEditorIconBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, '');
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+lyte-notecomp .lyteEditorIconsDiv {
+	.lyteNotecompEditorIconsDivMixin();
+	border-radius: @border-radius;
+	box-shadow: @box-shadow;
+}
+lyte-notecomp .lyteEditorBgIcon {
+	.lyteNotecompEditorBgIconMixin();
+	@{property-margin-right}: @margin-right;
+}
+
+.lyteNoteFileStatus {
+	.lyteNoteFileStatusMixin();
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	background: @bg;
+	padding: @padding;
+	border-bottom: @border-bottom;
+}
+lyte-notecomp .multiFileupload .lyteFileUpdList {
+	.lyteNotecompFileUpdListMixin();
+	margin-top: @margin-top;
+	align-items: flex-start;
+}
+.lyteNoteFileStatus lyte-fileupload {
+	.lyteNoteFileStatusFileuploadMixin();
+	width: @w;
+	position: relative;
+}
+.lyteNoteFileStatus .lyteFileUpdThumb {
+	.lyteNoteFileStatusUpdThumbMixin();
+	border-radius: @border-radius;
+	width: @w;
+	height: @h;
+	border: @border;
+	object-fit: cover;
+}
+.lyteNoteFileUpdListInnerWrap {
+	.lyteNoteFileUpdListInnerWrapMixin();
+	width: @w;
+	display: flex;
+	background: @bg;
+	border-radius: @border-radius;
+}
+.lyteFileUpdListFile.lyteFileSuccess .lyteNoteFileUpdListInnerWrap {
+	.lyteFileUpdListFileSuccessInnerWrapMixin();
+	background: @bg;
+}
+.lyteFileUpdListFile.lyteFileError .lyteNoteFileUpdListInnerWrap {
+	.lyteFileUpdListFileErrorInnerWrapMixin();
+	background: @bg;
+}
+.lyteNoteFileStatus .lyteFileUpdTypePreview {
+	.lyteNoteFileStatusUpdTypePreviewMixin();
+	@{property-margin-right}: @margin-right;
+	width: @w;
+	height: @h;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: @border-radius;
+	flex-shrink: 0;
+	background: @bg;
+}
+.lyteNoteFileStatus .lyteFileUpdListFile.lyteFileError,
+.lyteNoteFileStatus .lyteFileUpdListFile {
+	.lyteNoteFileStatusUpdListFileMixin();
+	background: @bg;
+	padding: @padding;
+	border: @border;
+	@{property-padding-right}: @padding-right;
+}
+.lyteNoteFileStatus .lyteFileUpdFileName {
+	.lyteNoteFileStatusUpdFileNameMixin();
+	padding: @padding;
+	@{property-margin-right}: @margin-right;
+	max-width: @max-w;
+	flex-shrink: 1;
+	flex-grow: 1;
+	font-size: @font-size;
+	color: @color;
+	line-height: @line-height;
+}
+.lyteNoteFileStatus .lyteFileUpdListFile.lyteFileSuccess .lyteFileUpdFileName {
+	.lyteNoteFileStatusUpdListFileSuccessFileNameMixin();
+	max-width: @max-w;
+}
+
+.lyteNoteFileStatus .lyteFileUpdFileStatus {
+	.lyteNoteFileStatusUpdFileStatusMixin();
+	position: absolute;
+	bottom: @bottom;
+	@{property-left}: @left;
+	width: @w;
+	@{property-margin-right}: @margin-right;
+}
+.lyteNoteFileStatus .lyteFileUpdFileSize {
+	.lyteNoteFileStatusUpdFileSizeMixin();
+	padding: @padding;
+	border-radius: @border-radius;
+	font-size: @font-size;
+	@{property-margin-right}: @margin-right;
+	flex-shrink: 0;
+	color: @color;
+}
+.lyteNoteFileStatus lyte-file-retry {
+	.lyteNoteFileStatusFileRetryMixin();
+	@{property-margin-left}: @margin-left;
+	@{property-margin-right}: @margin-right;
+	align-items: center;
+	cursor: pointer;
+}
+.lyteNoteFileStatus .lyteFileUpdFailMsg {
+	display: none;
+}
+.lyteNoteFileStatus .lyteFileUpdProgressBar {
+	.lyteNoteFileStatusUpdProgressBarMixin();
+	width: @w;
+	border-radius: @border-radius;
+	height: @h;
+}
+.lyteNoteFileStatus .lyteFileUpdProgressFill {
+	.lyteNoteFileStatusUpdProgressFillMixin();
+	border-radius: @border-radius;
+	height: @h;
+}
+.lyteNoteFileStatus .lyteFileUpdListFile.lyteFileSuccess::after {
+	.lyteNoteFileStatusUpdListFileFileSuccessAfterMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+	display: block;
+	position: absolute;
+	@{property-left}: @left;
+}
+.lyteNoteFileStatus .lyteFileUpdListFile.lyteFileSuccess:hover::after {
+	content: none;
+}
+.lyteNoteFileStatus lyte-file-close {
+	.lyteNoteFileStatusFileCloseMixin();
+	/*	Not able to use Mask CSS here as the icon has multiple colors */
+	background-image: @bg-img;
+	background-position: @bg-pos;
+	width: @w;
+	height: @h;
+	opacity: @opacity;
+	cursor: pointer;
+	@{property-margin-left}: @margin-left;
+}
+.lyteNoteFileStatus lyte-file-close:hover {
+	.lyteNoteFileStatusFileCloseHoverMixin();
+	opacity: @opacity;
+}
+.lyteNoteIndividualFilePercentage {
+	.lyteNoteIndividualFilePercentageMixin();
+	@{property-margin-left}: @margin-left;
+	font-size: @font-size;
+	color: @color;
+}
+.lyteNoteIndividualFilePercentage::after {
+	content: '%';
+}
+.lyteNoteFileUploadStatus {
+	.lyteNoteFileUploadStatusMixin();
+	padding: @padding;
+	background: @bg;
+	border-radius: @border-radius;
+	color: @color;
+	font-size: @font-size;
+}
+.lyteNoteFileStatus .lyteFileUpdRetryMsg {
+	.lyteNoteFileStatusUpdRetryMsgMixin();
+	color: @color;
+	border-bottom: @border-bottom;
+	text-decoration: none;
+	font-size: @font-size;
+	font-style: italic;
+}
+.lyteNoteFileStatus lyte-file-retry::after {
+	.lyteNoteFileStatusFileRetryAfterMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+	display: inline-block;
+	transform: @transform;
+	@{property-margin-left}: @margin-left;
+}
+.lyteNoteFileStatus .fileDragEnter lyte-file-select-area {
+	.fileDragEnterFileSelectAreaMixin();
+	position: absolute;
+	width: @w;
+	height: @h;
+	background: @bg;
+	z-index: @z-index;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: @border;
+	border-radius: @border-radius;
+	box-sizing: border-box;
+}
+.lyteNoteFileStatus .fileDragEnter lyte-file-select-area::after {
+	.fileDragEnterFileSelectAreaAfterMixin();
+	content: 'Drop files here to attach';
+	color: @color;
+}
+.lyteNoteUploadSize,
+.lyteNoteUploadCountSection {
+	display: flex;
+	align-items: center;
+}
+.lyteNoteUploadCountSection  {
+	.lyteNoteUploadCountSectionMixin();
+	margin-bottom: @margin-bottom;
+}
+.lyteNoteUploadText,
+.lyteNoteSizeText {
+	.lyteNoteSizeTextMixin();
+	@{property-margin-right}: @margin-right;
+}
+.lyteNoteFileLimitMessage {
+	font-style: italic;
+}
+.lyteNoteUploadCountNumber,
+.lyteNoteUploadSizeNumber {
+	.lyteNoteUploadSizeNumberMixin();
+	color: @color;
+}
+.lyteNoteUploadCountSection .lyteNoteSvgContainer {
+	.lyteNoteUploadCountSectionSvgContainerMixin();
+	width: @w;
+	height: @h;
+	@{property-margin-right}: @margin-right;
+	@{property-margin-left}: @margin-left;
+}
+.lyteNoteUploadSize .lyteNoteSvgContainer {
+	.lyteNoteUploadSizeSvgContainerMixin();
+	width: @w;
+	height: @h;
+	@{property-margin-right}: @margin-right;
+}
+.lyteNoteSvgGroup {
+	.lyteNoteSvgGroupMixin();
+	transform: @transform;
+	transform-origin: center;
+}
+.lyteNoteUploadCountSection .lyteNoteSvgGroup .background_circle {
+	.lyteNoteUploadCountSectionGroupBgCircleMixin();
+	stroke-width: 10;
+	stroke: @stroke;
+	fill: none;
+}
+.lyteNoteUploadCountSection .lyteNoteSvgGroup .progress_circle {
+	.lyteNoteUploadCountSectionSvgGroupProgressCircleMixin();
+	stroke-width: 10;
+	stroke: @stroke;
+	transition: stroke-dashoffset 2s linear;
+	fill: none;
+}
+.lyteNoteUploadSize .lyteNoteSvgGroup .background_circle {
+	.lyteNoteUploadSizeSvgGroupBgCircleMixin();
+	stroke-width: 40;
+	stroke: @stroke;
+	fill: none;
+}
+.lyteNoteUploadSize .lyteNoteSvgGroup .progress_circle {
+	.lyteNoteUploadSizeSvgGroupProgressCircleMixin();
+	stroke-width: 40;
+	stroke: @stroke;
+	transition: stroke-dashoffset 2s linear;
+	fill: none;
+}
+lyte-notecomp lyte-editorpanel {
+	overflow: hidden;
+}
+.lyteNoteEditorPanelslide .lyteEditorIconsDiv {
+	transition: transform 0.3s linear;
+}
+.lyteNoteEditorPanelfade .lyteEditorIconsDiv {
+	transition: opacity 0.3s linear;
+}
+.lyteNoteEditorPanelscale .lyteEditorIconsDiv {
+	transition: transform 0.3s linear;
+	transform-origin: @value-position-left center;
+}
+.lyteNoteEditorPanelslide.lyteNoteEditorPanelTransStart .lyteEditorIconsDiv {
+	.lyteNoteEditorPanelslideTransStartIconsDivMixin();
+	transform: @transform;
+}
+.lyteNoteEditorPanelslide.lyteNoteEditorPanelTransEnd .lyteEditorIconsDiv {
+	.lyteNoteEditorPanelslideTransEndIconsDivMixin();
+	transform: @transform;
+}
+.lyteNoteEditorPanelfade.lyteNoteEditorPanelTransStart .lyteEditorIconsDiv {
+	.lyteNoteEditorPanelfadeTransStartIconsDivMixin();
+	opacity: @opacity;
+}
+.lyteNoteEditorPanelfade.lyteNoteEditorPanelTransEnd .lyteEditorIconsDiv {
+	.lyteNoteEditorPanelfadeTransEndIconsDivMixin();
+	opacity: @opacity;
+}
+.lyteNoteEditorPanelscale.lyteNoteEditorPanelTransStart .lyteEditorIconsDiv {
+	.lyteNoteEditorPanelscaleTransStartIconsDivMixin();
+	transform: @transform;
+}
+.lyteNoteEditorPanelscale.lyteNoteEditorPanelTransEnd .lyteEditorIconsDiv {
+	.lyteNoteEditorPanelscaleTransEndIconsDivMixin();
+	transform: @transform;
+}
+.lyteNoteTextEditorWrapper {
+	position: relative;
+}
+.lyteNoteButtonDisabled {
+	pointer-events: none;
+}
+
+
+lyte-notecomp .lyteFileUpdTypeIcon::after {
+	.lyteNotecompUpdTypeIconAfterMixin();
+	background-image: @bg-img;
+	background-position: @bg-pos;
+	width: @w;
+	height: @h;
+}
+lyte-notecomp .lyteFileUpdTypeIcon.video::after {
+	.lyteNotecompUpdTypeIconVideoAfterMixin();
+	background-position: @bg-pos;
+	width: @w;
+	height: @h;
+}
+lyte-notecomp .lyteFileUpdTypeIcon.pdf::after {
+	.lyteNotecompUpdTypeIconPdfAfterMixin();
+	background-position: @bg-pos;
+}
+lyte-notecomp .lyteFileUpdTypeIcon.zip::after {
+	.lyteNotecompUpdTypeIconZipAfterMixin();
+	background-position: @bg-pos;
+}
+lyte-notecomp .lyteFileUpdTypeIcon.wav::after {
+	.lyteNotecompUpdTypeIconWavAfterMixin();
+	background-position: @bg-pos;
+	width: @w;
+}
+
+
+.lyteNotePinnedComment {
+	.lyteNotePinnedCommentMixin();
+	background: @bg;
+	padding: @padding;
+	border-radius: @border-radius;
+	margin-bottom: @margin-bottom;
+	position: sticky;
+	top: @top;
+	z-index: @z-index;
+	cursor: pointer;
+}
+.lyteNotePinIndicator {
+	.lyteNotePinIndicatorMixin();
+	background: @bg;
+	width: @w;
+	height: @h;
+	border-radius: @border-radius;
+	display: inline-flex;
+	vertical-align: middle;
+	align-items: center;
+	justify-content: center;
+}
+.lyteNotePinIndicator::before {
+	.lyteNotePinIndicatorBeforeMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+.lyteNoteUnpinIcon {
+	.lyteNoteUnpinIconMixin();
+	position: absolute;
+	width: @w;
+	height: @h;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@{property-right}: @right;
+	background: @bg;
+	border-radius: @border-radius;
+	top: @top;
+	box-shadow: @box-shadow;
+	visibility: hidden;
+}
+.lyteNoteUnpinIcon::before {
+	.lyteNoteUnpinIconBeforeMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+.lyteMenuSelected.lyteNoteUnpinIcon,
+.lyteNotePinnedComment:hover .lyteNoteUnpinIcon {
+	visibility: visible;
+}
+.lyteNotePinTooltipWrapper lyte-hovercard-content {
+	.lyteNotePinTooltipHovercardContentMixin();
+	font-size: @font-size;
+	padding: @padding;
+}
+.lyteNotePinTooltipWrapper .lyteNotePinMessage {
+	.lyteNotePinTooltipPinMessageMixin();
+	display: block;
+	margin-bottom: @margin-bottom;
+}
+.lyteNoteKeepEditingButton {
+	.lyteNoteKeepEditingButtonMixin();
+	@{property-margin-right}: @margin-right;
+}
+.lyteNotePinnedCommentClick {
+	.lyteNotePinnedCommentClickMixin();
+	border-radius: @border-radius;
+	animation: lyteNoteShowPin 1s linear;
+}
+@keyframes lyteNoteShowPin {
+	0%, 100% {
+		background: #fff;
+	}
+	25%, 75% {
+		background: #fffced;
+	}
+}
+
+lyte-note-editor::after {
+	content: attr(data-note-record);
+}

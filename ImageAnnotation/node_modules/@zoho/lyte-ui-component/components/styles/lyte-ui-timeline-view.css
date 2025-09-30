@@ -1,0 +1,171 @@
+lyte-timeline-view {
+	display: block;
+	height: 100%;
+}
+.timelineViewTable {
+	height: 100%;
+	display: block;
+	box-sizing: border-box;
+	position: relative;
+}
+.timelineViewContentElem {
+	--timeline-row-size: 30px;
+	/* --timeline-column-gridline-temp: 21px; */
+	display: grid;
+	align-items: flex-start;
+	grid-auto-columns: var(--timeline-column-size);
+	row-gap: 10px;
+	height: 100%;
+	grid-auto-rows: var(--timeline-row-size);
+	overflow: auto;
+	border-top: 1px solid #d6d6d6;
+	border-left: 1px solid #d6d6d6;
+}
+.timelineViewWithGrouping .timelineViewContentElem {
+	--timeline-groupby-column-end: 0;
+	grid-auto-rows: unset;
+	grid-template-rows: 30px 30px auto;
+}
+.timelineWeekView {
+	--timeline-column-size: 200px;
+	--timeline-column-gridline-temp: 201px
+}
+.timelineHeaderElem,
+.timelineHeaderMonthElem {
+	grid-column: var(--timeline-col-number);
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: sticky;
+	background: #fff;
+	z-index: 5;
+	font-size: 12px;
+	padding: 10px 0;
+}
+.timelineHeaderMonthLabel {
+	position: sticky;
+	left: calc(var(--timeline-column-size) - 10px);
+}
+.timelineViewWithGrouping .timelineHeaderElem,
+.timelineViewWithGrouping .timelineHeaderMonthElem {
+	grid-column: calc(var(--timeline-col-number) + var(--timeline-groupby-column-end) - 1);
+}
+.timelineViewWithGrouping .timelineHeaderMonthElem {
+	padding: 10px 20px;
+	justify-content: flex-start;
+}
+.timelineViewWithGrouping .timelineHeaderMonthLabel {
+	left: calc(var(--timeline-column-size) + 10px);
+}
+.timelineHeaderMonthElem {
+	grid-row: 1;
+	top: 0;
+	justify-content: left;
+	left: 0;
+	margin-bottom: -5px;
+}
+.timelineHeaderElem {
+	grid-row: 2;
+	top: 30px;
+	border-bottom: 1px solid #d6d6d6;
+	margin-top: -5px;
+	justify-content: center;
+}
+.timelineColumnLine {
+	grid-column-start: var(--timeline-col-number);
+	width: 1px;
+	background-color: #ddd;
+	grid-row: 2 / var(--timeline-total-rows);
+}
+.timelineColumnLine.timelineColumnSeparate {
+	z-index: 10;
+}
+.timelineViewHeaderRowWrap,
+.timelineViewHeaderRow,
+.timelineColumnLinesContainer,
+.timeLineEventsContainer {
+	display: contents;
+}
+.timelineEvent {
+	transform: unset !important;
+	grid-row: var(--timeline-row-number);
+	grid-column-start: var(--timeline-column-start);
+	grid-column-end: var(--timeline-column-end);
+	border-radius: 15px;
+	position: relative;
+}
+.timelineViewWithGrouping .timelineEvent {
+	grid-column-start: calc(var(--timeline-column-start) + var(--timeline-groupby-column-end) - 1);
+	grid-column-end: calc(var(--timeline-column-end) + var(--timeline-groupby-column-end) - 1);
+}
+
+.timelineViewGroupbyContainer {
+	grid-row: 3;
+	grid-column: 1 / 367;
+	display: grid;
+	row-gap: 10px;
+	align-items: flex-start;
+}
+.timelineViewGroupbyAccordionBody {
+	display: grid;
+	grid-auto-columns: var(--timeline-column-size);
+	row-gap: 10px;
+	grid-auto-rows: var(--timeline-row-size);
+}
+
+.timelineViewGroupbyElementHeader {
+	position: sticky;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	background: #fff;
+	padding: 15px 20px;
+	grid-column: 1 / var(--timeline-groupby-column-end);
+	grid-row: 1 / 3;
+	display: flex;
+	align-items: center;
+	border-right: 1px solid #bbb;
+	border-bottom: 1px solid #d6d6d6;
+	border-top: 0;
+	border-left: 0;
+	margin-right: -1px;
+}
+.timelineViewGroupbyElement {
+	background: #EFF1F5;
+	padding: 10px 20px;
+	margin-bottom: 10px;
+	position: sticky;
+	top: 65px;
+	z-index: 4;
+}
+.timelineViewGroupbyElementLabel {
+	position: sticky;
+	left: 20px;
+}
+.timelineViewGroupbySubgroup {
+	position: sticky;
+	left: 0;
+	z-index: 3;
+	grid-row: 1 / var(--timeline-row-end);
+	grid-column: 1 / var(--timeline-groupby-column-end);
+	background-color: #fff;
+	border-right: 1px solid #bbb;
+	margin-right: -1px;
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
+.timelineLinesBg {
+	background-image: repeating-linear-gradient(to right, transparent 1px var(--timeline-column-size), #ddd var(--timeline-column-size) var(--timeline-column-gridline-temp) );
+	pointer-events: none;
+	grid-column: 1 / span 365;
+	grid-row: 3 / var(--timeline-total-rows);
+	margin-top: -10px;
+}
+.timelineViewGroupbyAccordion .timelineLinesBg {
+	grid-row: 1 / var(--timeline-row-end);
+	margin-bottom: -10px;
+}
+.timelineViewWithGrouping .timelineLinesBg {
+	grid-column: calc(var(--timeline-groupby-column-end)) / 367;
+}

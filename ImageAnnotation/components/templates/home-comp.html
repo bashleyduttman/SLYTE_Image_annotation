@@ -1,0 +1,54 @@
+<template tag-name="home-comp">
+<div class="header">
+<p>Image Annotation</p>
+</div>
+<div class="home-details">
+    <div class="home-details-sec">
+        <div class="home-details-sec-first">
+            Total Images
+            
+        </div>
+        <div>{{total||0}}</div>
+    </div>
+    <span class="border"></span>
+    <div class="home-details-sec">
+        <div>
+            Total Size(Bytes)
+        </div>
+        
+        <div>
+            {{size||0}}
+        </div>
+        
+
+    </div>
+     
+</div>
+<div class="home-file-uploader">
+    <!-- <input id="image-file" onchange="{{action('onImageChange',event)}}"  type="file" accept="image/*"/> -->
+    <lyte-fileupload lt-prop-retry-text='retry' on-success="{{method('onSuccess')}}" on-remove="{{method('onRemove')}}" lt-prop-message="drag or drop images here" lt-prop-accept="image/*" lt-prop-multiple="false" id="image-file" lt-prop-ajax='{"url":"/Fileupload"}' onchange="{{action('onImageChange',event)}}"> </lyte-fileupload>
+    <div class="home-file-image-preview">
+        <img class="{{if(ifNotEquals(previewUrl,'none'),'home-preview-available','home-preview-notAvailable')}}" src="{{previewUrl}}"/>
+    </div>
+    <div lyte-if="{{previewUrl!='none'}}">
+        <button onclick="{{action('onUploadImage',event)}}" class="home-img-upload-btn">upload</button>
+    </div>
+</div>
+<div class="home-images-container">
+    
+    <div class="home-image-edit-container" lyte-if="{{images.length>0}}" lyte-for="{{images}} as img index">
+       
+        <img  src="{{img.data}}"/>
+        <div class="home-image-edit" onclick="{{action('handleEdit',event,img.data,img.id)}}">edit</div>
+
+    </div>
+    
+    <div lyte-if="{{images.length===0}}">
+        <loading-comp></loading-comp>
+    </div>
+   
+
+</div>
+
+
+</template>

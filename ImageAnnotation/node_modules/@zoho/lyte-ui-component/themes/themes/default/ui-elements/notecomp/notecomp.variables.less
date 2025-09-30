@@ -1,0 +1,496 @@
+@cssMaskIconLyteNoteCommonIconColor: #313949;
+@cssMaskIconLyteNoteDraftIconColor: @cssMaskIconLyteNoteCommonIconColor;
+@cssMaskIconLyteNoteLikeReactionIconColor: @cssMaskIconLyteNoteCommonIconColor;
+@cssMaskIconLyteNoteLikeReactionSelectedIconColor: #48ACEB;
+@cssMaskIconLyteNoteBgSwitchIconColor: @cssMaskIconLyteNoteCommonIconColor;
+@cssMaskIconLyteNote_editor_smiley_fileupdIconsColor: @cssMaskIconLyteNoteCommonIconColor;
+@cssMaskIconLyteNoteFileUpdSuccessTickIconColor: #24C948;
+@cssMaskIconLyteNoteFileUpdRetryIconColor: #58A2E5;
+@cssMaskIconLyteNotePinIconColor: #F5F5F5;
+@cssMaskIconLyteNotePinOptionsIconColor: @cssMaskIconLyteNoteCommonIconColor;
+
+.lyteNotecompMixin() {
+	@box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+	@border-radius: 5px;
+	@padding-bottom: 20px;
+	@font-family: @primaryFont;
+	@max-height: 100%;
+}
+.lyteNoteMainCommentMixin() {
+	@margin-bottom: 15px;
+	@padding: .lyteLESSPaddingMixin(15px 15px 0 20px)[@padding];
+}
+.lyteNoteMainCommentAvatarMixin() {
+	@w: 40px;
+	@h: 40px;
+	@border-radius: 50%;
+	@margin: .lyteLESSMarginMixin(5px 5px 0 0)[@margin];
+}
+.lyteNotecompEditorMixin() {
+	@padding: 5px;
+}
+.lyteNoteFakeElementMixin() {
+	@padding: 10px;
+	@border: 1px solid #CBD8E4;
+	@border-radius: @lyteNoteCommonBorderRadius;
+	@color: #313949;
+	@font-family: @primaryFont;
+	@font-size: 15px;
+}
+.lyteNoteFakeElementHoverMixin() {
+	@bg: #f8fbfe;
+	@border: 1px solid #cedbee;
+}
+.lyteNoteFakeElementDraftMixin() {
+	@h: 20px;
+	@border: 1px solid #e2d3ca;
+}
+.lyteNoteDraftAfterMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -195px -45px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteNoteDraftIconColor;
+	@w: 15px;
+	@h: 16px;
+	@right: 10px;
+	@top: calc(50% - 8px);
+}
+.lyteNoteDraftWrapperMixin() {
+	@opacity: 0.7;
+}
+.lyteNoteEditorWrapperMixin() {
+	@border: 1px solid #429FF5;
+	@border-radius: @lyteNoteCommonBorderRadius;
+}
+.lyteNoteEditorWrapperEditorWhiteBgMixin() {
+	@box-shadow: 0 0 6px #8dc4ff;
+}
+.lyteNotecompTexteditorMixin() {
+	@min-height: 50px;
+	@h: 120px;
+	@border-radius: @lyteNoteCommonBorderRadius;
+	@border: 0;
+}
+.lyteNotecompTexteditorFocusedMixin() {
+	@border: 0;
+}
+.lyteNotecompEditorMainDivMixin() {
+	@padding-right: 30px;
+}
+.lyteNoteEditorFooterMixin() {
+	@bg: @lyteNoteEditorFooterBg;
+	@padding: 5px 10px;
+	@border-radius: 0 0 @lyteNoteCommonBorderRadius @lyteNoteCommonBorderRadius;
+}
+.lyteNoteCancelSaveWrapButtonLastChildMixin() {
+	@margin-left: 10px;
+}
+.lyteNoteCommentWrapperMixin() {
+	@padding: 0 10px;
+}
+.lyteEditorContentMixin() {
+	@padding: 10px;
+	@border: 1px solid #e4e4e4;
+	@border-radius: 10px;
+	@bg: #f8f8f8;
+	@max-w: calc(100% - 105px);
+}
+.lyteCommentHoverMixin() {
+	@border: 1px solid #bdbcbc;
+}
+.lyteEditorContentOlMixin() {
+	@padding-left: 20px;
+}
+.lyteCommentEmojiWrapperMixin() {
+	@margin-right: 5px;
+}
+.lyteEmojiContainerMixin() {
+	@bg: #f0f2f5;
+	@border-radius: 20px;
+	@padding: 4px 6px;
+	@font-size: 13px;
+	@line-height: 13px;
+	@border: 1px solid transparent;
+	@margin-right: 8px;
+	@margin-bottom: 10px;
+}
+.lyte_emoji_reactions_0Mixin() {
+	@bg: transparent;
+	@padding: 4px 9px;
+}
+.lyte_emoji_reactions_0HoverMixin() {
+	@bg: #f0f2f5;
+}
+.lyteNoteLikeReactionEmojiHolderMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -284px -2px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteNoteLikeReactionIconColor;
+	@w: 14px;
+	@h: 16px;
+}
+.lyteNoteLikeReactionEmojiselectedHolderMixin() {
+	@bg-pos: -304px -2px;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteNoteLikeReactionSelectedIconColor;
+}
+.lyteEmojiCountMixin() {
+	@margin-left: 5px;
+}
+.lyteEmojiContainerHoverMixin() {
+	@border: 1px solid #c6d0d9;
+}
+.lyteEmojiSelectedMixin() {
+	@color: #48aceb;
+	@bg: #f8fcfe;
+	@border: 1px solid #94bdd6;
+}
+.lyteNoteEmojiTooltipTitleMixin() {
+	@font-family: @secondaryFont;
+	@margin-bottom: 5px;
+	@font-size: 14px;
+}
+.lyteNoteEmojiTooltipHovercardContentMixin() {
+	@padding: 8px;
+}
+.lyteNoteEmojiTooltipNamesMixin() {
+	@font-size: 13px;
+	@color: #ddd;
+}
+.lyteNoteBgSwitcherMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -6px -4px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteNoteBgSwitchIconColor;
+	@w: 16px;
+	@h: 15px;
+	@top: 10px;
+	@right: 10px;
+}
+.lyteNoteFileUpd_Editor_SmileyIconMixin() {
+	@w: 33px;
+	@h: 33px;
+	@border-radius: @lyteNoteCommonBorderRadius;
+	@border: 1px solid transparent;
+}
+.lyteNoteSmiley_IconHolderMixin() {
+	@margin-left: 5px;
+}
+.lyteNoteFileUpd_Editor_SmileyIconBeforeMixin() {
+	@bg-img: @lyteNoteSprite;
+	@mask-img: @bg-img;
+	@bg-color: @cssMaskIconLyteNote_editor_smiley_fileupdIconsColor;
+}
+.lyteNoteSmileyIconBeforeMixin() {
+	@bg-pos: -261px -3px;
+	@mask-pos: @bg-pos;
+	@w: 16px;
+	@h: 17px;
+}
+.lyteNoteFileUploadBeforeMixin() {
+	@bg-pos: -238px -4px;
+	@mask-pos: @bg-pos;
+	@w: 16px;
+	@h: 14px;
+}
+.lyteNoteFileUploadFileUpdListMixin() {
+	@margin: 0;
+}
+.lyteNoteSmileyIconHoverMixin() {
+	@border: 1px solid #c1c8d2;
+}
+.lyteNoteIconHolderMixin() {
+	@margin-right: auto;
+}
+.lyteNoteEditorIconMixin() {
+	@bg: #fff;
+	@box-shadow: 0 0 3px 0 rgba(0,0,0,0.2);
+	@border-radius: @lyteNoteCommonBorderRadius 0 0 @lyteNoteCommonBorderRadius;
+}
+.lyteEditorPanelHiddenMixin() {
+	@bg: transparent;
+	@box-shadow: none;
+	@border-radius: @lyteNoteCommonBorderRadius;
+}
+.lyteNoteEditorIconBeforeMixin() {
+	@bg-pos: -71px -25px;
+	@mask-pos: @bg-pos;
+	@w: 13px;
+	@h: 13px;
+}
+.lyteNotecompEditorIconsDivMixin() {
+	@border-radius: 0 @lyteNoteCommonBorderRadius @lyteNoteCommonBorderRadius 0;
+	@box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25) inset;
+}
+.lyteNotecompEditorBgIconMixin() {
+	@margin-right: 0;
+}
+.lyteNoteFileStatusMixin() {
+	@bg: @lyteNoteFileStatusBg;
+	@padding: 10px;
+	@border-bottom: 1px solid #e3e7ee;
+}
+.lyteNotecompFileUpdListMixin() {
+	@margin-top: 0;
+}
+.lyteNoteFileStatusFileuploadMixin() {
+	@w: auto;
+}
+.lyteNoteFileStatusUpdThumbMixin() {
+	@border-radius: @lyteNoteCommonBorderRadius 0 0 @lyteNoteCommonBorderRadius;
+	@w: 30px;
+	@h: 30px;
+	@border: 0;
+}
+.lyteNoteFileUpdListInnerWrapMixin() {
+	@w: 310px;
+	@bg: #eaf0f6;
+	@border-radius: @lyteNoteCommonBorderRadius;
+}
+.lyteFileUpdListFileSuccessInnerWrapMixin() {
+	@bg: #eaf6ee;
+}
+.lyteFileUpdListFileErrorInnerWrapMixin() {
+	@bg: #f6eaea;
+}
+.lyteNoteFileStatusUpdTypePreviewMixin() {
+	@margin-right: 0;
+	@w: 30px;
+	@h: 30px;
+	@border-radius: @lyteNoteCommonBorderRadius 0 0 @lyteNoteCommonBorderRadius;
+	@bg: #fff;
+}
+.lyteNoteFileStatusUpdListFileMixin() {
+	@bg: transparent;
+	@padding: 0;
+	@border: 0;
+	@padding-right: 50px;
+}
+.lyteNoteFileStatusUpdFileNameMixin() {
+	@padding: 6px 5px;
+	@margin-right: 0;
+	@max-w: calc(100% - 80px);
+	@font-size: 15px;
+	@color: @lyteNoteFileUploadFileNameTextColor;
+	@line-height: 18px;
+}
+.lyteNoteFileStatusUpdListFileSuccessFileNameMixin() {
+	@max-w: calc(100% - 80px);
+}
+.lyteNoteFileStatusUpdFileStatusMixin() {
+	@bottom: 0;
+	@left: 30px;
+	@w: 280px;
+	@margin-right: 0;
+}
+.lyteNoteFileStatusUpdFileSizeMixin() {
+	@padding: .lyteLESSPaddingMixin(7px 10px 7px 5px)[@padding];
+	@border-radius: 0 @lyteNoteCommonBorderRadius @lyteNoteCommonBorderRadius 0;
+	@font-size: 13px;
+	@margin-right: 0;
+	@color: #8390a9;
+}
+.lyteNoteFileStatusFileRetryMixin() {
+	@margin-left: 10px;
+	@margin-right: 0;
+}
+.lyteNoteFileStatusUpdProgressBarMixin() {
+	@w: 100%;
+	@border-radius: 2px;
+	@h: 2px;
+}
+.lyteNoteFileStatusUpdProgressFillMixin() {
+	@border-radius: 0;
+	@h: 2px;
+}
+.lyteNoteFileStatusUpdListFileFileSuccessAfterMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -139px -49px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteNoteFileUpdSuccessTickIconColor;
+	@w: 10px;
+	@h: 8px;
+	@left: 320px;
+}
+.lyteNoteFileStatusFileCloseMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -113px -44px;
+	@w: 18px;
+	@h: 18px;
+	@opacity: 1;
+	@margin-left: 10px;
+}
+.lyteNoteFileStatusFileCloseHoverMixin() {
+	@opacity: 1;
+}
+.lyteNoteIndividualFilePercentageMixin() {
+	@margin-left: 10px;
+	@font-size: 13px;
+	@color: #8390a9;
+}
+.lyteNoteFileUploadStatusMixin() {
+	@padding: 10px;
+	@bg: #fff;
+	@border-radius: 8px;
+	@color: #898f9a;
+	@font-size: 13px;
+}
+.lyteNoteFileStatusUpdRetryMsgMixin() {
+	@color: #58a2e5;
+	@border-bottom: 1px dotted #58a2e5;
+	@font-size: 13px;
+}
+.lyteNoteFileStatusFileRetryAfterMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -91px -46px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteNoteFileUpdRetryIconColor;
+	@w: 14px;
+	@h: 15px;
+	@transform: scale(0.8);
+	@margin-left: 5px;
+}
+.fileDragEnterFileSelectAreaMixin() {
+	@w: 100%;
+	@h: 100%;
+	@bg: #fff;
+	@z-index: 5;
+	@border: 1px dashed #ddd;
+	@border-radius: 5px;
+}
+.fileDragEnterFileSelectAreaAfterMixin() {
+	@color: #777;
+}
+.lyteNoteUploadCountSectionMixin() {
+	@margin-bottom: 10px;
+}
+.lyteNoteSizeTextMixin() {
+	@margin-right: 3px;
+}
+.lyteNoteUploadSizeNumberMixin() {
+	@color: @lyteNoteFileUploadTotalFileSizeTextColor;
+}
+.lyteNoteUploadCountSectionSvgContainerMixin() {
+	@w: 17px;
+	@h: 17px;
+	@margin-right: 9px;
+	@margin-left: 1px;
+}
+.lyteNoteUploadSizeSvgContainerMixin() {
+	@w: 19px;
+	@h: 19px;
+	@margin-right: 8px;
+}
+.lyteNoteSvgGroupMixin() {
+	@transform: rotate(-90deg);
+}
+.lyteNoteUploadCountSectionGroupBgCircleMixin() {
+	@stroke: #e55858;
+}
+.lyteNoteUploadCountSectionSvgGroupProgressCircleMixin() {
+	@stroke: #24C948;
+}
+.lyteNoteUploadSizeSvgGroupBgCircleMixin() {
+	@stroke: #dfebf6;
+}
+.lyteNoteUploadSizeSvgGroupProgressCircleMixin() {
+	@stroke: #42A2EB;
+}
+.lyteNoteEditorPanelslideTransStartIconsDivMixin() {
+	@transform: translateX(-100%);
+}
+.lyteNoteEditorPanelslideTransEndIconsDivMixin() {
+	@transform: translateX(0);
+}
+.lyteNoteEditorPanelfadeTransStartIconsDivMixin() {
+	@opacity: 0;
+}
+.lyteNoteEditorPanelfadeTransEndIconsDivMixin() {
+	@opacity: 1;
+}
+.lyteNoteEditorPanelscaleTransStartIconsDivMixin() {
+	@transform: scaleX(0);
+}
+.lyteNoteEditorPanelscaleTransEndIconsDivMixin() {
+	@transform: scaleX(1);
+}
+.lyteNotecompUpdTypeIconAfterMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -205px -68px;
+	@w: 15px;
+	@h: 17px;
+}
+.lyteNotecompUpdTypeIconVideoAfterMixin() {
+	@bg-pos: -5px -70px;
+	@w: 16px;
+	@h: 14px;
+}
+.lyteNotecompUpdTypeIconPdfAfterMixin() {
+	@bg-pos: -70px -68px;
+}
+.lyteNotecompUpdTypeIconZipAfterMixin() {
+	@bg-pos: -114px -68px;
+}
+.lyteNotecompUpdTypeIconWavAfterMixin() {
+	@bg-pos: -94px -68px;
+	@w: 11px;
+}
+.lyteNotePinnedCommentMixin() {
+	@bg: #f4f4f4;
+	@padding: 10px;
+	@border-radius: 5px;
+	@margin-bottom: 10px;
+	@top: 0;
+	@z-index: 1;
+}
+.lyteNotePinIndicatorMixin() {
+	@bg: #d4a375;
+	@w: 40px;
+	@h: 40px;
+	@border-radius: 50%;
+}
+.lyteNotePinIndicatorBeforeMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -219px -47px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteNotePinIconColor;
+	@w: 12px;
+	@h: 12px;
+}
+.lyteNoteUnpinIconMixin() {
+	@w: 30px;
+	@h: 30px;
+	@right: 10px;
+	@bg: #fff;
+	@border-radius: 50%;
+	@top: calc(50% - 15px);
+	@box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+}
+.lyteNoteUnpinIconBeforeMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -5.5px -27px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteNotePinOptionsIconColor;
+	@w: 14px;
+	@h: 4px;
+}
+.lyteNotePinTooltipHovercardContentMixin() {
+	@font-size: 13px;
+	@padding: 8px;
+}
+.lyteNotePinTooltipPinMessageMixin() {
+	@margin-bottom: 5px;
+}
+.lyteNoteKeepEditingButtonMixin() {
+	@margin-right: 5px;
+}
+.lyteNotePinnedCommentClickMixin() {
+	@border-radius: @lyteNoteCommonBorderRadius;
+}

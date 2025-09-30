@@ -1,0 +1,72 @@
+@use "../global/global.variables.scss" as global;
+
+$cssMaskIconLyteModalCloseIconColor: global.$lyteIconsThemeColor !default;
+
+$lyteModalMap: (
+	"background": global.$modalBg,
+	"box-shadow": global.$modalBoxShadow,
+	"opacity": 0,
+	"border-radius": 2px,
+	"z-index": 10,
+	"border": 1px solid transparent
+) !default;
+
+$lyteModalWrapperMap:( 
+	"top": 0,
+	"bottom": 0,
+	"left": 0,
+	"right": 0,
+	"z-index": global.$modalzIndex
+) !default;
+
+$lyteModalHeaderMap: (
+	"font-size": 18px,
+	"color": global.$modalHeaderColor,
+	"padding": 25px 25px 15px
+) !default;
+
+$lyteModalContentMap: (
+	"padding": 15px 25px,
+	"font-size": 15px,
+	"color": global.$modalContentColor
+) !default;
+
+$lyteModalFooterMap: (
+	"padding": 10px 25px 25px
+) !default;
+
+$lyteModalHiddenFreezeMap: (
+	"opacity": 0
+) !default;
+
+$lyteModalFreezeMap: (
+	"z-index": 5,
+	"background": global.$modalFreezeBg,
+	"opacity": 0.4
+) !default;
+
+$lyteModalCloseMap: (
+	"background-image": global.$lytesprite,
+	"background-position": -52px 0px,
+	"mask-img": global.$lytesprite,
+	"mask-position": -52px 0px,
+	"background-color": $cssMaskIconLyteModalCloseIconColor,
+	"width": 13px,
+	"height": 13px,
+	"top": 30px,
+	"right": 30px,
+	"opacity": .5,
+    "z-index": 5
+) !default;
+
+$lyteModalCloseHoverMap: (
+	"opacity": 1
+) !default;
+
+$lyteModalFooterBtnMap: (
+	"margin-left": 7px
+) !default;
+
+$lyteModalFadeinMap: (
+    "opacity": 1
+) !default;

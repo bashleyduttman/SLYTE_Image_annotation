@@ -1,0 +1,57 @@
+{
+ "path": {
+  "/app-init.js": [
+   "/app-init.js",
+   "/lyte.js"
+  ],
+  "/components/javascript/home-comp.js": [
+   "/components/javascript/home-comp.js",
+   "/components/javascript/loading-comp.js",
+   "/data-store/schemas/Images.js",
+   "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
+  ],
+  "/components/javascript/image-comp.js": [
+   "/components/javascript/image-comp.js",
+   "/data-store/schemas/Annotation.js",
+   "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
+  ],
+  "/components/javascript/loading-comp.js": [
+   "/components/javascript/loading-comp.js",
+   "/components/javascript/home-comp.js",
+   "/data-store/schemas/Images.js",
+   "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
+  ],
+  "/components/javascript/wildcard-comp.js": [
+   "/components/javascript/wildcard-comp.js"
+  ],
+  "/data-store/schemas/Annotation.js": [
+   "/data-store/schemas/Annotation.js",
+   "/components/javascript/image-comp.js",
+   "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
+  ],
+  "/data-store/schemas/Images.js": [
+   "/data-store/schemas/Images.js",
+   "/components/javascript/home-comp.js",
+   "/components/javascript/loading-comp.js",
+   "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
+  ],
+  "/lyte.js": [
+   "/lyte.js",
+   "/app-init.js"
+  ],
+  "/runtime.js": [
+   "/runtime.js",
+   "/app-init.js",
+   "/lyte.js"
+  ],
+  "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js": [
+   "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js",
+   "/components/javascript/home-comp.js",
+   "/components/javascript/image-comp.js",
+   "/components/javascript/loading-comp.js",
+   "/data-store/schemas/Annotation.js",
+   "/data-store/schemas/Images.js"
+  ]
+ },
+ "component": {}
+}

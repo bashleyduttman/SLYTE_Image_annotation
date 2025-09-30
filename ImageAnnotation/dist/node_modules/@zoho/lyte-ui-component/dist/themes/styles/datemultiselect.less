@@ -1,0 +1,141 @@
+@import "../themes/default/ui-elements/datemultiselect/datemultiselect.variables.less";
+
+@import "../config.less";
+
+@import (optional) "../themes/@{datemultiselect}/ui-elements/datemultiselect/datemultiselect.variables.less";
+
+
+@import (multiple,optional) "../themes/default/global/@{direction}.less";
+
+@import (multiple,optional) "../themes/@{datemultiselect}/global/@{direction}.less";
+
+
+lyte-datemultiselect {
+	display: inline-block;
+}
+
+.lyteDMSButton {
+	.lyteDMSButtonMixin();
+	border: @border;
+	background-color: @background-color;
+	padding: @padding;
+	border-radius: @border-radius;
+	cursor: pointer;
+}
+
+.lyteDMSButton:hover {
+	.lyteDMSButtonHoverMixin();
+	border: @border;
+}
+
+.lyteDmsWrap {
+	.lyteDmsWrapMixin();
+	display: flex;
+	position: absolute;
+	box-shadow: @box-shadow;
+	border: @border;
+	border-radius: @border-radius;
+}
+
+.lyteDmsSelectionContainer {
+	.lyteDmsSelectionContainerMixin();
+	background-color: @background-color;
+	border-radius: @border-radius;
+	box-shadow: @box-shadow;
+	display: inline-flex;
+	flex-direction: column;
+	overflow: auto;
+	box-sizing: border-box;
+	font-size: @font-size;
+	max-height: @max-height;
+	border-left: @border-left;
+}
+
+.lyteDmsCalcWrap {
+	.lyteDmsCalcWrapMixin();
+	display: flex;
+	align-items: center;
+	padding: @padding;
+	border-bottom: @border-bottom;
+}
+
+.lyteDmsDateCalc {
+	.lyteDmsDateCalcMixin();
+	color: @color;
+	border-radius: @border-radius;
+	border: @border;
+	width: @w;
+	height: @h;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lyteDmsDayCalc {
+	.lyteDmsDayCalcMixin();
+	margin-right: @margin-right;
+	color: @color;
+}
+
+.lyteDmsRightPanelContentWrap {
+	overflow: auto;
+	flex-grow: 1;
+}
+
+.lyteDmsRightDate {
+	.lyteDmsRightDateMixin();
+	display: flex;
+	flex-direction: column;
+	padding: @padding;
+}
+
+.lyteDmsSelectedDays {
+	.lyteDmsSelectedDaysMixin();
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: @padding;
+	color: @color;
+}
+
+.lyteDMSRemoveIcon {
+	.lyteDMSRemoveIconMixin();
+	width: @w;
+	height: @h;
+	-webkit-mask-image: @mask-image;
+	-webkit-mask-position: @mask-position;
+	mask-image: @mask-image;
+	mask-position: @mask-position;
+	background-color: @background-color;
+	cursor: pointer;
+}
+
+.lyteDMSRemoveAll {
+	.lyteDMSRemoveAllMixin();
+	color: @color;
+	text-align: center;
+	padding: @padding;
+	cursor: pointer;
+}
+
+.lyteDMSHide {
+	display: none;
+}
+
+.lyteDmsWrap .lyteCalendarPopup {
+	.lyteCalendarPopupMixin();
+	border: @border;
+	border-radius: @border-radius;
+	box-shadow: @box-shadow;
+	border-right: @border-right;
+}
+
+.lyteDmsWrap {
+	position: relative;
+}
+
+.lyteDMSButtonPlaceholder {
+	.lyteDMSButtonPlaceholderMixin();
+	color: @color;
+}

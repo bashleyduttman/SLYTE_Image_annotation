@@ -1,0 +1,15 @@
+lyte-connect-swimlanes{
+    display: flex;
+    position: relative;
+}
+.lyteConnectionSwimlanesMarker{
+    position: absolute;
+}
+lyte-connect-swimlanes lyte-connect{
+    position: absolute;
+    z-index: 2;
+}
+lyte-connect-swimlanes .lyteConnectionSelected{
+    pointer-events: none;
+    /* color: red; */
+}

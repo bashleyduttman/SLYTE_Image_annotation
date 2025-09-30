@@ -1,0 +1,16 @@
+{
+ "name": "Imageannotation",
+ "version": "1.0.0",
+ "description": "Description for ImageAnnotation goes here",
+ "scripts": {
+  "start": "lyte server",
+  "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "author": "",
+ "license": "ISC",
+ "dependencies": {
+  "@slyte/core": "1.0.0",
+  "@zoho/lyte-ui-component": "^4.1.13"
+ }
+}
+

@@ -1,0 +1,161 @@
+@use "../global/global.variables.scss" as global;
+
+$lyteMenuBoxMap: (
+	"z-index": global.$lyteMenuzIndex,
+    "top": -9999px,
+    "left": -9999px,
+    "border-radius": 2px,
+    "box-shadow": 0px 1px 3px 0px rgba(134, 134, 134, 0.4),
+) !default;
+
+$lyteMenuBodyMap: (
+	"background": global.$lyteMenuBg,
+	"border": 1px solid global.$lyteMenuBorderColor,
+    "border-radius": 2px,
+    "padding": 5px 0,
+) !default;
+
+$lyteMenuItemMap: (
+	"font-size": 15px,
+	"padding": 5px 15px,
+    "z-index": 1,
+    "color": #111,
+) !default;
+
+$lyteMenuSelectionMap: (
+	"background": global.$lyteMenuItemHover,
+) !default;
+
+$lyteMenuLabelMap: (
+	"font-size": 14px,
+	"color": global.$lyteMenuLabelColor,
+	"margin-right": 30px,
+) !default;
+
+$lyteMenuHeaderMap: (
+	"color": global.$lyteMenuHeaderColor,
+	"font-size": 14px,
+	"padding": 3px 15px 4px 15px,
+) !default;
+
+$lyteMenuDescriptionMap: (
+	"font-size": 14px,
+    "color": global.$lyteMenuDescColor,
+	"opacity": 0.5,
+) !default;
+
+$lyteMenuGroupMap: (
+	"border-bottom": 1px solid global.$lyteMenuGroupBorder,
+	"padding": 5px 0,
+) !default;
+
+$lyteMenuGroupFirstOfTypeMap: (
+	"border-top": 0,
+    "padding-top": 0,
+) !default;
+
+$lyteMenuGroupLastOfTypeMap: (
+    "border-bottom": 0,
+    "padding-bottom": 0,
+) !default;
+
+$lyteMenuLastGroupItemMap: (
+	"border-top": 1px solid global.$lyteMenuGroupBorder,
+) !default;
+
+$lyteMenufreezelayerMap: (
+	"background": global.$lyteMenuBg,
+	"opacity": 0.1,
+	"z-index": calc(global.$lyteMenuzIndex - 5),
+) !default;
+
+$lyteMenuArrowIconMap: (
+    "width": 11px,
+    "height": 11px,
+    "background": global.$lyteMenuBg,
+) !default;
+
+$lyteMenuArrowIconTopMap: (
+    "box-shadow": -1px -1px 0 0 global.$lyteMenuBorderColor,
+    "top": -4px,
+) !default;
+
+$lyteMenuArrowIconBottomMap: (
+    "box-shadow": 1px 1px 0 0 global.$lyteMenuBorderColor,
+    "bottom": -4px,
+) !default;
+
+$lyteMenuArrowIconLeftMap: (
+    "box-shadow": -1px 1px 0 0 global.$lyteMenuBorderColor,
+    "left": -4px,
+) !default;
+
+$lyteMenuArrowIconRightMap: (
+    "box-shadow": 1px -1px 0 0 global.$lyteMenuBorderColor,
+    "right": -4px,
+) !default;
+
+$lyteHoverMenuTopBottomBodyBeforeMap: (
+    "height": 10px,
+) !default;
+
+$lyteHoverMenuLeftRightBodyBeforeMap: (
+    "width": 10px,
+) !default;
+
+$lyteHoverMenuBottomBodyBeforeMap: (
+    "top": -10px,
+) !default;
+
+$lyteHoverMenuTopBodyBeforeMap: (
+    "bottom": -10px,
+) !default;
+
+$lyteHoverMenuLeftBodyBeforeMap: (
+    "right": -10px,
+) !default;
+
+$lyteHoverMenuRightBodyBeforeMap: (
+    "left": -10px,
+) !default;
+
+$lyteMenuItemDisabledMap: (
+	"opacity": 0.4,
+	"cursor": not-allowed,
+) !default;
+
+$lyteMenuAccordionContainerMap: (
+	"padding": 0,
+) !default;
+
+$lyteMenuAccordionItemLyteMenuItemMap: (
+	"padding-left": 25px,
+) !default;
+
+$lyteMenuAccordionClosedLyteMenuAccordionItemMap: (
+	"height": 0,
+) !default;
+
+$lyteMenuAccordionContainerLyteMenuLabelMap: (
+	"padding": 5px 15px,
+	"margin-right": 0,
+) !default;
+
+$lyteMenuAccordionContainerLyteMenuSelectionLyteMenuLabelMap: (
+	"background": #ebebeb,
+) !default;
+
+$lyteMenuAccordionContainerArrowIconMap: (
+	"background-image": global.$lytesprite,
+	"background-position": -1px -2px,
+	"width": 8px,
+	"height": 4px,
+	"top": 50%,
+	"right": 15px,
+	"transform": translateY(-50%) rotate(360deg),
+	"transition": transform 0.3s ease,
+) !default;
+
+$lyteMenuAccordionContainerOpenedArrowIconMap: (
+	"transform": translate(0%, -50%) rotate(180deg),
+) !default;

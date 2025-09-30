@@ -1,0 +1,503 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/input.variables.scss";
+
+@use "../default/variables/input.variables.scss" as *;
+
+lyte-input {
+	position: relative;
+	display: inline-flex;
+	font-family: $primaryFont;
+}
+lyte-input .lyteLabel {
+	font-family: $primaryFont;
+	font-size: map.get($lyteInputLabelMap, "font-size");
+    #{$property-padding-right}: map.get($lyteInputLabelMap, "padding-right");
+	color: map.get($lyteInputLabelMap, "color");
+    flex-grow: 1;
+	@include addExtraStyles($lyteInputLabelMap);
+}
+lyte-input .lyteField {
+    flex-grow: 1;
+}
+lyte-input input,
+lyte-input textarea {
+	font-family: $primaryFont;
+	font-size: map.get($lyteInputBoxInputMap,"font-size");
+	color: map.get($lyteInputBoxInputMap,"color");
+	outline: none;
+	box-sizing: border-box;
+	@include addExtraStyles($lyteInputBoxInputMap);
+}
+@if $isLyteInputAppearanceBoxEnabled {
+	.lyteInputBox .lyteField {
+		border: map.get($lyteInputBoxFieldMap, "border");
+		border-radius: map.get($lyteInputBoxFieldMap, "border-radius");
+		@include addExtraStyles($lyteInputBoxFieldMap);
+	}
+}
+.lyteInputBox input,
+lyte-input textarea {
+    background: map.get($lyteInputBoxInputMap, "background");
+	border: map.get($lyteInputBoxInputMap, "border");
+	border-radius: map.get($lyteInputBoxInputMap, "border-radius");
+	padding: map.get($lyteInputBoxInputMap, "padding");
+	width: 100%;
+    display: block;
+	box-shadow: none;
+	@include addExtraStyles($lyteInputBoxInputMap);
+}
+lyte-input input:disabled {
+	background: map.get($lyteInputBoxInputDisabledMap, "background");
+	cursor: not-allowed;
+    color: map.get($lyteInputBoxInputDisabledMap, "color");
+	@include addExtraStyles($lyteInputBoxInputDisabledMap);
+}
+lyte-input .ltIconShow.lyteField,
+lyte-input[lt-prop-type="search"] .lyteField {
+	position: relative;
+}
+lyte-input[lt-prop-type="textarea"] .lyteField {
+	position: relative;
+	overflow: hidden;
+}
+@if $isLyteInputTypeTextareaEnabled {
+	lyte-input textarea {
+		min-height: map.get($lyteInputTextareaMap, "min-height");
+		resize: both;
+		@include addExtraStyles($lyteInputTextareaMap);
+	}
+	lyte-input[lt-prop-type="textarea"] .lyteField::after {
+		content: '';
+		width: map.get($lyteInputTextareaFieldAfterMap, "width");
+		height: map.get($lyteInputTextareaFieldAfterMap, "height");
+		background: map.get($lyteInputTextareaFieldAfterMap, "background");
+		position: absolute;
+		#{$property-right}: map.get($lyteInputTextareaFieldAfterMap, "right");
+		bottom: map.get($lyteInputTextareaFieldAfterMap, "bottom");
+		z-index: map.get($lyteInputTextareaFieldAfterMap, "z-index");
+		border-radius: map.get($lyteInputTextareaFieldAfterMap, "border-radius");
+		-webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
+		clip-path: polygon(100% 0, 100% 100%, 0 100%);
+		@include addExtraStyles($lyteInputTextareaFieldAfterMap);
+	}
+	lyte-input.lyteTextareaNoResize .lyteField::after {
+		content: none;
+	}
+	.lyteTextareaNoResize textarea {
+		resize: none;
+	}
+}
+@if $isLyteInputAppearanceBoxEnabled {
+	.lyteInputBox .lyteField:hover {
+		border: map.get($lyteInputBoxFieldHoverMap, "border");
+		@include addExtraStyles($lyteInputBoxFieldHoverMap);
+	}
+	.lyteInputBox.lyteInputFocus .lyteField {
+		border: map.get($lyteInputBoxFieldFocusMap, "border");
+		@include addExtraStyles($lyteInputBoxFieldFocusMap);
+	}
+}
+.lyteInputBox input:hover,
+lyte-input textarea:hover {
+    border: map.get($lyteInputBoxInputHoverMap, "border");
+	@include addExtraStyles($lyteInputBoxInputHoverMap);
+}
+.lyteInputBox input:focus,
+lyte-input textarea:focus {
+    border: map.get($lyteInputBoxInputFocusMap, "border");
+	@include addExtraStyles($lyteInputBoxInputFocusMap);
+}
+@if $isLyteInputTypeTextareaEnabled {
+	.lyteTextareaResize {
+		@if $useCssMaskForBg {
+			mask-image: map.get($lyteTextareaResizeMap, "mask-img");
+			mask-position: map.get($lyteTextareaResizeMap, "mask-position");
+			background-color: map.get($lyteTextareaResizeMap, "background-color");
+		} @else {
+			background-image: map.get($lyteTextareaResizeMap, "background-image");
+			background-position: map.get($lyteTextareaResizeMap, "background-position");
+		}
+		width: map.get($lyteTextareaResizeMap, "width");
+		height: map.get($lyteTextareaResizeMap, "height");
+		#{$property-right}: map.get($lyteTextareaResizeMap, "right");
+		bottom: map.get($lyteTextareaResizeMap, "bottom");
+		display: inline-block;
+		position: absolute;
+		cursor: $value-se-resize;
+		opacity: map.get($lyteTextareaResizeMap, "opacity");
+		z-index: map.get($lyteTextareaResizeMap, "z-index");
+		@if ($direction == rtl) {
+			transform: map.get($lyteTextareaResizeMap, "transform");
+		}
+		@include addExtraStyles($lyteTextareaResizeMap);
+	}
+	.lyteTextareaResizeHorizontal {
+		cursor: ew-resize;
+	}
+	.lyteTextareaResizeVertical {
+		cursor: ns-resize;
+	}
+}
+@if $isLyteInputAppearanceBoxEnabled {
+	.lyteInputBox.lyteInputDisabled .lyteField:hover {
+		border: map.get($lyteInputBoxFieldDisabledHoverMap, "border");
+		@include addExtraStyles($lyteInputBoxFieldDisabledHoverMap);
+	}
+}
+lyte-input input::placeholder {
+	font-family: $primaryFont;
+	color: map.get($lyteInputPlaceholderMap, "color");
+	@include addExtraStyles($lyteInputPlaceholderMap);
+}
+lyte-input input:-ms-input-placeholder {
+	font-family: $primaryFont;
+	color: map.get($lyteInputPlaceholderMap, "color");
+	@include addExtraStyles($lyteInputPlaceholderMap);
+}
+lyte-input input::-ms-input-placeholder {
+	font-family: $primaryFont;
+	color: map.get($lyteInputPlaceholderMap, "color");
+	@include addExtraStyles($lyteInputPlaceholderMap);
+}
+lyte-input input::-ms-clear {
+    display: none;
+}
+@if $isLyteInputTypeTextareaEnabled {
+	lyte-input textarea::placeholder {
+		font-family: $primaryFont;
+		color: map.get($lyteInputPlaceholderMap, "color");
+		@include addExtraStyles($lyteInputPlaceholderMap);
+	}
+	lyte-input textarea:-ms-input-placeholder {
+		font-family: $primaryFont;
+		color: map.get($lyteInputPlaceholderMap, "color");
+		@include addExtraStyles($lyteInputPlaceholderMap);
+	}
+	lyte-input textarea::-ms-input-placeholder {
+		font-family: $primaryFont;
+		color: map.get($lyteInputPlaceholderMap, "color");
+		@include addExtraStyles($lyteInputPlaceholderMap);
+	}
+}
+@if $isLyteInputAppearanceBoxEnabled {
+	.lyteInputBox.horizontal {
+		align-items: center;
+	}
+}
+@if $isLyteInputAppearanceFlatEnabled {
+	.lyteInput.horizontal {
+		align-items: flex-end;
+	}
+}
+lyte-input.horizontal .lyteLabel {
+    min-width: map.get($lyteInputHorizontalLabelMap, "min-width");
+    width: map.get($lyteInputHorizontalLabelMap, "width");
+    box-sizing: border-box;
+	@include addExtraStyles($lyteInputHorizontalLabelMap);
+}
+lyte-input.horizontal .lyteField {
+    min-width: map.get($lyteInputHorizontalLyteFieldMap, "min-width");
+    width: map.get($lyteInputHorizontalLyteFieldMap, "width");
+	@include addExtraStyles($lyteInputHorizontalLyteFieldMap);
+}
+lyte-input input[type='number']::-webkit-outer-spin-button,
+lyte-input input[type='number']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+lyte-input input[type='number'] {
+	-moz-appearance: textfield;
+}
+@if $isLyteInputAppearanceFlatEnabled {
+	.lyteInput .lyteField {
+		border-bottom: map.get($lyteFlatInputFieldMap, "border-bottom");
+		@include addExtraStyles($lyteFlatInputFieldMap);
+	}
+	.lyteInput input {
+		background: map.get($lyteFlatInputMap, "background");
+		border: map.get($lyteFlatInputMap, "border");
+		padding: map.get($lyteFlatInputMap, "padding");
+		box-shadow: none;
+		width: 100%;
+		@include addExtraStyles($lyteFlatInputMap);
+	}
+	.lyteInput.horizontal .lyteLabel {
+		border-bottom: map.get($lyteFlatInputLabelMap, "border-bottom");
+		padding: map.get($lyteFlatInputLabelMap, "padding");
+		@include addExtraStyles($lyteFlatInputLabelMap);
+	}
+	.lyteInput .lyteField:hover {
+		border-bottom: map.get($lyteFlatInputFieldHoverMap, "border-bottom");
+		@include addExtraStyles($lyteFlatInputFieldHoverMap);
+	}
+	.lyteInput.lyteInputDisabled .lyteField:hover {
+		border-bottom: map.get($lyteFlatInputFieldDisabledHoverMap, "border-bottom");
+		@include addExtraStyles($lyteFlatInputFieldDisabledHoverMap);
+	}
+	.lyteInput.lyteInputFocus .lyteField {
+		border-bottom: map.get($lyteFlatInputFieldFocusMap, "border-bottom");
+		@include addExtraStyles($lyteFlatInputFieldFocusMap);
+	}
+}
+lyte-input.vertical {
+	flex-direction: column;
+	text-align: $value-textalign-left;
+}
+lyte-input.vertical .lyteLabel {
+    #{$property-padding-right}: map.get($lyteVerticalInputLabelMap, "padding-right");
+	margin-bottom: map.get($lyteVerticalInputLabelMap, "margin-bottom");
+	@include addExtraStyles($lyteVerticalInputLabelMap);
+}
+@if $isLyteInputAppearanceFlatEnabled {
+	.lyteInput.vertical .lyteLabel {
+		padding: map.get($lyteFlatInputVertLabelMap, "padding");
+		margin-bottom: map.get($lyteFlatInputVertLabelMap, "margin-bottom");
+		border-bottom: map.get($lyteFlatInputVertLabelMap, "border-bottom");
+		@include addExtraStyles($lyteFlatInputVertLabelMap);
+	}
+	.lyteInput.vertical textarea,
+	.lyteInput.vertical input {
+		#{$property-padding-left}: map.get($lyteFlatInputVertInputMap, "padding-left");
+		@include addExtraStyles($lyteFlatInputVertInputMap);
+	}
+}
+@if $isLyteInputTypeSearchEnabled {
+	.lyteInput.vertical[lt-prop-type="search"] input,
+	lyte-input[lt-prop-type="search"] input {
+		#{$property-padding-left}: map.get($lyteInputSearchInputElemMap, "padding-left");
+		@include addExtraStyles($lyteInputSearchInputElemMap);
+	}
+	lyte-input[lt-prop-type="search"] .searchIcon {
+		position: absolute;
+		@if $useCssMaskForBg {
+			mask-image: map.get($lyteInputSearchIconMap, "mask-img");
+			mask-position: map.get($lyteInputSearchIconMap, "mask-position");
+			background-color: map.get($lyteInputSearchIconMap, "background-color");
+		} @else {
+			background-image: map.get($lyteInputSearchIconMap, "background-image");
+			background-position: map.get($lyteInputSearchIconMap, "background-position");
+		}
+		width: map.get($lyteInputSearchIconMap, "width");
+		height: map.get($lyteInputSearchIconMap, "height");
+		#{$property-left}: map.get($lyteInputSearchIconMap, "left");
+		top: map.get($lyteInputSearchIconMap, "top");
+		opacity: map.get($lyteInputSearchIconMap, "opacity");
+		margin: map.get($lyteInputSearchIconMap, "margin");
+		pointer-events: none;
+		@include addExtraStyles($lyteInputSearchIconMap);
+	}
+}
+@if $isLyteInputCloseIconEnabled {
+	lyte-input[lt-prop-close-icon="true"] input {
+		#{$property-padding-right}: map.get($lyteInputWithCloseMap, "padding-right");
+		@include addExtraStyles($lyteInputWithCloseMap);
+	}
+	lyte-input .inputCloseIcon {
+		position: absolute;
+		cursor: pointer;
+		padding: map.get($lyteInputCloseIconWrapMap, "padding");
+		z-index: map.get($lyteInputCloseIconWrapMap, "z-index");
+		opacity: map.get($lyteInputCloseIconWrapMap, "opacity");
+		top: map.get($lyteInputCloseIconWrapMap, "top");
+		#{$property-right}: map.get($lyteInputCloseIconWrapMap, "right");
+		@include addExtraStyles($lyteInputCloseIconWrapMap);
+	}
+	lyte-input .inputCloseIcon:hover {
+		opacity: map.get($lyteInputCloseIconWrapHoverMap, "opacity");
+		@include addExtraStyles($lyteInputCloseIconWrapHoverMap);
+	}
+	lyte-input .inputCloseIcon::before {
+		content: '';
+		display: block;
+		@if $useCssMaskForBg {
+			mask-image: map.get($lyteInputCloseIconBeforeMap, "mask-img");
+			mask-position: map.get($lyteInputCloseIconBeforeMap, "mask-position");
+			background-color: map.get($lyteInputCloseIconBeforeMap, "background-color");
+		} @else {
+			background-image: map.get($lyteInputCloseIconBeforeMap, "background-image");
+			background-position: map.get($lyteInputCloseIconBeforeMap, "background-position");
+		}
+		width: map.get($lyteInputCloseIconBeforeMap, "width");
+		height: map.get($lyteInputCloseIconBeforeMap, "height");
+		transform: map.get($lyteInputCloseIconBeforeMap, "transform");
+		@include addExtraStyles($lyteInputCloseIconBeforeMap);
+	}
+	lyte-input.lyteInputDisabled .inputCloseIcon {
+		pointer-events: none;
+	}
+}
+.lyteInputCalendar {
+	position: absolute;
+	z-index: map.get($lyteInputCalendarMap, "z-index");
+	top: -999px;
+	@include addExtraStyles($lyteInputCalendarMap);
+}
+@if $isLyteInputTypeDateTimeEnabled {
+	lyte-input[lt-prop-type="datetime"] .lyteField {
+		display: flex;
+	}
+	lyte-input[lt-prop-type="datetime"] .lyteField input {
+		width: map.get($lyteInputDateTimeMap, "width");
+		@include addExtraStyles($lyteInputDateTimeMap);
+	}
+}
+@if $isLyteInputAppearanceBoxEnabled {
+	.lyteInputBox[lt-prop-type="datetime"] input:first-child {
+		border-radius: map.get($lyteInputDateTimeFirstChildMap, "border-radius");
+		#{$property-border-right}: map.get($lyteInputDateTimeFirstChildMap, "border-right");
+		@include addExtraStyles($lyteInputDateTimeFirstChildMap);
+	}
+}
+@if $isLyteInputTypeDateTimeEnabled {
+	.lyteInputDateTimePlaceholder {
+		display: flex;
+		position: absolute;
+		left: map.get($lyteInputDateTimePlaceholderMap, "left");
+		right: map.get($lyteInputDateTimePlaceholderMap, "right");
+		top: map.get($lyteInputDateTimePlaceholderMap, "top");
+		bottom: map.get($lyteInputDateTimePlaceholderMap, "bottom");
+		font-size: map.get($lyteInputDateTimePlaceholderMap, "font-size");
+		color: map.get($lyteInputDateTimePlaceholderMap, "color");
+		align-items: center;
+		pointer-events: none;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		padding: map.get($lyteInputDateTimePlaceholderMap, "padding");
+		background: map.get($lyteInputDateTimePlaceholderMap, "background");
+		@include addExtraStyles($lyteInputDateTimePlaceholderMap);
+	}
+	.lyteInputFocus .lyteInputDateTimePlaceholder {
+		opacity: 0;
+	}
+}
+@if $isLyteInputTypePasswordEnabled {
+	.lyteInputWithPasswordToggleButton.lyteInputBox input,
+	.lyteInputWithPasswordToggleButton.lyteInput input {
+		#{$property-padding-right}: map.get($lyteInputWithPasswordToggleButtonInputMap, "padding-right");
+		@include addExtraStyles($lyteInputWithPasswordToggleButtonInputMap);
+	}
+	.lyteInputWithPasswordToggleButton.lyteInputBox[lt-prop-close-icon="true"] input,
+	.lyteInputWithPasswordToggleButton.lyteInput[lt-prop-close-icon="true"] input {
+		#{$property-padding-right}: map.get($lyteInputWithPasswordToggleButtonAndCloseIconInputMap, "padding-right");
+		@include addExtraStyles($lyteInputWithPasswordToggleButtonAndCloseIconInputMap);
+	}
+	.lyteInputWithPasswordToggleButton .inputCloseIcon {
+		#{$property-right}: map.get($lyteInputWithPasswordToggleButtonCloseIconMap, "right");
+		@include addExtraStyles($lyteInputWithPasswordToggleButtonCloseIconMap);
+	}
+	.lyteInputPasswordToggleIcon {
+		padding: map.get($lyteInputPasswordToggleIconMap, "padding");
+		position: absolute;
+		#{$property-right}: map.get($lyteInputPasswordToggleIconMap, "right");
+		top: map.get($lyteInputPasswordToggleIconMap, "top");
+		transform: map.get($lyteInputPasswordToggleIconMap, "transform");
+		cursor: pointer;
+		@include addExtraStyles($lyteInputPasswordToggleIconMap);
+	}
+	.lyteInputPasswordToggleIcon::after {
+		content: '';
+		@if $useCssMaskForBg {
+			mask-image: map.get($lyteInputPasswordToggleIconAfterMap, "mask-img");
+			background-color: map.get($lyteInputPasswordToggleIconAfterMap, "background-color");
+		} @else {
+			background-image: map.get($lyteInputPasswordToggleIconAfterMap, "background-image");
+		}
+		width: map.get($lyteInputPasswordToggleIconAfterMap, "width");
+		opacity: map.get($lyteInputPasswordToggleIconAfterMap, "opacity");
+		display: block;
+		@include addExtraStyles($lyteInputPasswordToggleIconAfterMap);
+	}
+	.lyteInputPasswordToggleIcon:hover::after {
+		opacity: map.get($lyteInputPasswordToggleIconHoverAfterMap, "opacity");
+		@include addExtraStyles($lyteInputPasswordToggleIconHoverAfterMap);
+	}
+	.lyteInputShowPasswordIcon::after {
+		height: map.get($lyteInputShowPasswordIconAfterMap, "height");
+	
+		@if $useCssMaskForBg {
+			mask-position: map.get($lyteInputShowPasswordIconAfterMap, "mask-position");
+		} @else {
+			background-position: map.get($lyteInputShowPasswordIconAfterMap, "background-position");
+		}
+		@include addExtraStyles($lyteInputShowPasswordIconAfterMap);
+	}
+	.lyteInputHidePasswordIcon::after {
+		height: map.get($lyteInputHidePasswordIconAfterMap, "height");
+		@if $useCssMaskForBg {
+			mask-position: map.get($lyteInputHidePasswordIconAfterMap, "mask-position");
+		} @else {
+			background-position: map.get($lyteInputHidePasswordIconAfterMap, "background-position");
+		}
+		@include addExtraStyles($lyteInputHidePasswordIconAfterMap);
+	}
+}
+@if $isLyteInputCalendarIconEnabled {
+	.lyteInputCalendarIcon {
+		mask-image: map.get($lyteInputCalendarIconMap, "mask-image");
+		mask-position: map.get($lyteInputCalendarIconMap, "mask-position");
+		background-color: map.get($lyteInputCalendarIconMap, "background-color");
+		width: map.get($lyteInputCalendarIconMap, "width");
+		height: map.get($lyteInputCalendarIconMap, "height");
+		display: block;
+		position: absolute;
+		top: map.get($lyteInputCalendarIconMap, "top");
+		transform: map.get($lyteInputCalendarIconMap, "transform");
+		cursor: pointer;
+		@include addExtraStyles($lyteInputCalendarIconMap);
+	}
+	.lyteInputWithCalendarIcon[lt-prop-type="datetime"] input:first-child,
+	.lyteInputWithCalendarIcon[lt-prop-type="date"] input {
+		#{$property-padding-right}: map.get($lyteInputWithCalendarIconMap, "padding-right");
+		@include addExtraStyles($lyteInputWithCalendarIconMap);
+	}
+	.lyteInputCalendarIcon:hover {
+		background-color: map.get($lyteInputCalendarIconHoverMap, "background-color");
+		@include addExtraStyles($lyteInputCalendarIconHoverMap);
+	}
+	.calendarOpen .lyteInputCalendarIcon,
+	.lyteInputCalendarIcon:focus {
+		outline: map.get($lyteInputCalendarIconFocusMap, "outline");
+		background-color: map.get($lyteInputCalendarIconFocusMap, "background-color");
+		@include addExtraStyles($lyteInputCalendarIconFocusMap);
+	}
+	@if $isLyteInputAppearanceFlatEnabled {
+		.lyteInput .lyteInputCalendarIcon {
+			#{$property-right}: map.get($lyteInputFlatCalendarIconMap, "right");
+			@include addExtraStyles($lyteInputFlatCalendarIconMap);
+		}
+	}
+	@if $isLyteInputAppearanceBoxEnabled {
+		.lyteInputBox .lyteInputCalendarIcon {
+			#{$property-right}: map.get($lyteInputBoxCalendarIconMap, "right");
+			@include addExtraStyles($lyteInputBoxCalendarIconMap);
+		}
+	}
+	lyte-input[lt-prop-type="datetime"] .lyteInputCalendarIcon {
+		right: map.get($lyteInputDateTimeCalendarIconMap, "right");
+		left: map.get($lyteInputDateTimeCalendarIconMap, "left");
+		transform: map.get($lyteInputDateTimeCalendarIconMap, "transform");
+		@include addExtraStyles($lyteInputDateTimeCalendarIconMap);
+	}
+}
+.lyteInputTimeDropdown,
+.lyteInputDateTimeDropdown {
+	position: absolute;
+	top: map.get($lyteInputTimeDropdownMap, "top");
+	#{$property-left}: map.get($lyteInputTimeDropdownMap, "left");
+	#{$property-right}: map.get($lyteInputTimeDropdownMap, "right");
+	bottom: map.get($lyteInputTimeDropdownMap, "bottom");
+	visibility: hidden;
+	pointer-events: none;
+	z-index: -1;
+	@include addExtraStyles($lyteInputTimeDropdownMap);
+}
+.lyteInputDateTimeDropdown {
+	#{$property-left}: map.get($lyteInputDateTimeDropdownMap, "left");
+	@include addExtraStyles($lyteInputDateTimeDropdownMap);
+}

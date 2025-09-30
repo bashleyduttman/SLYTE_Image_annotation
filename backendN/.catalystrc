@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "21787000000010147",
+      "name": "Annotation",
+      "domain": {
+        "id": "50033933077",
+        "name": "annotation-60048092351.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60048092351",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+/* Default theme imported */
+@import "../themes/default/ui-elements/codesnippet/code-snippet.variables.less";
+
+/* Loading theme in configuration */
+@import "../config.less";
+
+/* rtl files loading */
+
+@import (multiple,optional) "../themes/default/global/@{direction}.less";
+
+lyte-code-snippet {
+	display: block;
+	position: relative;
+	direction: ltr;
+}
+.lyteCSCopyButton {
+	.lyteCSCopyButtonMixin();
+	position: absolute;
+	right: @right;
+	top: @top;
+}
+.lyteCSCopyButton .lyteDefaultBtn {
+	.lyteCSCopyButtoneDefaultBtnMixin();
+	background: @bg;
+	border: @border;
+	border-radius: @border-radius;
+	color: @color;
+	text-transform: capitalize;
+}
+.lyteCSContainer {
+	.lyteCSContainerMixin();
+	display: flex;
+	background: @bg;
+	border: @border;
+	border-radius: @border-radius;
+	font-size: @font-size;
+	line-height: @line-height;
+	overflow: auto;
+	box-sizing: border-box;
+}
+.lyteCSLineNumberContainer {
+	.lyteCSLineNumberContainerMixin();
+	padding: @padding;
+}
+.lyteCSLineNumber {
+	.lyteCSLineNumberMixin();
+	display: block;
+	color: @color;
+	text-align: right;
+}
+.lyteCSCodeContainer {
+	.lyteCSCodeContainerMixin();
+	padding: @padding;
+	white-space: pre;
+	flex-grow: 1;
+}
+
+.lyteTagNameCls {
+	.lyteTagNameClsMixin();
+	color: @color;
+}
+
+.lytePunctuationCls {
+	.lytePunctuationClsMixin();
+	color: @color;
+}
+
+.lyteContentCls {
+	.lyteContentClsMixin();
+	color: @color;
+}
+
+.lyteAttributeEqualsCls {
+	.lyteAttributeEqualsClsMixin();
+	color: @color;
+}
+
+.lyteAttributeNameCls {
+	.lyteAttributeNameClsMixin();
+	color: @color;
+}
+
+.lyteAttributeValueCls {
+	.lyteAttributeValueClsMixin();
+	color: @color;
+}
+
+.lyteEntityCls {
+	.lyteEntityClsMixin();
+	color: @color;
+}
+
+.lyteCSSComment,
+.lyteCommentCls {
+	.lyteCommentClsMixin();
+	color: @color;
+}
+
+.lyteCSSSelector {
+	.lyteCSSSelectorMixin();
+	word-spacing: @word-spacing;
+	color: @color;
+}
+
+.lyteCSSRuleName {
+	.lyteCSSRuleNameMixin();
+	color: @color;
+}
+
+.lyteCSSPunctuation {
+	.lyteCSSPunctuationMixin();
+	color: @color;
+}
+.lyteCSSRuleName + .lyteCSSPunctuation {
+	.lyteCSSPunctuationNextToCSSRuleNameMixin();
+	margin-right: @margin-right;
+}
+
+.lyteCSSValueFunction,
+.lyteCSSRuleValue {
+	.lyteCSSRuleValueMixin();
+	color: @color;
+}
+
+.lyteCSSCombinator {
+	.lyteCSSCombinatorMixin();
+	color: @color;
+}
+
+.lyteCSSAttributeName {
+	.lyteCSSAttributeNameMixin();
+	color: @color;
+}
+
+.lyteCSSImportant,
+.lyteCSSAttributeValue {
+	.lyteCSSAttributeValueMixin();
+	color: @color;
+}
+
+.lyteCSSColorValue {
+	.lyteCSSColorValueMixin();
+	color: @color;
+}
+
+.lyteYamlAliasPunctuationCls,
+.lyteYamlAnchorPunctuationCls,
+.lyteYamlAliasNameCls,
+.lyteYamlAnchorNameCls {
+	.lyteYamlAliasAnchorMixin();
+	color: @color;
+}
+
+.lyteYamlDataType,
+.lyteYamlKey,
+.lyteJavaKeyword,
+.lytePythonKeyword,
+.lyteJSKeyword {
+	.lyteJSKeywordMixin();
+	color: @color;
+}
+.lyteYamlIdentifier,
+.lyteJavaIdentifier,
+.lytePythonIdentifier,
+.lyteJSIndentifier {
+	.lyteJSIndentifierMixin();
+	color: @color;
+}
+
+.lyteYamlAnchorAlias,
+.lyteYamlAnchorAlias,
+.lyteJavaOperator,
+.lytePythonOperator,
+.lyteJSOperator {
+	.lyteJSOperatorMixin();
+	color: @color;
+}
+
+.lyteYamlPunctuator,
+.lyteJavaPunctuator,
+.lytePythonPunctuator,
+.lyteJSPunctuator {
+	.lyteJSPunctuatorMixin();
+	color: @color;
+}
+
+.lyteYamlInteger,
+.lyteJavaInteger,
+.lytePythonInteger,
+.lyteJavaFloat,
+.lytePythonFloat,
+.lyteJSNumber {
+	.lyteJSNumberMixin();
+	color: @color;
+}
+
+.lyteYamlString,
+.lyteJavaString,
+.lytePythonString,
+.lyteJSStringLiteral {
+	.lyteJSStringLiteralMixin();
+	color: @color;
+}
+
+.lyteYamlComment,
+.lyteJavaComment,
+.lytePythonComment,
+.lyteJSComment {
+	.lyteJSCommentMixin();
+	color: @color;
+}
+
+.lyteJavaRegex,
+.lytePythonRegex,
+.lyteJSRegex {
+	.lyteJSRegexMixin();
+	color: @color;
+}
+
+.lyteJavaBoolean,
+.lytePythonBoolean,
+.lyteJSBoolean {
+	.lyteJSBooleanMixin();
+	color: @color;
+}
+.lyteJSFunction {
+	.lyteJSFunctionMixin();
+	color: @color;
+}
+
+.lyteJavaNull,
+.lyteJSNull,
+.lyteJSUndefined {
+	.lyteJSUndefinedMixin();
+	color: @color;
+}
+
+.lyteCodeSnippetTransparentBg .lyteCSContainer {
+	.lyteCodeSnippetTransparentBgCSContainerMixin();
+	background: @bg;
+}
+.lyteCodeSnippetNumberSectionBg .lyteCSLineNumberContainer {
+	.lyteCodeSnippetNumberSectionBgLineNumberContainerMixin();
+	background: @bg;
+}
+.lyteCSCopyIcon {
+	.lyteCSCopyIconMixin();
+	display: flex;
+	position: absolute;
+	width: @w;
+	height: @h;
+	border-radius: @border-radius;
+	right: @right;
+	top: @top;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.lyteCSCopyIcon:hover {
+	.lyteCSCopyIconHoverMixin();
+	background: @bg;
+}
+.lyteCSCopyIcon::after {
+	.lyteCSCopyIconAfterMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+	display: block;
+}

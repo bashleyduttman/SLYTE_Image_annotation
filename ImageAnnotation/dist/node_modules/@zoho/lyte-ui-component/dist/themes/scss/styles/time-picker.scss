@@ -1,0 +1,202 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/time-picker.variables.scss";
+
+@use "../default/variables/time-picker.variables.scss" as *;
+
+lyte-time-picker {
+	position: relative;
+	display: inline-block;
+}
+.lyteTimePickerField {
+	display: inline-flex;
+	border: map.get($lyteTimePickerFieldMap, "border");
+	border-radius: map.get($lyteTimePickerFieldMap, "border-radius");
+    @include addExtraStyles($lyteTimePickerFieldMap);
+}
+.lyteTimePickerField:hover {
+	border: map.get($lyteTimePickerFieldHoverMap, "border");
+    @include addExtraStyles($lyteTimePickerFieldHoverMap);
+}
+.lyteTimePickerDropdownOpened .lyteTimePickerField,
+.lyteTimePickerField:focus-within {
+	border: map.get($lyteTimePickerFieldFocusWithinMap, "border");
+    @include addExtraStyles($lyteTimePickerFieldFocusWithinMap);
+}
+.lyteTimePickerInput {
+	padding: map.get($lyteTimePickerInputMap, "padding");
+	border: map.get($lyteTimePickerInputMap, "border");
+	border-radius: map.get($lyteTimePickerInputMap, "border-radius");
+	outline: map.get($lyteTimePickerInputMap, "outline");
+	font-size: map.get($lyteTimePickerInputMap, "font-size");
+	background: map.get($lyteTimePickerInputMap, "background");
+	color: map.get($lyteTimePickerInputMap, "color");
+    @include addExtraStyles($lyteTimePickerInputMap);
+}
+.lyteTimePickerInput::placeholder {
+	font-family: map.get($lyteTimePickerInputplaceholderMap, "font-family");
+	color: map.get($lyteTimePickerInputplaceholderMap, "color");
+    @include addExtraStyles($lyteTimePickerInputplaceholderMap);
+}
+.lytetimePickerButton {
+	padding: map.get($lyteTimePickerButtonMap, "padding");
+	background: map.get($lyteTimePickerButtonMap, "background");
+	border-radius: map.get($lyteTimePickerButtonMap, "border-radius");
+	cursor: pointer;
+	border: map.get($lyteTimePickerButtonMap, "border");
+    @include addExtraStyles($lyteTimePickerButtonMap);
+}
+.lyteTimePickerBtnIcon {
+    -webkit-mask-image: map.get($lyteTimePickerBtnIconMap, "mask-image");
+    mask-image: map.get($lyteTimePickerBtnIconMap, "mask-image");
+    -webkit-mask-position: map.get($lyteTimePickerBtnIconMap, "mask-position");
+    mask-position: map.get($lyteTimePickerBtnIconMap, "mask-position");
+    background-color: map.get($lyteTimePickerBtnIconMap, "background-color");
+	width: map.get($lyteTimePickerBtnIconMap, "width");
+	height: map.get($lyteTimePickerBtnIconMap, "height");
+	display: block;
+    @include addExtraStyles($lyteTimePickerBtnIconMap);
+}
+.lyteTimePickerDropdownNone {
+	display: none;
+}
+lyte-time-picker-dropdown {
+	display: block;
+	position: absolute;
+	border: map.get($lyteTimePickerDropdownMap, "border");
+	z-index: map.get($lyteTimePickerDropdownMap, "z-index");
+	background: map.get($lyteTimePickerDropdownMap, "background");
+    @include addExtraStyles($lyteTimePickerDropdownMap);
+}
+.lyteTimePickerDropdownValues {
+	display: flex;
+	height: map.get($lyteTimePickerDropdownValuesMap, "height");
+    @include addExtraStyles($lyteTimePickerDropdownValuesMap);
+}
+.lyteTimePickerUl {
+	list-style-type: none;
+	width: map.get($lyteTimePickerUlMap, "width");
+	overflow-y: hidden;
+	padding: map.get($lyteTimePickerUlMap, "padding");
+	margin: map.get($lyteTimePickerUlMap, "margin");
+	#{$property-border-right}: map.get($lyteTimePickerUlMap, "border-right");
+    @include addExtraStyles($lyteTimePickerUlMap);
+}
+.lyteTimePickerUl:last-of-type {
+	#{$property-border-right}: map.get($lyteTimePickerUlLastOfTypeMap, "border-right");
+    @include addExtraStyles($lyteTimePickerUlLastOfTypeMap);
+}
+.lyteTimePickerUl:hover {
+	overflow-y: scroll;
+}
+.lyteTimePickerDropdownValues li {
+	font-size: map.get($lyteTimePickerDropdownValuesLiMap, "font-size");
+	padding: map.get($lyteTimePickerDropdownValuesLiMap, "padding");
+	color: map.get($lyteTimePickerDropdownValuesLiMap, "color");
+	cursor: pointer;
+	box-sizing: border-box;
+	scroll-margin: 5px;
+    @include addExtraStyles($lyteTimePickerDropdownValuesLiMap);
+}
+.lyteTimePickerItemFocused {
+	background: map.get($lyteTimePickerItemFocusedMap, "background");
+	outline: map.get($lyteTimePickerItemFocusedMap, "outline");
+    @include addExtraStyles($lyteTimePickerItemFocusedMap);
+}
+li.lyteTimePickerItemSelected {
+	background-color: map.get($lyteTimePickerItemSelectedMap, "background-color");
+	color: map.get($lyteTimePickerItemSelectedMap, "color");
+    @include addExtraStyles($lyteTimePickerItemSelectedMap);
+}
+.lyteTimePickerDropdownButton {
+	padding: map.get($lyteTimePickerDropdownButtonMap, "padding");
+	border-top: map.get($lyteTimePickerDropdownButtonMap, "border-top");
+	text-align: map.get($lyteTimePickerDropdownButtonMap, "text-align");
+    @include addExtraStyles($lyteTimePickerDropdownButtonMap);
+}
+li.lyteTimePickerBlur {
+	cursor: not-allowed;
+	opacity: map.get($lyteTimePickerBlurMap, "opacity");
+    @include addExtraStyles($lyteTimePickerBlurMap);
+}
+
+.lyteTimePickerDisabled .lytetimePickerButton,
+.lyteTimePickerDisabled .lyteTimePickerInput {
+	background: map.get($lyteTimePickerDisabledInputMap, "background");
+	cursor: not-allowed;
+	color: map.get($lyteTimePickerDisabledInputMap, "color");
+    @include addExtraStyles($lyteTimePickerDisabledInputMap);
+}
+.lyteTimePickerDisabled .lyteTimePickerField:hover {
+	border: map.get($lyteTimePickerDisabledFieldHoverMap, "border");
+    @include addExtraStyles($lyteTimePickerDisabledFieldHoverMap);
+}
+#lyteTimePickerFreezeLayer {
+	left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    opacity: 0.1;
+    position: fixed;
+    overflow: hidden;
+	display: none;
+}
+.lyteTimePickerOpenFreeze {
+	overflow: hidden;
+}
+.lyteTimePickerOpenFreeze #lyteTimePickerFreezeLayer {
+	display: block;
+}
+.lyteTimePickerScrollBehavior {
+	scroll-behavior: smooth;
+	overflow-y: auto;
+}
+// time picker counter
+
+.lytetimePickerCounterButtons {
+	display: flex;
+	flex-direction: column;
+}
+
+.lytetimePickerIncButton,
+.lytetimePickerDecButton {
+	border: map.get($lyteTimePickerDecButtonMap, "border");
+	border-left: map.get($lyteTimePickerDecButtonMap, "border-left");
+	padding: map.get($lyteTimePickerDecButtonMap, "padding");
+	background-color: map.get($lyteTimePickerDecButtonMap, "background-color");
+	flex-grow: 1;
+	cursor: pointer;
+    @include addExtraStyles($lyteTimePickerDecButtonMap);
+}
+.lytetimePickerIncButton {
+	border-bottom: map.get($lyteTimePickerIncButtonMap, "border-bottom");
+    @include addExtraStyles($lyteTimePickerIncButtonMap);
+}
+.lyteTimePickerDecIcon,
+.lyteTimePickerIncIcon {
+	display: block;
+	-webkit-mask: map.get($lyteTimePickerIncIconMap, "mask-img");
+	mask: map.get($lyteTimePickerIncIconMap, "mask-img");
+    background-color: map.get($lyteTimePickerIncIconMap, "background-color");
+	width: map.get($lyteTimePickerIncIconMap, "width");
+	height: map.get($lyteTimePickerIncIconMap, "height");
+    @include addExtraStyles($lyteTimePickerIncIconMap);
+}
+.lyteTimePickerIncIcon {
+	transform: rotate(180deg);
+}
+.lytetimePickerIncButton:hover,
+.lytetimePickerDecButton:hover {
+	background-color: map.get($lyteTimePickerIncButtonHoverMap, "background-color");
+    @include addExtraStyles($lyteTimePickerIncButtonHoverMap);
+}
+.lyteTimePickerInvalidTime .lyteTimePickerField {
+	border-color: map.get($lyteTimePickerInvalidTimeFieldMap, "border-color");
+    box-shadow: map.get($lyteTimePickerInvalidTimeFieldMap, "box-shadow");
+    @include addExtraStyles($lyteTimePickerInvalidTimeFieldMap);
+}

@@ -1,0 +1,112 @@
+@use "../global/global.variables.scss" as global;
+
+$cssMaskIconLyteMessageboxIconsColor: #fff !default;
+$cssMaskIconLyteMessageboxCloseIconColor: global.$lyteIconsThemeColor !default;
+
+$lyteMessageBoxContentMap: (
+	"font-size": 15px,
+	"color": global.$lyteMessageBoxContentColor,
+    "padding": 10px 15px 10px 65px,
+) !default;
+
+$lyteMessageBoxMap: (
+	"padding": 0 50px 0 0,
+	"z-index": global.$lyteMessageBoxzIndex,
+	"background": global.$lyteMessageBoxBg,
+	"border-radius": 2px,
+	"color": global.$lyteMessageBoxContentColor,
+	"font-size": 15px,
+	"border": 1px solid transparent,
+	"min-width": 200px,
+) !default;
+
+$lyteSuccessMessageIconMap: (
+	"border-color": global.$lyteMessageBoxSuccessBg,
+) !default;
+
+$lyteErrorMessageIconMap: (
+	"border-color": global.$lyteMessageBoxErrorBg,
+) !default;
+
+$lyteWarningMessageIconMap: (
+	"border-color": global.$lyteMessageBoxWarningBg,
+) !default;
+
+$lyteInfoMessageIconMap: (
+	"border-color": global.$lyteMessageBoxInfoBg,
+) !default;
+
+$lyteMessageBoxSymbolMap: (
+	"width": 50px,
+) !default;
+
+$lyteSuccessMessageBoxSymbolMap: (
+	"background": global.$lyteMessageBoxSuccessBg,
+) !default;
+
+$lyteErrorMessageBoxSymbolMap: (
+	"background": global.$lyteMessageBoxErrorBg,
+) !default;
+
+$lyteWarningMessageBoxSymbolMap: (
+	"background": global.$lyteMessageBoxWarningBg,
+) !default;
+
+$lyteInfoMessageBoxSymbolMap: (
+	"background": global.$lyteMessageBoxInfoBg,
+) !default;
+
+$lyteMessageBoxIconMap: (
+	"background-image": global.$lytesprite,
+	"mask-image": global.$lytesprite,
+	"width": 22px,
+	"height": 20px,
+	"top": calc(50% - 10px),
+	"left": calc(50% - 11px),
+) !default;
+
+$lyteSuccessMessageBoxIconMap: (
+	"background-position": -287px -58px,
+	"mask-position":-287px -58px,
+	"bg-color": $cssMaskIconLyteMessageboxIconsColor,
+) !default;
+
+$lyteErrorMessageBoxIconMap: (
+	"background-position": -317px -60px,
+	"mask-position": -317px -60px,
+	"background-color": $cssMaskIconLyteMessageboxIconsColor,
+	"width": 24px,
+	"left": calc(50% - 12px),
+) !default;
+
+$lyteWarningMessageBoxIconMap: (
+	"background-position": -347px -58px,
+	"mask-position": -347px -58px,
+	"background-color": $cssMaskIconLyteMessageboxIconsColor,
+) !default;
+
+$lyteInfoMessageBoxIconMap: (
+	"background-position": -377px -58px,
+	"mask-position": 377px -58px,
+	"background-color": $cssMaskIconLyteMessageboxIconsColor,
+) !default;
+
+$lyteMessageBoxCloseMap: (
+	"background-image": global.$lytesprite,
+	"background-position": -54px -2px,
+	"mask-image": global.$lytesprite,
+	"mask-position": -54px -2px,
+	"background-color": $cssMaskIconLyteMessageboxCloseIconColor,
+	"top": calc(50% - 4px),
+	"width": 8px,
+	"height": 8px,
+	"right": 15px,
+) !default;
+
+$lyteMessageBoxFadeInMap: (
+	"animation-name": lyteMsgBoxFadeIn,
+) !default;
+
+$lyteMessageBoxFadeOutMap: (
+	"animation-name": lyteMsgBoxFadeOut,
+) !default;

@@ -1,0 +1,131 @@
+@use "../global/global.variables.scss" as global;
+
+$lytebuttonMap: (
+	"border-radius": 2px,
+	"font-size": 15px,
+	"padding": 5px 15px,
+    "border-width": global.$lyteButtonBorderWidth,
+    "border-style": global.$lyteButtonBorderStyle,
+) !default;
+
+$lyteDisabledBtnMap: (
+	"opacity": .5,
+) !default;
+
+$lyteDefaultBtnMap: (
+	"background": #fff,
+	"color": #3c3c3c,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #c4c4c4,
+) !default;
+
+$lyteDefaultBtnHoverMap: (
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #abaaaa,
+) !default;
+
+$lytePrimaryBtnMap: (
+	"background": global.$themeActiveElementBg,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle global.$themeActiveElementBg,
+) !default;
+
+$lytePrimaryBtnHoverMap: (
+	"background": #3c98dd,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #3c98dd,
+) !default;
+
+$lyteSecondaryMap: (
+	"background": #555,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #555,
+) !default;
+
+$lyteSecondaryHoverMap: (
+	"background": #474747,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #444,
+) !default;
+
+$lyteSuccessButtonMap: (
+    "background": #19bc7d,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #19bc7d,
+) !default;
+
+$lyteSuccessButtonHoverMap: (
+    "background": #10ab6f,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #10ab6f,
+) !default;
+
+$lyteDefaultSuccessMap: (
+	"background": #fff,
+	"color": #19bc7d,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #19bc7d,
+) !default;
+
+$lyteDefaultSuccessHoverMap: (
+	"background": #19bc7d,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #19bc7d,
+) !default;
+
+$lyteFailureButtonMap: (
+	"background": #ec4844,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #ec4844,
+) !default;
+
+$lyteFailureButtonHoverMap: (
+	"background": #da3e3e,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #da3e3e,
+) !default;
+
+$lyteDefaultFailureMap: (
+	"background": #fff,
+	"color": #ec4844,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #ec4844,
+) !default;
+
+$lyteDefaultFailureHoverMap: (
+	"background": #ec4844,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #ec4844,
+) !default;
+
+$lyteWarningButtonMap: (
+	"background": #FF9318,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #FF9318,
+) !default;
+
+$lyteWarningButtonHoverMap: (
+	"background": #FF8800,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #FF8800,
+) !default;
+
+$lyteDefaultWarningMap: (
+	"background": #fff,
+	"color": #FF9318,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #FF9318,
+) !default;
+
+$lyteDefaultWarningHoverMap: (
+	"background": #FF9318,
+	"color": #fff,
+	"border": global.$lyteButtonBorderWidth global.$lyteButtonBorderStyle #FF9318,
+) !default;
+
+$lyteLgBtnMap: (
+	"padding": 7px 20px,
+	"font-size": 15px,
+) !default;
+
+$lyteSmBtnMap: (
+	"padding": 3px 10px,
+	"font-size": 13px,
+) !default;
+
+$lyteExsmBtnMap: (
+	"padding": 2px 8px,
+	"font-size": 12px,
+) !default;

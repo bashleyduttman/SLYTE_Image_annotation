@@ -1,0 +1,359 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/table.variables.scss";
+
+@use "../default/variables/table.variables.scss" as *;
+
+/*  Lyte Table CSS BEGINS   */
+lyte-table {
+	display: block;
+	height: inherit;
+	font-family: $primaryFont;
+}
+lyte-table-structure {
+	display: table;
+	position: relative;
+	background: map.get($lyteTableStructureMap, "background");
+    box-sizing: border-box;
+    @include addExtraStyles($lyteTableStructureMap);
+}
+lyte-tr {
+	display: table-row;
+}
+lyte-tr.lyteTableDummyRow {
+	position: relative;
+}
+lyte-col {
+	display: table-column;
+}
+lyte-colgroup {
+	display: table-column-group;
+}
+lyte-thead {
+	display: table-header-group;
+}
+lyte-th {
+	cursor: default;
+	background: map.get($lyteThMap, "background");
+	text-align: $value-textalign-left;
+	color: map.get($lyteThMap, "color");
+    font-family: $secondaryFont;
+	font-size: map.get($lyteThMap, "font-size");
+	outline: none;
+	padding: map.get($lyteThMap, "padding");
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+	min-width: map.get($lyteThMap, "min-width");
+	box-sizing: border-box;
+	white-space: nowrap;
+	text-transform: capitalize;
+    @include addExtraStyles($lyteThMap);
+}
+lyte-th.tableRowFixed {
+	z-index: 6;
+}
+.lyteTableFixed {
+	z-index: 8;
+	box-shadow: map.get($lyteTableFixedMap, "box-shadow");
+    @include addExtraStyles($lyteTableFixedMap);
+}
+lyte-th.tableRowFixed.lyteTableFixed {
+	z-index: 10;
+}
+lyte-th:last-of-type lyte-tablehead-resize {
+	cursor: default;
+	position: absolute;
+	#{$property-right}: 0;
+	height: map.get($lyteThLastOfTypeMap, "height");
+	width: 0;
+	top: 0;
+	z-index: 0;
+	pointer-events: none;
+    @include addExtraStyles($lyteThLastOfTypeMap);
+}
+lyte-tbody {
+	display: table-row-group;
+}
+lyte-td {
+	display: table-cell;
+	border-bottom: map.get($lyteTdMap, "border-bottom");
+	vertical-align: middle;
+	background: map.get($lyteTdMap, "background");
+	min-width: map.get($lyteTdMap, "min-width");
+	box-sizing: border-box;
+	padding: map.get($lyteTdMap, "padding");
+	font-size: map.get($lyteTdMap, "font-size");
+	white-space: nowrap;
+	color: map.get($lyteTdMap, "color");
+	position: relative;
+    @include addExtraStyles($lyteTdMap);
+}
+lyte-tfoot {
+	display: table-footer-group;
+}
+lyte-table > .lyteTableScroll {
+	overflow: auto;
+	max-width: 100%;
+	max-height: 100%;
+	outline: none;
+}
+lyte-table.border .lyteTableScroll {
+    border-bottom: map.get($lyteTableScrollMap, "border-bottom");
+    #{$property-border-right}: map.get($lyteTableScrollMap, "border-right");
+    @include addExtraStyles($lyteTableScrollMap);
+}
+lyte-table > .lyteTableScroll > lyte-yield {
+	display: block;
+	width: 100%;
+}
+lyte-table.border lyte-tbody lyte-tr:last-of-type lyte-td {
+    border-bottom: 0;
+}
+lyte-table.border lyte-thead lyte-tr lyte-td:last-of-type,
+lyte-table.border lyte-tbody lyte-tr lyte-td:last-of-type {
+    #{$property-border-right}: 0;
+}
+lyte-table.border lyte-th {
+	border: map.get($lyteTableBorderThMap, "border");
+	border-bottom: none;
+	#{$property-border-right}: none;
+    @include addExtraStyles($lyteTableBorderThMap);
+}
+lyte-table.border lyte-th:last-of-type {
+	#{$property-border-right}: 0;
+}
+lyte-table.border lyte-td {
+	border: map.get($lyteTableBorderTdMap, "border");
+	#{$property-border-right}: map.get($lyteTableBorderTdMap, "border-right");
+	border-top: map.get($lyteTableBorderTdMap, "border-top");
+    @include addExtraStyles($lyteTableBorderTdMap);
+}
+.lyteDualResize lyte-th:last-of-type lyte-tablehead-resize,
+lyte-tablehead-resize {
+	cursor: ew-resize;
+	height: map.get($lyteTableheadResizeMap, "height");
+	width: map.get($lyteTableheadResizeMap, "width");
+	top: 0;
+	z-index: 9;
+    #{$property-right}: map.get($lyteTableheadResizeMap, "right");
+	position: absolute;
+    @include addExtraStyles($lyteTableheadResizeMap);
+}
+.lyteTableFixed lyte-tablehead-resize {
+	display: none;
+}
+.lyteDualResize lyte-th:last-of-type lyte-tablehead-resize {
+    pointer-events: auto;
+    #{$property-right}: map.get($lyteTableDualResizeHeadResizeMap, "right");
+    @include addExtraStyles($lyteTableDualResizeHeadResizeMap);
+}
+lyte-tablehead-resize::after {
+    content: '';
+    position: absolute;
+    width: map.get($lyteTableheadResizeAfterMap, "width");
+    height: map.get($lyteTableheadResizeAfterMap, "height");
+    #{$property-right}: map.get($lyteTableheadResizeAfterMap, "right");
+    background: transparent;
+    @include addExtraStyles($lyteTableheadResizeAfterMap);
+}
+.lyteDualResize lyte-th:last-of-type lyte-tablehead-resize::after {
+    #{$property-right}: map.get($lyteTableDualResizeLastHeadResizeAfterMap, "right");
+    @include addExtraStyles($lyteTableDualResizeLastHeadResizeAfterMap);
+}
+lyte-th[resize="enable"]:not(.lyteTableFixed):hover {
+	z-index: 7;
+}
+lyte-th[resize="enable"]:not(.lyteTableFixed).lyteTableResizeSelect {
+	z-index: 8;
+}
+lyte-th[resize="enable"]:hover lyte-tablehead-resize::after {
+    background: map.get($lyteTableResizeHeadAfterMap, "background");
+    opacity: map.get($lyteTableResizeHeadAfterMap, "opacity");
+    @include addExtraStyles($lyteTableResizeHeadAfterMap);
+}
+lyte-th[resize="enable"] lyte-tablehead-resize:hover::after,
+lyte-th[resize="enable"].resizeSelect lyte-tablehead-resize::after {
+    background: map.get($lyteTableResizeHeadHoverAfterMap, "background");
+    opacity: map.get($lyteTableResizeHeadHoverAfterMap, "opacity");
+    @include addExtraStyles($lyteTableResizeHeadHoverAfterMap);
+}
+lyte-table.resizing lyte-th[resize="enable"]:not(.resizeSelect):hover lyte-tablehead-resize::after {
+    background: transparent;
+}
+lyte-table-resize {
+	width: map.get($lyteTableResizeMap, "width");
+	height: map.get($lyteTableResizeMap, "height");
+	bottom: 0;
+	cursor: $value-se-resize;
+	z-index: 10;
+    #{$property-right}: 0;
+	position: absolute;
+    @include addExtraStyles($lyteTableResizeMap);
+}
+lyte-table-resize:hover {
+    border-bottom: map.get($lyteTableResizeHoverMap, "border-bottom");
+    #{$property-border-right}: map.get($lyteTableResizeHoverMap, "border-right");
+    @include addExtraStyles($lyteTableResizeHoverMap);
+}
+lyte-table-horizontal-resize {
+	width: map.get($lyteTableHorizontalResizeMap, "width");
+	height: 100%;
+	bottom: 0;
+	cursor: col-resize;
+	z-index: 9;
+    #{$property-right}: 0;
+	position: absolute;
+    @include addExtraStyles($lyteTableHorizontalResizeMap);
+}
+lyte-table-horizontal-resize:hover {
+    #{$property-border-right}: map.get($lyteTableHorizontalResizeHoverMap, "border-right");
+    @include addExtraStyles($lyteTableHorizontalResizeHoverMap);
+}
+lyte-table-vertical-resize {
+	width: 100%;
+	height: map.get($lyteTableVerticalResizeMap, "height");
+	bottom: 0;
+	cursor: row-resize;
+	z-index: 9;
+	#{$property-right}: 0;
+	position: absolute;
+    @include addExtraStyles($lyteTableVerticalResizeMap);
+}
+lyte-table-vertical-resize:hover {
+    border-bottom: map.get($lyteTableVerticalResizeHoverMap, "border-bottom");
+    @include addExtraStyles($lyteTableVerticalResizeHoverMap);
+}
+.lyteTableSortHelper {
+	font-family: $secondaryFont;
+    font-size: map.get($lyteTableSortHelperMap, "font-size");
+	position: absolute;
+	z-index: 10;
+    background: map.get($lyteTableSortHelperMap, "background");
+    border: map.get($lyteTableSortHelperMap, "border");
+    padding: map.get($lyteTableSortHelperMap, "padding");
+    box-sizing: border-box;
+    cursor: move;
+    color: map.get($lyteTableSortHelperMap, "color");
+    @include addExtraStyles($lyteTableSortHelperMap);
+}
+.sortableTable lyte-th {
+    cursor: move;
+}
+
+lyte-table.lyteStickyTable {
+	--lyte-table-intersection: 0px;
+}
+.lyteStickyTable .lyteFixedColumn {
+	position: sticky;
+}
+.lyteIntersectionDiv {
+	position: absolute;
+	width: map.get($lyteIntersectionDivMap, "width");
+	height: map.get($lyteIntersectionDivMap, "height");
+	top: var(--lyte-table-intersection);
+	opacity: map.get($lyteIntersectionDivMap, "opacity");
+	pointer-events: none;
+	z-index: map.get($lyteIntersectionDivMap, "z-index");
+    @include addExtraStyles($lyteIntersectionDivMap);
+}
+.lyteStickyTable lyte-th {
+	top: map.get($lyteStickyTableThMap, "top");
+	position: sticky;
+	z-index: map.get($lyteStickyTableThMap, "z-index");
+    @include addExtraStyles($lyteStickyTableThMap);
+}
+.lyteStickyTable lyte-th.lyteTableFixed {
+	z-index: map.get($lyteStickyTableThFixedMap, "z-index");
+    @include addExtraStyles($lyteStickyTableThFixedMap);
+}
+.lyteTableRightFixed.lyteTableFixed {
+	box-shadow: map.get($lyteTableRightFixedMap, "box-shadow");
+    @include addExtraStyles($lyteTableRightFixedMap);
+}
+
+.lyteStickyTableColumnMoving {
+	z-index: 10;
+}
+lyte-th.lyteStickyTableColumnMoving {
+	z-index: 15;
+}
+.lyteStickyTableColumnSortAnimate {
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+lyte-table.lyteTableInfiniteScrollBorderReset lyte-td {
+	border: map.get($lyteTableInfiniteScrollBorderResetTdMap, "border");
+	padding: map.get($lyteTableInfiniteScrollBorderResetTdMap, "padding");
+    @include addExtraStyles($lyteTableInfiniteScrollBorderResetTdMap);
+}
+.lyteTableInfiniteScrollBorderReset lyte-cell-wrapper {
+	display: block;
+	padding: map.get($lyteTableInfiniteScrollBorderResetCellWrapperMap, "padding");
+	border-bottom: map.get($lyteTableInfiniteScrollBorderResetCellWrapperMap, "border-bottom");
+	height: map.get($lyteTableInfiniteScrollBorderResetCellWrapperMap, "height");
+	box-sizing: border-box;
+    @include addExtraStyles($lyteTableInfiniteScrollBorderResetCellWrapperMap);
+}
+.border.lyteTableInfiniteScrollBorderReset lyte-cell-wrapper {
+	border: map.get($lyteTableBorderInfiniteScrollBorderResetCellWrapperMap, "border");
+	#{$property-border-right}: map.get($lyteTableBorderInfiniteScrollBorderResetCellWrapperMap, "border-right");
+	border-top: map.get($lyteTableBorderInfiniteScrollBorderResetCellWrapperMap, "border-top");
+    @include addExtraStyles($lyteTableBorderInfiniteScrollBorderResetCellWrapperMap);
+}
+
+/*	Lyte Table - infinite scroll - Sortable case related CSS BEGINS */
+.lyteTableWithSortableRow lyte-tr {
+	cursor: move;
+}
+.lyteTableInfiniteScrollBorderReset .lyteTableRowSorting lyte-cell-wrapper,
+.lyteTableInfiniteScrollBorderReset .lyteTableRowSorting + lyte-tr lyte-cell-wrapper,
+lyte-table .lyteTableRowSorting lyte-td,
+lyte-table .lyteTableRowSorting + lyte-tr lyte-td {
+	border-top: map.get($lyteTableRowSortingTdMap, "border-top");
+	padding-top: map.get($lyteTableRowSortingTdMap, "padding-top");
+    @include addExtraStyles($lyteTableRowSortingTdMap);
+}
+.lyteTableInfiniteScrollBorderReset .lyteTableRowSorting lyte-td,
+.lyteTableInfiniteScrollBorderReset .lyteTableRowSorting + lyte-tr lyte-td {
+	border-top: map.get($lyteTableInfiniteScrollBorderResetTableRowSortingTdMap, "border-top");
+	padding-top: map.get($lyteTableInfiniteScrollBorderResetTableRowSortingTdMap, "padding-top");
+    @include addExtraStyles($lyteTableInfiniteScrollBorderResetTableRowSortingTdMap);
+}
+lyte-table.border .lyteTableWithSortableRow .lyteTableRowSorting lyte-td:last-of-type {
+	#{$property-border-right}: map.get($lyteTableRowSortingTdLastOfTypeMap, "border-right");
+    @include addExtraStyles($lyteTableRowSortingTdLastOfTypeMap);
+}
+lyte-tr.lyteTableRowSorting {
+	position: relative;
+	z-index: map.get($lyteTableRowSortingMap, "z-index");
+    @include addExtraStyles($lyteTableRowSortingMap);
+}
+.lyteTableWithSortableRow .lyteTableSortablePlaceholder lyte-td {
+	background: map.get($lyteTableSortingRowPlaceholderTdMap, "background");
+	#{$property-border-left}: map.get($lyteTableSortingRowPlaceholderTdMap, "border-left");
+	border-bottom: map.get($lyteTableSortingRowPlaceholderTdMap, "border-bottom");
+    @include addExtraStyles($lyteTableSortingRowPlaceholderTdMap);
+}
+.lyteTableWithSortableRow .lyteTableSortablePlaceholder lyte-td:first-of-type {
+	#{$property-border-left}: map.get($lyteTableSortingRowPlaceholderTdFirstOfTypeMap, "border-left");
+    @include addExtraStyles($lyteTableSortingRowPlaceholderTdFirstOfTypeMap);
+}
+.lyteTableSortablePlaceholder {
+	position: absolute;
+	background: map.get($lyteTableSortablePlaceholderMap, "background");
+	border: map.get($lyteTableSortablePlaceholderMap, "border");
+	box-sizing: border-box;
+	z-index: map.get($lyteTableSortablePlaceholderMap, "z-index");
+    @include addExtraStyles($lyteTableSortablePlaceholderMap);
+}
+.lyteTableSortablePlaceholderHidden {
+	display: none;
+}
+
+/*	Lyte Table - infinite scroll - Sortable case related CSS ENDS */

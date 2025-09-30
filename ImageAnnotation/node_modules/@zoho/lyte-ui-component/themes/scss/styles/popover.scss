@@ -1,0 +1,179 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/popover.variables.scss";
+
+@use "../default/variables/popover.variables.scss" as *;
+
+.bodyWrapper {
+	overflow: hidden;
+}
+.popoverWrapper {
+	top: map.get($lytePopoverWrapperMap,"top");
+    bottom: map.get($lytePopoverWrapperMap,"bottom");
+    left: map.get($lytePopoverWrapperMap,"left");
+    right: map.get($lytePopoverWrapperMap,"right");
+    z-index: map.get($lytePopoverWrapperMap,"z-index");
+    position: fixed;
+    @include addExtraStyles($lytePopoverWrapperMap);
+}
+.popoverWrapper.noFreeze {
+    pointer-events: none;
+}
+.lytePopover {
+	background: map.get($lytePopoverMap,"background");
+	border: map.get($lytePopoverMap,"border");
+	box-shadow: map.get($lytePopoverMap,"box-shadow");
+	position: absolute;
+	z-index: map.get($lytePopoverMap,"z-index");
+	opacity: 0;
+	border-radius: map.get($lytePopoverMap,"border-radius");
+	transition: opacity ease 0.4s;
+	box-sizing: border-box;
+	font-family: $primaryFont;
+	top: map.get($lytePopoverMap,"top");
+	left: map.get($lytePopoverMap,"left");
+    @include addExtraStyles($lytePopoverMap);
+}
+.popoverWrapper.noFreeze .lytePopover {
+    pointer-events: auto;
+}
+.lytePopover.lyteZoom {
+    transition: map.get($lytePopoverZoomMap,"transition");
+    transform: map.get($lytePopoverZoomMap,"transform");
+    @include addExtraStyles($lytePopoverZoomMap);
+}
+.popoverWrapper.scrollable {
+	overflow: hidden;
+}
+.popoverWrapper.scrollable .lytePopoverContent {
+	overflow: auto;
+}
+.popoverWrapper.scrollable .lytePopover {
+	max-height: 100%;
+}
+lyte-popover-header {
+	padding: map.get($lytePopoverHeaderMap,"padding");
+	font-family: $secondaryFont;
+	font-size: map.get($lytePopoverHeaderMap,"font-size");
+	color: map.get($lytePopoverHeaderMap,"color");
+    @include addExtraStyles($lytePopoverHeaderMap);
+}
+lyte-popover-header,
+lyte-popover-content,
+lyte-popover-footer {
+	display: block;
+	box-sizing: border-box;
+}
+lyte-popover-content {
+	padding: map.get($lytePopoverContentMap,"padding");
+    @include addExtraStyles($lytePopoverContentMap);
+}
+lyte-popover-footer {
+	padding: map.get($lytePopoverFooterMap,"padding");
+    @include addExtraStyles($lytePopoverFooterMap);
+}
+lyte-popover-freeze {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: map.get($lytePopoverFreezeMap,"z-index");
+	height: auto;
+	background: map.get($lytePopoverFreezeMap,"background");
+	display: block;
+	opacity: map.get($lytePopoverFreezeMap,"opacity");
+	transition: opacity ease 0.15s;
+	transform: translate3d(0, 0, 0);
+    @include addExtraStyles($lytePopoverFreezeMap);
+}
+.lytePopoverClose {
+    @if $useCssMaskForBg {
+		mask-image: map.get($lytePopoverCloseMap, "mask-image");
+		mask-position: map.get($lytePopoverCloseMap, "mask-position");
+		background-color: map.get($lytePopoverCloseMap, "background-color");
+	} @else {
+		background-image: map.get($lytePopoverCloseMap, "background-image");
+		background-position: map.get($lytePopoverCloseMap, "background-position");
+	}
+	width: map.get($lytePopoverCloseMap,"width");
+	height: map.get($lytePopoverCloseMap,"height");
+	opacity: .5;
+	cursor: pointer;
+	position: absolute;
+    #{$property-right}: map.get($lytePopoverCloseMap,"right");
+	top: map.get($lytePopoverCloseMap,"top");
+	display: block;
+    transform: scale(1.3);
+    z-index: map.get($lytePopoverCloseMap,"z-index");
+    @include addExtraStyles($lytePopoverCloseMap);
+}
+.lytePopoverClose:hover {
+	opacity: 1;
+}
+lyte-popover-footer.left {
+	text-align: $value-textalign-left;
+}
+lyte-popover-footer.center {
+	text-align: center;
+}
+lyte-popover-footer.right {
+	text-align: $value-textalign-right;
+}
+lyte-popover-footer lyte-button {
+    #{$property-margin-left}: map.get($lytePopoverFooterButtonMap,"margin-left");
+    @include addExtraStyles($lytePopoverFooterButtonMap);
+}
+lyte-popover-footer lyte-button:first-child {
+    #{$property-margin-left}: 0;
+}
+.lytePopoverArrowIcon {
+    width: map.get($lytePopoverArrowMap,"width");
+    height: map.get($lytePopoverArrowMap,"height");
+    position: absolute;
+    background: map.get($lytePopoverArrowMap,"background");
+    transform: rotate(45deg);
+    display: block;
+    @include addExtraStyles($lytePopoverArrowMap);
+}
+.lytePopoverArrowIcon.lytePopoverArrowTop {
+    box-shadow: map.get($lytePopoverArrowTopMap,"box-shadow");
+    top: map.get($lytePopoverArrowTopMap,"top");
+    @include addExtraStyles($lytePopoverArrowTopMap);
+}
+.lytePopoverArrowIcon.lytePopoverArrowBottom {
+    box-shadow: map.get($lytePopoverArrowBottomMap,"box-shadow");
+    bottom: map.get($lytePopoverArrowBottomMap,"bottom");
+    @include addExtraStyles($lytePopoverWrapperMap);
+}
+.lytePopoverArrowIcon.lytePopoverArrowRight {
+    box-shadow: map.get($lytePopoverArrowRightMap,"box-shadow");
+    right: map.get($lytePopoverArrowRightMap,"right");
+    @include addExtraStyles($lytePopoverArrowRightMap);
+}
+.lytePopoverArrowIcon.lytePopoverArrowLeft {
+    box-shadow: map.get($lytePopoverArrowLeftMap,"box-shadow");
+    left: map.get($lytePopoverArrowLeftMap,"left");
+    @include addExtraStyles($lytePopoverArrowLeftMap);
+}
+.lytePopoverHeaderDraggable {
+    cursor: move;
+    touch-action: none;
+}
+.lyteStopBodyScrolling {
+    overflow: hidden;
+}
+.lytePopoverVisible{
+    opacity: 1;
+}
+.lytePopoverDispNone{
+    display: none;
+}
+.lytePopoverVisibilityHidden{
+	visibility: hidden;
+}

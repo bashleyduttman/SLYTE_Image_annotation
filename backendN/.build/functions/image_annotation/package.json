@@ -1,0 +1,9 @@
+{
+	"name": "image_annotation",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "deepaksaarthi.pp+test1@zohotest.com",
+	"dependencies": {
+		"zcatalyst-sdk-node": "latest"
+	}
+}

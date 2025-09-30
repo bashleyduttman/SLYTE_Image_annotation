@@ -1,0 +1,174 @@
+@use "sass:map";
+
+@use "../default/global/global.variables.scss" as *;
+
+@use "../default/global/rtl.scss" as *;
+
+@forward "../default/variables/messagebox.variables.scss";
+
+@use "../default/variables/messagebox.variables.scss" as *;
+
+.lyteMessageBoxContent {
+	font-family: $primaryFont;
+	font-size: map.get($lyteMessageBoxContentMap,"font-size");
+	color: map.get($lyteMessageBoxContentMap,"color");
+    @include addExtraStyles($lyteMessageBoxContentMap);
+}
+.lyteMessageBox {
+	padding: map.get($lyteMessageBoxMap,"padding");
+	z-index: map.get($lyteMessageBoxMap,"z-index");
+	background: map.get($lyteMessageBoxMap,"background");
+	border-radius: map.get($lyteMessageBoxMap,"border-radius");
+	color: map.get($lyteMessageBoxMap,"color");
+	font-size: map.get($lyteMessageBoxMap,"font-size");
+	transition: .3s all ease;
+	display: block;
+	animation-duration: .5s;
+	animation-fill-mode: both;
+	border: map.get($lyteMessageBoxMap,"border");
+	position: absolute;
+	min-width: map.get($lyteMessageBoxMap,"min-width");
+    @include addExtraStyles($lyteMessageBoxMap);
+}
+.lyteMessageBox.successMessageIcon {
+	border-color: map.get($lyteSuccessMessageIconMap,"border-color");
+    @include addExtraStyles($lyteSuccessMessageIconMap);
+}
+.lyteMessageBox.errorMessageIcon {
+	border-color: map.get($lyteErrorMessageIconMap,"border-color");
+    @include addExtraStyles($lyteErrorMessageIconMap);
+}
+.lyteMessageBox.warningMessageIcon {
+	border-color: map.get($lyteWarningMessageIconMap,"border-color");
+    @include addExtraStyles($lyteWarningMessageIconMap);
+}
+.lyteMessageBox.infoMessageIcon {
+	border-color: map.get($lyteInfoMessageIconMap,"border-color");
+    @include addExtraStyles($lyteInfoMessageIconMap);
+}
+.lyteMessageBox .lyteMessageBoxSymbol {
+	height: 100%;
+	display: inline-block;
+	position: absolute;
+	width: map.get($lyteMessageBoxSymbolMap,"width");
+    @include addExtraStyles($lyteMessageBoxSymbolMap);
+}
+.lyteMessageBox.successMessageIcon .lyteMessageBoxSymbol {
+	background: map.get($lyteSuccessMessageBoxSymbolMap,"background");
+    @include addExtraStyles($lyteSuccessMessageBoxSymbolMap);
+}
+.lyteMessageBox.errorMessageIcon .lyteMessageBoxSymbol {
+	background: map.get($lyteErrorMessageBoxSymbolMap,"background");
+    @include addExtraStyles($lyteErrorMessageBoxSymbolMap);
+}
+.lyteMessageBox.warningMessageIcon .lyteMessageBoxSymbol {
+	background: map.get($lyteWarningMessageBoxSymbolMap,"background");
+    @include addExtraStyles($lyteWarningMessageBoxSymbolMap);
+}
+.lyteMessageBox.infoMessageIcon .lyteMessageBoxSymbol {
+	background: map.get($lyteInfoMessageBoxSymbolMap,"background");
+    @include addExtraStyles($lyteInfoMessageBoxSymbolMap);
+}
+.lyteMessageBox .lyteMessageBoxSymbol::before {
+	content: "";
+    @if $useCssMaskForBg {
+		mask-image: map.get($lyteMessageBoxIconMap, "mask-image");
+        -webkit-mask-image: map.get($lyteMessageBoxIconMap, "mask-image");
+	} @else {
+		background-image: map.get($lyteMessageBoxIconMap, "background-image");
+	}
+	position: absolute;
+	display: inline-block;
+	width: map.get($lyteMessageBoxIconMap,"width");
+	height: map.get($lyteMessageBoxIconMap,"height");
+	top: map.get($lyteMessageBoxIconMap,"top");
+    #{$property-left}: map.get($lyteMessageBoxIconMap,"left");
+    @include addExtraStyles($lyteMessageBoxIconMap);
+}
+.lyteMessageBox.successMessageIcon .lyteMessageBoxSymbol::before {
+    @if $useCssMaskForBg {
+		mask-position: map.get($lyteSuccessMessageBoxIconMap, "mask-position");
+		background-color: map.get($lyteSuccessMessageBoxIconMap, "background-color");
+	} @else {
+		background-position: map.get($lyteSuccessMessageBoxIconMap, "background-position");
+	}
+    @include addExtraStyles($lyteSuccessMessageBoxIconMap);
+}
+.lyteMessageBox.errorMessageIcon .lyteMessageBoxSymbol::before {
+    @if $useCssMaskForBg {
+		mask-position: map.get($lyteErrorMessageBoxIconMap, "mask-position");
+		background-color: map.get($lyteErrorMessageBoxIconMap, "background-color");
+	} @else {
+		background-position: map.get($lyteErrorMessageBoxIconMap, "background-position");
+	}
+	width: map.get($lyteErrorMessageBoxIconMap,"width");
+	#{$property-left}: map.get($lyteErrorMessageBoxIconMap,"left");
+    @include addExtraStyles($lyteErrorMessageBoxIconMap);
+}
+.lyteMessageBox.warningMessageIcon .lyteMessageBoxSymbol::before {
+    @if $useCssMaskForBg {
+		mask-position: map.get($lyteWarningMessageBoxIconMap, "mask-position");
+		background-color: map.get($lyteWarningMessageBoxIconMap, "background-color");
+	} @else {
+		background-position: map.get($lyteWarningMessageBoxIconMap, "background-position");
+	}
+    @include addExtraStyles($lyteWarningMessageBoxIconMap);
+}
+.lyteMessageBox.infoMessageIcon .lyteMessageBoxSymbol::before {
+    @if $useCssMaskForBg {
+		mask-position: map.get($lyteInfoMessageBoxIconMap, "mask-position");
+		background-color: map.get($lyteInfoMessageBoxIconMap, "background-color");
+	} @else {
+		background-position: map.get($lyteInfoMessageBoxIconMap, "background-position");
+	}
+    @include addExtraStyles($lyteInfoMessageBoxIconMap);
+}
+.lyteMessageBox .lyteMessageBoxContent {
+	display: inline-block;
+	max-width: 100%;
+	vertical-align: top;
+	padding: map.get($lyteMessageBoxContentMap,"padding");
+    @include addExtraStyles($lyteMessageBoxContentMap);
+}
+.lyteMessageBox .lyteMessageBoxClose {
+    @if $useCssMaskForBg {
+		mask-image: map.get($lyteMessageBoxCloseMap, "mask-image");
+		mask-position: map.get($lyteMessageBoxCloseMap, "mask-position");
+		background-color: map.get($lyteMessageBoxCloseMap, "background-color");
+	} @else {
+		background-image: map.get($lyteMessageBoxCloseMap, "background-image");
+		background-position: map.get($lyteMessageBoxCloseMap, "background-position");
+	}
+	top: map.get($lyteMessageBoxCloseMap,"top");
+	width: map.get($lyteMessageBoxCloseMap,"width");
+	height: map.get($lyteMessageBoxCloseMap,"height");
+	display: inline-block;
+	position: absolute;
+	cursor: pointer;
+    #{$property-right}: map.get($lyteMessageBoxCloseMap,"right");
+    @include addExtraStyles($lyteMessageBoxCloseMap);
+}
+.lyteMessageBoxFadeIn {
+	animation-name: map.get($lyteMessageBoxFadeInMap,"animation-name");
+    @include addExtraStyles($lyteMessageBoxFadeInMap);
+}
+@keyframes lyteMsgBoxFadeIn {
+	0% {
+	   opacity: 0;
+    }
+	100% {
+	   opacity: 1;
+    }
+}
+.lyteMessageBoxFadeOut {
+	animation-name: map.get($lyteMessageBoxFadeOutMap,"animation-name");
+    @include addExtraStyles($lyteMessageBoxFadeOutMap);
+}
+@keyframes lyteMsgBoxFadeOut {
+	0% {
+	   opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

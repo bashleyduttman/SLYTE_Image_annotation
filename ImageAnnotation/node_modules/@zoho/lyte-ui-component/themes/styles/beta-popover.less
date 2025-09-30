@@ -1,0 +1,223 @@
+/* Default theme imported */
+@import "../themes/default/ui-elements/betapopover/beta-popover.variables.less";
+
+/* Loading theme in configuration */
+@import "../config.less";
+@import (optional) "../themes/@{betapopover}/ui-elements/betapopover/beta-popover.variables.less";
+
+/* rtl files loading */
+
+@import (multiple,optional) "../themes/default/global/@{direction}.less";
+
+@import (multiple,optional) "../themes/@{betapopover}/global/@{direction}.less";
+
+.bodyWrapper {
+	overflow: hidden;
+}
+.lytePopoverWrapper {
+    .lytePopoverWrapperMixin();
+	top: @top;
+	bottom: @bottom;
+	@{property-left}: @left;
+	@{property-right}: @right;
+	z-index: @z-index;
+	position: fixed;
+	pointer-events: none;
+}
+.lytePopoverVisibilityHidden{
+    visibility: hidden;
+}
+.lytePopoverElement {
+    .lytePopoverElementMixin();
+	display: flex;
+	flex-direction: column;
+	background: @bg;
+	border: @border;
+	box-shadow: @box-shadow;
+	position: absolute;
+	z-index: @z-index;
+	opacity: @opacity;
+	border-radius: @border-radius;
+	transition: opacity ease 0.4s;
+	box-sizing: border-box;
+	font-family: @font-family;
+	pointer-events: auto;
+}
+.lytePopoverYield {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	overflow: auto;
+}
+.lytePopoverFadeAnimation .lytePopoverElement {
+	opacity: 1;
+}
+.lytePopoverWrapper lyte-popover-freeze {
+	opacity: 0.5;
+	pointer-events: auto;
+	transition: opacity 0.4s ease;
+}
+.lytePopoverPop .lytePopoverElement,
+.lytePopoverZoom .lytePopoverElement {
+	transition: transform 0.4s ease, opacity 0.4s ease;
+	transform: scale(0);
+}
+.lytePopoverPopAnimation .lytePopoverElement,
+.lytePopoverZoomAnimation .lytePopoverElement.lyteZoom {
+	transform: scale(1);
+	opacity: 1;
+}
+.lytePopoverPop .lytePopoverLeft {
+	transform-origin: top right;
+}
+.lytePopoverPop .lytePopoverLeftCenter {
+	transform-origin: center right;
+}
+.lytePopoverPop .lytePopoverLeftBottom {
+	transform-origin: bottom right;
+}
+.lytePopoverPop .lytePopoverTopLeft {
+	transform-origin: bottom left;
+}
+.lytePopoverPop .lytePopoverTop {
+	transform-origin: bottom center;
+}
+.lytePopoverPop .lytePopoverTopRight {
+	transform-origin: bottom right;
+}
+.lytePopoverPop .lytePopoverRight {
+	transform-origin: top left;
+}
+.lytePopoverPop .lytePopoverRightCenter {
+	transform-origin: center left;
+}
+.lytePopoverPop .lytePopoverRightBottom {
+	transform-origin: bottom left;
+}
+.lytePopoverPop .lytePopoverBottom {
+	transform-origin: top center;
+}
+.lytePopoverPop .lytePopoverBottomLeft {
+	transform-origin: top left;
+}
+.lytePopoverPop .lytePopoverBottomRight {
+	transform-origin: top right;
+}
+.lytePopoverWrapper.scrollable {
+	overflow: hidden;
+}
+.lytePopoverWrapper.scrollable .lytePopoverContent {
+	overflow: auto;
+}
+.lytePopoverWrapper.scrollable .lytePopoverElement {
+    .lytePopoverWrapperScrollableElementMixin();
+	max-height: @max-h;
+}
+lyte-popover-header {
+    .lytePopoverHeaderMixin();
+	font-family: @font-family;
+	font-size: @font-size;
+	color: @color;
+}
+lyte-popover-header,
+lyte-popover-content,
+lyte-popover-footer {
+    .lytePopoverHeaderContentFooterMixin();
+	display: block;
+	box-sizing: border-box;
+	padding: @padding;
+}
+lyte-popover-freeze {
+    .lytePopoverFreezeMixin();
+	width: @w;
+	position: fixed;
+	top: @top;
+	@{property-left}: @left;
+	@{property-right}: @right;
+	bottom: @bottom;
+	z-index: @z-index;
+	height: @h;
+	background: @bg;
+	display: block;
+	opacity: @opacity;
+	transition: opacity ease 0.15s;
+	transform: @transform;
+}
+.lytePopoverClose {
+    .lytePopoverCloseMixin();
+	background-image: @bg-image;
+	background-position: @bg-position;
+	width: @w;
+	height: @h;
+	opacity: @opacity;
+	cursor: pointer;
+	position: absolute;
+	@{property-right}: @right;
+	top: @top;
+	display: block;
+	transform: @transform;
+	z-index: @z-index;
+}
+.lytePopoverClose:hover {
+	opacity: 1;
+}
+lyte-popover-footer.left {
+	text-align: @value-textalign-left;
+}
+lyte-popover-footer.center {
+	text-align: center;
+}
+lyte-popover-footer.right {
+	text-align: @value-textalign-right;
+}
+lyte-popover-footer lyte-button {
+    .lytePopoverFooterButtonMixin();
+	@{property-margin-left}: @margin-left;
+}
+lyte-popover-footer lyte-button:first-child {
+    .lytePopoverFooterButtonFirstChildMixin();
+	@{property-margin-left}: @margin-left;
+}
+.lytePopoverArrowIcon {
+    .lytePopoverArrowIconMixin();
+	width: @w;
+	height: @h;
+	position: absolute;
+	background: @bg;
+	transform: @transform;
+	display: block;
+}
+.lytePopoverArrowIcon.lytePopoverArrowTop {
+    .lytePopoverArrowTopIconMixin();
+	box-shadow: @box-shadow;
+	top: @top;
+}
+.lytePopoverArrowIcon.lytePopoverArrowBottom {
+    .lytePopoverArrowBottomIconMixin();
+	box-shadow: @box-shadow;
+	bottom: @bottom;
+}
+.lytePopoverArrowIcon.lytePopoverArrowRight {
+    .lytePopoverArrowRightIconMixin();
+	box-shadow: @box-shadow;
+	right: @right;
+}
+.lytePopoverArrowIcon.lytePopoverArrowLeft {
+    .lytePopoverArrowLeftIconMixin();
+	box-shadow: @box-shadow;
+	left: @left;
+}
+.lytePopoverHeaderDraggable {
+	cursor: move;
+	touch-action: none;
+}
+.lyteStopBodyScrolling {
+	overflow: hidden;
+}
+.lytePopoverVisible {
+	opacity: 1;
+}
+.lytePopoverHide,
+.lytePopoverDispNone {
+	display: none;
+}

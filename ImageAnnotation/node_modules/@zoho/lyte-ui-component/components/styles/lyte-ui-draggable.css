@@ -1,0 +1,9 @@
+.draggable-handle-element{
+    cursor: move;
+}
+.lyteDraggablePlaceholder {
+    background: #acdefa;
+}
+.lyteDraggableDisabledPlaceholder{
+    background: #ffbbbb;
+}

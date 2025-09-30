@@ -1,0 +1,270 @@
+@cssMaskIconLyteColorboxCommonIconColor: #fff;
+@cssMaskIconLyteColorboxCloseIconColor: @cssMaskIconLyteColorboxCommonIconColor;
+@cssMaskIconLyteColorboxIframeIconColor: #999;
+@cssMaskIconLyteColorboxNavIconColor: @cssMaskIconLyteColorboxCommonIconColor;
+@cssMaskIconLyteColorboxDownloadIconColor: @cssMaskIconLyteColorboxCommonIconColor;
+@cssMaskIconLyteColorboxUtilBoxIconColor: #929292;
+@cssMaskIconLyteColorboxUtilBoxIconHoverColor: @cssMaskIconLyteColorboxCommonIconColor;
+
+
+.Colorbox() {
+	@font-size: 14px;
+	@z-index: @colorboxzIndex;
+}
+.ColorboxFreezeLayer() {
+	@bg: @colorboxFreezeBg;
+	@opacity: 0.8;
+}
+.ColorboxWrapper() {
+	@w: 900px;
+	@bg: @colorboxWrapperBg;
+	@h: calc(100% - 170px);
+	@border-radius: 0 0 2px 2px;
+    @z-index: 5;
+}
+.ColorboxContent() {
+	@h: calc(100% - 65px);
+	@padding: 10px 10px 0;
+	@bg: @colorboxWrapperBg;
+	@border-radius: 3px 3px 0 0;
+}
+.ColorboxHeader() {
+	@bg: @colorboxWrapperBg;
+	@padding: 15px 20px;
+	@border-top: 1px solid #ebebeb;
+	@border-radius: 0 0 3px 3px;
+}
+.ColorboxTitle() {
+	@font-size: 15px;
+	@color: @colorboxTextColor;
+}
+.ColorboxCloseIcon() {
+	@bg-img: @lytesprite;
+	@bg-pos: -50px -100px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxCloseIconColor;
+	@h: 30px;
+	@w: 30px;
+	@border-radius: 50%;
+	@opacity: 0.8;
+}
+.ColorboxCloseIconPositionMixin() {
+	@top: 20px;
+	@right: 35px;
+}
+.ColorboxThumbOuterWrapper() {
+	@h: 150px;
+    @z-index: 5;
+}
+.ColorboxThumb() {
+	@margin-right: 10px;
+	@w: 70px;
+	@h: 70px;
+	@border: 1px solid transparent;
+    @border-radius: 3px;
+}
+.ColorboxThumbHover() {
+	@border: 1px solid #ccc;
+}
+.ColorboxThumbThumbOn() {
+	@border: 1px solid #fff;
+}
+.ColorboxThumbThumbOnAfter() {
+	@bottom: -30px;
+	@color: #fff;
+}
+.ColorboxIframeIconMixin() {
+	@bg-img: @lytesprite;
+	@bg-pos: -117px -198px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxIframeIconColor;
+	@w: 21px;
+	@h: 26px;
+}
+.lyteCBoxIframeLabelMixin() {
+	@color: #fff;
+	@font-size: 13px;
+	@margin-top: 10px;
+}
+.lyteCBoxFavImgMixin() {
+    @h: auto;
+    @w: auto;
+}
+.ColorboxThumbImage() {
+    @w: 100%;
+    @h: 100%;
+    @border-radius: 2px;
+}
+.ColorboxIconDiv() {
+	@w: 40px;
+	@h: 40px;
+	@border: 1px solid #555;
+	@bg: #222;
+	@border-radius: 50%;
+	@top: calc(50% - 20px);
+    @z-index: 10;
+}
+.ColorboxIconDivHover() {
+	@bg: #000;
+}
+.CBoxPrevious() {
+	@left: 20px;
+}
+.CBoxNext() {
+	@right: 20px;
+}
+.ColorboxPreviousIcon() {
+	@bg-img: @lytesprite;
+	@bg-pos: -94px -109px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxNavIconColor;
+	@w: 9px;
+	@h: 11px;
+}
+.ColorboxNextIcon() {
+	@bg-pos: -115px -108px;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxNavIconColor;
+}
+.CBoxDownloadIcon() {
+	@bg-img: @lytesprite;
+	@bg-pos: -271px -106px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxDownloadIconColor;
+	@w: 16px;
+	@h: 16px;
+	@opacity: 0.4;
+}
+.CBoxDownloadIconHover() {
+	@opacity: 0.8;
+}
+.ColorboxUtilDiv() {
+	@bg: #000;
+    @left: 50%;
+	@bottom: 65px;
+	@border-radius: 3px;
+    @z-index: @Level2zIndex;
+    @transform: translateX(-50%);
+}
+.ColorboxUtilsDivIconWrapper() {
+	@padding: 10px;
+    @h: 16px;
+}
+.ColorboxDisabled() {
+    @opacity: 0.6;
+}
+.ColorboxUtilsDivIconWrapperHover() {
+    @bg: rgba(255, 255, 255, 0.25);
+}
+.ColorboxUtilDivIcons() {
+	@bg: @lytesprite;
+	@mask-image: @bg;
+}
+.colorboxZoomOut() {
+	@bg-pos: -132px -107px;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxUtilBoxIconColor;
+	@w: 13px;
+	@h: 15px;
+}
+.ColorboxZoomOutHover() {
+	@bg-pos: -153px -107px;
+	@bg-color: @cssMaskIconLyteColorboxUtilBoxIconHoverColor;
+}
+.ColorboxReset() {
+	@bg-pos: -218px -106px;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxUtilBoxIconColor;
+	@w: 17px;
+	@h: 17px;
+}
+.ColorboxResetHover() {
+	@bg-pos: -242px -106px;
+	@bg-color: @cssMaskIconLyteColorboxUtilBoxIconHoverColor;
+}
+.ColorboxZoomIn() {
+	@bg-pos: -175px -107px;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxUtilBoxIconColor;
+	@w: 14px;
+	@h: 15px;
+}
+.ColorboxZoomInHover() {
+	@bg-pos: -196px -107px;
+	@bg-color: @cssMaskIconLyteColorboxUtilBoxIconHoverColor;
+}
+.colorboxHideVisibility() {
+	@opacity: 0.6;
+}
+.colorboxhidevisibilityhover() {
+	@bg: #222;
+}
+.colorboxItem() {
+    @h: calc(100% - 10px);
+    @w: calc(100% - 20px);
+    @bg: @colorboxWrapperBg;
+}
+.colorboxPrevItemTransform() {
+    @transform: translate3d(-100%,0,0);
+}
+.colorboxNextItemTransform() {
+    @transform: translate3d(100%,0,0);
+}
+.colorboxCurrentItemTransform() {
+    @transform: translate3d(0%,0,0);
+}
+.colorboxContainerMixin() {
+	@font-size: 14px;
+	@top: 0;
+	@bottom: 0;
+	@right: 0;
+	@left: 0;
+	@z-index: 1040
+}
+.colorboxHeaderMixin() {
+	@top: 0;
+	@w: 100%;
+	@h: 60px;
+	@bg: #222;
+	@z-index: 10;
+	@padding: 15px 20px;
+}
+.colorboxDownloadMixin() {
+	@margin-left: 10px;
+}
+.imageOnlyColorboxDownloadIconMixin() {
+    @bg-pos: -372px -157px;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconLyteColorboxDownloadIconColor;
+    @w: 16px;
+    @h: 15px;
+}
+.colorboxTitleMixin() {
+	@color: #fff;
+	@font-size: 16px;
+}
+.colorboxContentMixin() {
+	@left: 0;
+	@right: 0;
+	@top: 0;
+	@bottom: 0;
+}
+.colorboxThumbnailMixin() {
+	@h: 150px;
+	@bottom: 0;
+	@z-index: 10;
+	@w: 100%;
+}
+.colorboxContainerUtilDivMixin() {
+	@bottom: 150px;
+}
+.colorboxLoadingIconMixin() {
+    @left: 50%;
+    @top: 50%;
+    @z-index: 5;
+    @transform: translate(-50%, -50%);
+}

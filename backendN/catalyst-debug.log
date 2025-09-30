@@ -1,0 +1,116 @@
+[debug] [2025-09-29T06:15:40.993Z] : 
+[debug] [2025-09-29T06:15:40.994Z] : ----------------------------------------------------------------------
+[debug] [2025-09-29T06:15:40.994Z] : Command:      /opt/homebrew/Cellar/node/24.7.0/bin/node /opt/homebrew/bin/catalyst serve
+[debug] [2025-09-29T06:15:40.994Z] : CLI Version:  1.20.2
+[debug] [2025-09-29T06:15:40.994Z] : Platform:     darwin
+[debug] [2025-09-29T06:15:40.994Z] : Node Version: v24.7.0
+[debug] [2025-09-29T06:15:40.994Z] : Time:         Mon Sep 29 2025 11:45:40 GMT+0530 (India Standard Time)
+[debug] [2025-09-29T06:15:40.994Z] : ----------------------------------------------------------------------
+[debug] [2025-09-29T06:15:40.994Z] : 
+[debug] [2025-09-29T06:15:41.196Z] : > authorizing via signed-in user option
+[debug] [2025-09-29T06:15:41.197Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.apigateway.apis.READ","ZohoCatalyst.apigateway.READ","ZohoCatalyst.segments.ALL","ZohoCatalyst.cache.READ","ZohoCatalyst.cache.CREATE","ZohoCatalyst.cache.DELETE","ZohoCatalyst.projects.ALL","ZohoCatalyst.cron.ALL","ZohoCatalyst.zcql.CREATE","ZohoCatalyst.projects.users.READ","ZohoCatalyst.projects.users.CREATE","ZohoCatalyst.projects.users.DELETE","ZohoCatalyst.projects.users.UPDATE","ZohoCatalyst.authentication.CREATE","ZohoCatalyst.email.CREATE","ZohoCatalyst.tables.ALL","ZohoCatalyst.tables.rows.ALL","ZohoCatalyst.tables.columns.ALL","ZohoCatalyst.tables.bulk.CREATE","ZohoCatalyst.tables.bulk.READ","ZohoCatalyst.folders.ALL","ZohoCatalyst.files.CREATE","ZohoCatalyst.files.READ","ZohoCatalyst.files.DELETE","ZohoCatalyst.functions.ALL","ZohoCatalyst.functions.EXECUTE","ZohoCatalyst.eventlistners.ALL","ZohoCatalyst.eventlisteners.produce","ZohoCatalyst.security.rules.Read","ZohoCatalyst.security.rules.Update","ZohoCatalyst.notifications.mobile","ZohoCatalyst.notifications.web","ZohoCatalyst.search.READ","ZohoCatalyst.mlkit.READ","QuickML.deployment.READ","ZohoCatalyst.pdfshot.execute","ZohoCatalyst.circuits.execution.DELETE","ZohoCatalyst.circuits.execution.READ","ZohoCatalyst.circuits.execute","ZohoCatalyst.appsail.Read","ZohoCatalyst.jobpool.READ","ZohoCatalyst.job.ALL","ZohoCatalyst.nosql.READ","ZohoCatalyst.nosql.rows.ALL"]
+[debug] [2025-09-29T06:15:41.202Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/21787000000010147 
+
+[debug] [2025-09-29T06:15:41.429Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 29 Sep 2025 06:15:41 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"close","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-09-29T06:15:41.431Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/21787000000010147/environment 
+
+[debug] [2025-09-29T06:15:41.586Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 29 Sep 2025 06:15:41 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"close","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-09-29T06:15:41.696Z] : http port : '3000' is not available. Hence port '3001' will be used instead.
+[debug] [2025-09-29T06:15:41.699Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/21787000000010147/function 
+Query params: {"type":"basicio,event,cron,applogic,integration,browser_logic,job"}
+
+[debug] [2025-09-29T06:15:41.840Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 29 Sep 2025 06:15:41 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"close","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-09-29T06:15:41.843Z] : unknown eol undefined hence skipping check
+[info] [2025-09-29T06:15:42.065Z] : 
+[info] [2025-09-29T06:15:42.065Z] :  >>>>>>>>>>>>> AdvancedIO <<<<<<<<<<<< 
+[info] [2025-09-29T06:15:42.066Z] : ℹ image_annotation: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:15:42.066Z] : 
+[info] [2025-09-29T06:17:54.440Z] : 
+change of index.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:17:54.658Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:17:54.658Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:37:28.760Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:37:28.966Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:37:28.966Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:38:48.994Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:38:49.205Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:38:49.205Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:40:45.134Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:40:45.343Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:40:45.343Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:43:08.670Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:43:08.877Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:43:08.877Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[debug] [2025-09-29T06:46:25.056Z] : > refreshing access token <
+[debug] [2025-09-29T06:46:25.063Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.in/oauth/v2/token 
+<request body omitted>
+
+[debug] [2025-09-29T06:46:25.318Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 29 Sep 2025 06:46:25 GMT","content-type":"application/json;charset=UTF-8","content-length":"2361","connection":"close","cache-control":"no-store","x-content-type-options":"nosniff","pragma":"no-cache","x-frame-options":"SAMEORIGIN","vary":"accept-encoding","content-language":"en-US","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[info] [2025-09-29T06:47:33.599Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:47:33.809Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:47:33.810Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:47:56.938Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:47:57.140Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:47:57.140Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:48:10.083Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:48:10.286Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:48:10.286Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:49:26.945Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:49:27.166Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:49:27.167Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:50:26.083Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:50:26.285Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:50:26.285Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:50:35.578Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:50:35.777Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:50:35.777Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[info] [2025-09-29T06:56:09.675Z] : 
+change of routes/annotationRoute.js in image_annotation detected. Preparing your function, please wait...
+[info] [2025-09-29T06:56:09.927Z] : ℹ AdvancedIO[image_annotation]: ready!
+[info] [2025-09-29T06:56:09.927Z] : ℹ AdvancedIO[image_annotation]: http://localhost:3001/server/image_annotation/
+[debug] [2025-09-29T08:13:33.299Z] : > refreshing access token <
+[debug] [2025-09-29T08:13:33.304Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.in/oauth/v2/token 
+<request body omitted>
+
+[debug] [2025-09-29T08:13:33.538Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 29 Sep 2025 08:13:33 GMT","content-type":"application/json;charset=UTF-8","content-length":"2361","connection":"close","cache-control":"no-store","x-content-type-options":"nosniff","pragma":"no-cache","x-frame-options":"SAMEORIGIN","vary":"accept-encoding","content-language":"en-US","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-09-29T10:40:50.309Z] : > refreshing access token <
+[debug] [2025-09-29T10:40:50.316Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.in/oauth/v2/token 
+<request body omitted>
+
+[debug] [2025-09-29T10:40:50.733Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Mon, 29 Sep 2025 10:40:50 GMT","content-type":"application/json;charset=UTF-8","content-length":"2361","connection":"close","cache-control":"no-store","x-content-type-options":"nosniff","pragma":"no-cache","x-frame-options":"SAMEORIGIN","vary":"accept-encoding","content-language":"en-US","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-09-30T03:42:55.723Z] : > refreshing access token <
+[debug] [2025-09-30T03:42:55.741Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.in/oauth/v2/token 
+<request body omitted>
+
+[debug] [2025-09-30T03:42:55.758Z] : > refreshing access token <
+[debug] [2025-09-30T03:42:55.758Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.in/oauth/v2/token 
+<request body omitted>
+
+[debug] [2025-09-30T03:42:55.995Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Tue, 30 Sep 2025 03:42:56 GMT","content-type":"application/json;charset=UTF-8","content-length":"2361","connection":"close","cache-control":"no-store","x-content-type-options":"nosniff","pragma":"no-cache","x-frame-options":"SAMEORIGIN","vary":"accept-encoding","content-language":"en-US","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2025-09-30T03:42:56.013Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Tue, 30 Sep 2025 03:42:56 GMT","content-type":"application/json;charset=UTF-8","content-length":"2361","connection":"close","cache-control":"no-store","x-content-type-options":"nosniff","pragma":"no-cache","x-frame-options":"SAMEORIGIN","vary":"accept-encoding","content-language":"en-US","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+

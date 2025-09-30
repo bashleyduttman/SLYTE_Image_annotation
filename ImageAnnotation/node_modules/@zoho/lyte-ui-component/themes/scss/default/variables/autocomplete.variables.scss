@@ -1,0 +1,114 @@
+@use "../global/global.variables.scss" as global;
+
+$cssMaskIconLyteAutoCompleteCloseIconColor: global.$lyteIconsThemeColor;
+
+$lyteAutoCompDropdownMap: (
+) !default;
+
+$lyteAutocompDropbuttonMap: (
+    "padding": 0,
+    "border": 0,
+) !default;
+
+$lyteAutocompSearchInputMap: (
+    "padding-left": 10px,
+) !default;
+
+$lyteAutocompleteInputMap: (
+	"padding-right": 25px,
+    "font-size": 15px,
+) !default;
+
+$lyteAutocompleteInputWithSearchMap: (
+	"padding-right": 60px,
+) !default;
+
+$lyteAutocompDropOpenDownInputMap: (
+    "border-radius": 2px 2px 0 0,
+) !default;
+
+$lyteAutocompDropOpenUpInputMap: (
+    "border-radius": 0 0 2px 2px,
+) !default;
+
+$lyteAutocompDropdownFocusedInputFieldMap: (
+	"border": 1px solid global.$lyteAutoCompFocusBorderColor,
+) !default;
+
+$lyteAutoCompCloseIconMap: (
+    "background-image": global.$lytesprite,
+	"background-position": -54px -2px,
+	"mask-image": global.$lytesprite,
+	"mask-position": -54px -2px,
+	"background-color": $cssMaskIconLyteAutoCompleteCloseIconColor,
+	"width": 8px,
+	"height": 8px,
+) !default;
+
+$lyteAutocompCloseMap: (
+	"right": 5px,
+	"top": calc(50% - 12px),
+	"padding": 8px,
+    "opacity": 0.5,
+    "height": 8px,
+) !default;
+
+$lyteAutocompCloseWithSearchMap: (
+	"right": 40px,
+) !default;
+
+$lyteAutocompCloseHoverMap: (
+    "opacity": 1,
+) !default;
+
+$lyteAutocompSearchMap: (
+	"right": 10px,
+	"top": calc(50% - 7.5px),
+    "opacity": 0.7,
+) !default;
+
+$lyteAutoCompIconSeparatorMap: (
+	"height": 24px,
+	"border-right": 1px solid #ddd,
+	"right": 35px,
+	"top": calc(50% - 12px),
+) !default;
+
+$lyteAutoCompDescMap: (
+    "opacity": 0.4,
+    "font-size": 13px,
+) !default;
+
+$lyteAutocompleteErrorMap: (
+	"padding": 5px 15px 15px,
+    "font-size": 14px,
+    "color": #8a8a8a,
+) !default;
+
+$lyteAutocompDropItemMap: (
+	"color": global.$lyteAutoCompleteText,
+    "max-width": 100%,
+) !default;
+
+$lyteAutocompleteDropdownMap: (
+    "border": 1px solid #dadada,
+    "border-top": 1px solid #dadada,
+    "box-shadow": 0px 3px 6px 0px global.$lyteAutocompleteBoxShadow,
+) !default;
+
+$lyteAutocompleteDropdownDownMap: (
+	"transform": translateY(5px),
+) !default;
+
+$lyteAutocompleteDropdownUpMap: (
+	"transform": translateY(-5px),
+) !default;
+
+$lyteAutocompDropdownItemMap: (
+    "padding-left": 10px,
+) !default;
+
+$lyteAutocompleteHighlightMap: (
+	"color": global.$lyteAutoCompHighlightColor,
+    "background": global.$lyteAutoCompHighlightBg,
+) !default;

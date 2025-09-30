@@ -1,0 +1,58 @@
+.lyteReducedAnimationMixin() {
+	.lyteContextualAnimation lyte-connect-item,
+	.lyteContextualAnimation lyte-connection-content,
+	.lyteProgressBar .lyteProgressStatus,
+	.lyteGridstackHandler,
+	.lyteCBoxItem,
+	.lyteVideoSubtitleWrapper,
+	.lyteVideoControls,
+	lyte-tree,
+	.lyteTourTargetBackground,
+	.lyteTourContainer,
+	.lyteRadioSlider::before,
+	.lyteRadioSwitch .on-btn,
+	.lyteRadioLayer .lyteRadioCheck,
+	.lytePopover.lyteZoom,
+	.lyteModal,
+	.lyteMessageBox,
+	lyte-menu-box.lyteAnimate lyte-menu-body,
+	lyte-menu-box.lyteAnimate,
+	.lyteExpTableAccordionAnimation .lyteExpTableAccordionContent .lyteExpressAccordionTdChild,
+	.lyteExpTableAccordionAnimation .lyteExpTableAccordionContent lyte-td-wrap,
+	.lyteExpTableAccordionAnimation .lyteExpTableAccordionContent td,
+	lyte-lb-collapse,
+	.lyteLBLeftChildWrap,
+	.lyteLBRightChildWrap,
+	lyte-drop-box.lyteAnimate lyte-drop-body,
+	lyte-drop-box.lyteAnimate,
+	.lyteDrawerInlineBody.lyteDrawerMiniVariant .lyteDrawerPanel,
+	.lyteDrawerInlineBody.lyteDrawerInlineDisplace .lyteDrawerContent,
+	.lyteDrawerInlineBody .lyteDrawerPanel,
+	#lyteDateSelect,
+	.dateSelectcal .specificDate,
+	.dateSelectcal .customRange,
+	.lyteCBoxAnimateOnUp,
+	.lyteCBoxMoveRightWithTransition,
+	.lyteCBoxMoveLeftWithTransition,
+	.lyteCBoxCurrentItem,
+	.lyteColorboxThumbInnerWrapper,
+	.lyteCheckSlider::before,
+	.lyteCheckSwitch .on-btn,
+	lyte-carousel-item,
+	.lyteAvatarSlideAnim,
+	.alertPopup,
+	lyte-accordion-body {
+		transition-duration: 0.0001s !important;
+	}
+	.lyteAvatarLoading {
+		animation: none;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	body:not(.lyteUICompOverrideSystemReducedAnim) {
+		.lyteReducedAnimationMixin();
+	}
+}
+.lyteUICompReducedAnim {
+    .lyteReducedAnimationMixin();
+}

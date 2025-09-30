@@ -1,0 +1,108 @@
+/* Default theme imported */
+/*	Icon Colors */
+/* Loading theme in configuration */
+/* Themes of components */
+/*	Icon Colors */
+/* Loading custom themes */
+/* import theme overrides */
+/* import custom css */
+lyte-datemultiselect {
+  display: inline-block;
+}
+.lyteDMSButton {
+  border: 1px solid #d6d6d6;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.lyteDMSButton:hover {
+  border: 1px solid #c1c1c1;
+}
+.lyteDmsWrap {
+  display: flex;
+  position: absolute;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E5E8EA;
+  border-radius: 0 5px 5px 5px;
+}
+.lyteDmsSelectionContainer {
+  background-color: #fff;
+  border-radius: 0 5px 5px 0;
+  box-shadow: none;
+  display: inline-flex;
+  flex-direction: column;
+  overflow: auto;
+  box-sizing: border-box;
+  font-size: 15px;
+  max-height: 350px;
+  border-left: 1px solid #E5E8EA;
+}
+.lyteDmsCalcWrap {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #BABDBF;
+}
+.lyteDmsDateCalc {
+  color: #0984E3;
+  border-radius: 5px;
+  border: 1px solid #0984E3;
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lyteDmsDayCalc {
+  margin-right: 30px;
+  color: #152229;
+}
+.lyteDmsRightPanelContentWrap {
+  overflow: auto;
+  flex-grow: 1;
+}
+.lyteDmsRightDate {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+.lyteDmsSelectedDays {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  color: #292C2E;
+}
+.lyteDMSRemoveIcon {
+  width: 12px;
+  height: 12px;
+  -webkit-mask-image: url(../../images/sprite_lyte_night.svg);
+  -webkit-mask-position: -324px -109px;
+  mask-image: url(../../images/sprite_lyte_night.svg);
+  mask-position: -324px -109px;
+  background-color: #6D6E70;
+  cursor: pointer;
+}
+.lyteDMSRemoveAll {
+  color: #E74C3C;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.lyteDMSHide {
+  display: none;
+}
+.lyteDmsWrap .lyteCalendarPopup {
+  border: 0;
+  border-radius: 0 0 0 5px;
+  box-shadow: none;
+  border-right: 1px solid #E5E8EA;
+}
+.lyteDmsWrap {
+  position: relative;
+}
+.lyteDMSButtonPlaceholder {
+  color: #808080;
+}

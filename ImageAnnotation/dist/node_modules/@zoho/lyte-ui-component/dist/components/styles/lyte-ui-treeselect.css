@@ -1,0 +1,46 @@
+lyte-treeselect {
+	display: inline-block;
+}
+lyte-treeselect lyte-dropdown {
+	max-width: 100%;
+	display: block;
+}
+lyte-treeselect lyte-dropdown[lt-prop-type="multiple"] lyte-drop-button::after {
+	content: none;
+}
+.lyteTreeSelectDropbox lyte-drop-body {
+	padding: 5px 10px;
+}
+.lyteTreeSelectDropbox lyte-tree {
+	padding-left: 25px;
+}
+.lyteTreeSelectDropbox lyte-drop-body > lyte-tree {
+	padding-left: 0;
+}
+.lyteTreeSelectDropbox  lyte-tree-body {
+	margin-top: 0;
+}
+.lyteTreeSelectDropbox lyte-tree-content {
+	display: flex;
+	align-items: center;
+}
+.lyteTreeSelectDropbox lyte-drop-item.lyteDropdownActive,
+.lyteTreeSelectDropbox .lyteTreeMainContainer > lyte-yield,
+.lyteTreeSelectDropbox .collapseBox {
+	display: block;
+}
+.lyteTreeSelectDropbox .lyteTreeHasNoChild .collapseBox {
+	display: none;
+}
+.lyteTreeDropItem {
+	flex: 1;
+	padding-left: 5px;
+	margin-left: 5px;
+}
+.lyteTreeHasNoChild .lyteTreeDropItem {
+	padding-left: 10px;
+	margin-left: 0;
+}
+.lyteTreeSelectSelected {
+	background: #e6f3fd;
+}

@@ -1,0 +1,63 @@
+@use "../global/global.variables.scss" as global;
+
+$lyteHovercardPopoverWrapperMap: (
+	"z-index": global.$lyteHoverCardzIndex
+) !default;
+
+$lyteHovercardPopoverMap: (
+    "background": global.$lyteHoverCardBg,
+    "color": global.$lyteHoverCardTextColor,
+    "border-radius": 5px,
+    "border": 1px solid transparent,
+) !default;
+
+$lyteHovercardArrowMap: (
+    "background": global.$lyteHoverCardBg
+) !default;
+
+$lyteHovercardArrowTopMap: (
+	"box-shadow": -1px -1px 0 0 global.$lyteHoverCardBg
+) !default;
+
+$lyteHovercardArrowBottomMap: (
+	"box-shadow": 1px 1px 0 0  global.$lyteHoverCardBg
+) !default;
+
+$lyteHovercardArrowRightMap: (
+	"box-shadow": 1px -1px 0 0  global.$lyteHoverCardBg
+) !default;
+
+$lyteHovercardArrowLeftMap: (
+	"box-shadow": -1px 1px 0 0  global.$lyteHoverCardBg
+) !default;
+
+$lyteHovercardContentMap: (
+    "padding": 15px,
+    "max-width": 500px
+) !default;
+
+$lyteHovercardTopBottomPopoverBeforeMap: (
+	"width": 100%,
+	"height": 10px
+) !default;
+
+$lyteHovercardBottomPopoverBeforeMap: (
+    "top": -10px
+) !default;
+
+$lyteHovercardTopPopoverBeforeMap: (
+    "bottom": -10px
+) !default;
+
+$lyteHovercardLeftRightPopoverBeforeMap: (
+    "height": 100%,
+    "width": 10px
+) !default;
+
+$lyteHovercardRightPopoverBeforeMap: (
+    "left": -10px
+) !default;
+
+$lyteHovercardLeftPopoverBeforeMap: (
+    "right": -10px
+) !default;

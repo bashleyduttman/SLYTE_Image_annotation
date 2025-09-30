@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "targets": [
+      "image_annotation"
+    ],
+    "ignore": [],
+    "source": "functions"
+  }
+}

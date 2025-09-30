@@ -1,0 +1,45 @@
+@use "../global/global.variables.scss" as global;
+
+$lyteMultiDropdownMap: (
+	"max-width": 330px
+) !default;
+
+$lyteMultiDropdownDropButtonMap: (
+	"padding": global.lyteSassPaddingFunction(9px 25px 9px 10px)
+) !default;
+
+$lyteMultiDropdownDropboxItemMap: (
+	"padding": global.lyteSassPaddingFunction(8px 15px 8px 25px)
+) !default;
+
+$lyteMultiDropdownNmoreElemMap: (
+	"background": #5ba1e5,
+	"border": 1px solid transparent,
+	"color": #fff,
+	"padding": 1px 7px 2px
+) !default;
+
+$lyteMultiDropdownTagHovercardPopoverMap: (
+	"background": global.$lyteMultiDropdownTagHovercardBg,
+	"border": 1px solid global.$lyteMultiDropdownTagHovercardBorderColor
+) !default;
+
+$lyteMultiDropdownTagHovercardArrowIconMap: (
+	"background": global.$lyteMultiDropdownTagHovercardBg
+) !default;
+
+$lyteMultiDropdownTagHovercardArrowBottomMap: (
+	"box-shadow": 1px 1px 0 0 global.$lyteMultiDropdownTagHovercardBorderColor
+) !default;
+
+$lyteMultiDropdownTagHovercardArrowTopMap: (
+	"box-shadow": -1px -1px 0 0 global.$lyteMultiDropdownTagHovercardBorderColor
+) !default;
+
+$lyteMultiDropdownTagHovercardWrapperMap: (
+	"max-width": 450px
+) !default;
+
+$lyteMultiDropdownDropPlaceholderMultipleMap: (
+	"padding": 0
+) !default;

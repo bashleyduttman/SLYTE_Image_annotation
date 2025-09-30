@@ -1,0 +1,530 @@
+/* Default theme imported */
+
+@import "../themes/default/ui-elements/comment/comment.variables.less";
+
+/* Loading theme in configuration */
+
+@import "../config.less";
+
+
+@import (multiple,optional) "../themes/default/global/@{direction}.less";
+
+lyte-comment {
+	.lyteCommentMixin();
+	display: block;
+	color: @color;
+	padding: @padding;
+	font-family: @font-family;
+}
+lyte-comment > lyte-comment {
+	.lyteCommentNestedMixin();
+	@{property-margin-left}: @margin-left;
+	margin-top: @margin-top;
+}
+lyte-comment-header {
+	.lyteCommentHeaderMixin();
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: @padding;
+}
+.lyteCommentProfileImageText,
+.lyteCommentProfileImage {
+	.lyteCommentProfileImageMixin();
+	width: @w;
+	height: @h;
+	display: inline-block;
+	@{property-margin-left}: @margin-left;
+	@{property-margin-right}: @margin-right;
+	position: absolute;
+	@{property-left}: @left;
+	top: @top;
+}
+.lyteCommentProfileImageText {
+	.lyteCommentProfileImageTextMixin();
+	border: @border;
+	border-radius: @border-radius;
+	background-color: @bg;
+	color: @color;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: @font-size;
+}
+.lyteCommentProfileImage img {
+	.lyteCommentProfileImageImgMixin();
+	width: @w;
+	height: @h;
+	border-radius: @border-radius;
+	object-fit: cover;
+}
+lyte-comment-header span:nth-child(4),
+lyte-comment-header span:nth-child(2) {
+	.lyteCommentHeaderTextMixin();
+	font-size: @font-size;
+	color: @color;
+}
+lyte-comment-header span:nth-child(2)::after {
+	.lyteCommentHeaderDotMixin();
+	content: '';
+	width: @w;
+	height: @h;
+	background: @bg;
+	border-radius: @border-radius;
+	display: inline-block;
+	margin: @margin;
+	vertical-align: middle;
+}
+lyte-comment-header span:nth-child(3) {
+	.lyteCommentHeaderTextThirdElemMixin();
+	font-size: @font-size;
+	color: @color;
+}
+lyte-comment-header span:nth-child(3)::after {
+	.lyteCommentHeaderHyphenMixin();
+	content: '-';
+	display: inline-block;
+	margin: @margin;
+	vertical-align: top;
+}
+lyte-comment-content {
+	.lyteCommentContentMixin();
+	display: block;
+	position: relative;
+	@{property-margin-left}: @margin-left;
+}
+lyte-comment-content a {
+	.lyteCommentContentLinkMixin();
+	color: @color;
+}
+.lyteCommentAttachments {
+	display: flex;
+	flex-wrap: wrap;
+}
+.lyteCommentAttachmentDownload {
+	.lyteCommentAttachmentDownloadMixin();
+	width: @w;
+	height: @h;
+	padding: @padding;
+	border-radius: @border-radius;
+	background: @bg;
+	position: absolute;
+	@{property-right}: @right;
+	top: @top;
+	opacity: @opacity;
+	transition: opacity 0.3s ease;
+	z-index: @z-index;
+}
+.lyteCommentAttachmentPreview:hover .lyteCommentAttachmentDownload {
+	.lyteCommentAttachmentPreviewHoverDownloadMixin();
+	opacity: @opacity;
+}
+.lyteCommentAttachmentDownload::after {
+	.lyteCommentAttachmentDownloadAfterMixin();
+	content: '';
+	width: @w;
+	height: @h;
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin(@mask-img, @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+		background-position: @bg-pos;
+	}
+	display: block;
+	opacity: @opacity;
+}
+.lyteCommentAttachmentDownload:hover::after {
+	.lyteCommentAttachmentDownloadHoverAfterMixin();
+	opacity: @opacity;
+}
+.lyteCommentAttachmentPreview {
+	.lyteCommentAttachmentPreviewMixin();
+	padding-bottom: @padding-bottom;
+	position: relative;
+	@{property-margin-right}: @margin-right;
+	margin-top: @margin-top;
+}
+.lytecommentAttachment_image {
+	.lytecommentAttachmentImageMixin();
+	height: @h;
+	border-radius: @border-radius;
+	display: block;
+	border: @border;
+	box-shadow: @box-shadow;
+	cursor: pointer;
+}
+.lytecommentAttachment_image:hover {
+	.lytecommentAttachmentImageHoverMixin();
+	box-shadow: @box-shadow;
+}
+.lyteCommentAttachmentSize {
+	.lyteCommentAttachmentSizeMixin();
+	position: absolute;
+	font-size: @font-size;
+	bottom: @bottom;
+	width: @w;
+	text-align: center;
+	color: @color;
+}
+.lytecommentAttachment_image + .lyteCommentAttachmentSize {
+	display: none;
+}
+.lyteCommentAttachmentName {
+	.lyteCommentAttachmentNameMixin();
+	position: absolute;
+	margin: @margin;
+	font-size: @font-size;
+	color: @color;
+	width: @w;
+	text-align: center;
+}
+.lyteCommentFileNameTooltip {
+	.lyteCommentFileNameTooltipMixin();
+	max-width: @max-w;
+	white-space: normal;
+	overflow-wrap: break-word;
+	line-height: @line-height;
+	text-align: @text-align;
+	animation: lyteCommentFileNameToolipAnim 0.3s ease;
+}
+@keyframes lyteCommentFileNameToolipAnim {
+	0% {
+		opacity: 0;
+    }
+	100% {
+		opacity: 1;
+    }
+}
+.LyteNoteEditedLabel {
+	.lyteNoteEditedLabelMixin();
+	font-style: italic;
+	font-size: @font-size;
+	color: @color;
+}
+.lyteCommentValue {
+	.lyteCommentValueMixin();
+	display: flex;
+	align-items: flex-start;
+	padding: @padding;
+}
+.lyteCommentText {
+	.lyteCommentTextMixin();
+	font-size: @font-size;
+}
+lyte-comment-footer {
+	.lyteCommentFooterMixin();
+	display: flex;
+	@{property-margin-left}: @margin-left;
+	margin-top: @margin-top;
+}
+.lyteCommentOtherFooter {
+	.lyteCommentOtherFooterMixin();
+	display: inline-flex;
+	align-items: center;
+	align-self: flex-start;
+	margin-top: @margin-top;
+}
+.lyteCommentOtherFooter::before {
+	.lyteCommentOtherFooterBeforeMixin();
+	content: '';
+	width: @w;
+	height: @h;
+	border-radius: @border-radius;
+	background: @bg;
+	@{property-margin-right}: @margin-right;
+}
+.lyteCommentTime {
+	.lyteCommentTimeMixin();
+	color: @color;
+	font-size: @font-size;
+	white-space: nowrap;
+}
+.lyteNoteCommentEditedLabel {
+	.lyteNoteCommentEditedLabelMixin();
+	color: @color;
+	font-size: @font-size;
+	font-style: italic;
+	margin: @margin;
+}
+.lyteCommentMoreString {
+	.lyteCommentMoreStringMixin();
+	color: @color;
+	font-size: @font-size;
+	cursor: pointer;
+}
+.lyteNoteCommentMoreOptions,
+lyte-comment-edit,
+lyte-comment-delete {
+	.lyteCommentActionButtonsMixin();
+	display: inline-flex;
+	width: @w;
+	height: @h;
+	border: @border;
+	margin-top: @margin-top;
+	border-radius: @border-radius;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	cursor: pointer;
+	visibility: hidden;
+	position: sticky;
+	top: @top;
+}
+.lyteNoteCommentMoreOptions {
+	.lyteNoteCommentMoreOptionsMixin();
+	margin: @margin;
+}
+lyte-comment-edit + .lyteNoteCommentMoreOptions {
+	.lyteNoteCommentMoreOptionsNextTolyteCommentEditMixin();
+	@{property-margin-left}: @margin-left;
+}
+lyte-comment-edit {
+	.lyteCommentEditMixin();
+	@{property-margin-left}: @margin-left;
+}
+lyte-comment-delete {
+	.lyteCommentDeleteMixin();
+	margin: @margin;
+}
+.lyteNoteOptionsMenuOpened lyte-comment-edit,
+.lyteNoteOptionsMenuOpened .lyteNoteCommentMoreOptions,
+lyte-comment:hover .lyteNoteCommentMoreOptions,
+lyte-comment:hover lyte-comment-edit,
+lyte-comment:hover lyte-comment-delete {
+	visibility: visible;
+}
+lyte-comment-edit:hover {
+	.lyteCommentEditHoverMixin();
+	background: @bg;
+	border-color: @border-color;
+}
+.lyteNoteCommentMoreOptions:hover,
+.lyteNoteCommentMoreOptions.lyteMenuSelected {
+	.lyteNoteCommentMoreOptionsSelectedMixin();
+	visibility: visible;
+	border-color: @border-color;
+	background: @bg;
+}
+.lyteNoteCommentMoreOptions::before,
+lyte-comment-edit::before,
+lyte-comment-delete::before {
+	.lyteCommentActionButtonsBeforeMixin();
+	content: '';
+	& when (@useCssMaskForBg = true) {
+		-webkit-mask-image: @mask-img;
+		mask-image: @mask-img;
+		background-color: @bg-color;
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-image: @bg-img;
+	}
+	display: block;
+}
+lyte-comment-edit::before {
+	.lyteCommentEditBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, '');
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+lyte-comment-delete::before {
+	.lyteCommentDeleteBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, '');
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+.lyteNoteCommentMoreOptions::before {
+	.lyteNoteCommentMoreOptionsBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, '');
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+	width: @w;
+	height: @h;
+}
+lyte-comment-delete:hover {
+	.lyteCommentDeleteHoverMixin();
+	background: @bg;
+	border-color: @border-color;
+}
+lyte-comment-edit:hover::before {
+	.lyteCommentEditHoverBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+}
+lyte-comment-delete:hover::before {
+	.lyteCommentDeleteHoverBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+}
+.lyteNoteCommentMoreOptions.lyteMenuSelected::before,
+.lyteNoteCommentMoreOptions:hover::before {
+	.lyteNoteCommentMoreOptionsHoverBeforeMixin();
+	& when (@useCssMaskForBg = true) {
+		.lyteMaskBgMixin('', @mask-pos, @bg-color);
+	}
+	& when not (@useCssMaskForBg = true) {
+		background-position: @bg-pos;
+	}
+}
+.lyteNoteVoiceNoteComment lyte-note-editor lyte-voicenote {
+	.lyteNoteVoiceNoteCommentNoteEditorVoicenoteMixin();
+	margin: @margin;
+}
+.lyteNoteVoiceNoteComment lyte-voicenote {
+	.lyteNoteCommentVoiceNoteMixin();
+	margin-top: @margin-top;
+}
+.lyteNoteVoiceNoteComment .lyteVoiceNoteElapsedTime {
+	display: none;
+}
+.lyteNoteVoiceNoteComment .lyteEditorContent {
+	.lyteNoteVoiceNoteCommentEditorContentMixin();
+	background: @bg;
+}
+.lyteCommentNonImageAttachWrap {
+	.lyteCommentNonImageAttachWrapMixin();
+	width: @w;
+	height: @h;
+	border: @border;
+	box-shadow: @box-shadow;
+	border-radius: @border-radius;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+	background: @bg;
+}
+.lyteCommentNonImageAttachWrap::before {
+	.lyteCommentNonImageAttachWrapBeforeMixin();
+	content: '';
+	display: block;
+	background-image: @bg-img;
+	background-position: @bg-pos;
+	width: @w;
+	height: @h;
+	transform: @transform;
+	margin-top: @margin-top;
+}
+.lytecommentAttachment_pdf::before {
+	.lytecommentAttachment_pdfBeforeMixin();
+	background-position: @bg-pos;
+}
+.lytecommentAttachment_audio::before {
+	.lytecommentAttachment_audioBeforeMixin();
+	background-position: @bg-pos;
+	width: @w;
+}
+.lytecommentAttachment_video::before {
+	.lytecommentAttachment_videoBeforeMixin();
+	background-position: @bg-pos;
+	width: @w;
+	height: @h;
+}
+.lytecommentAttachment_zip::before {
+	.lytecommentAttachmentZipBeforeMixin();
+	background-position: @bg-pos;
+}
+.lytecommentAttachment_wav::before {
+	.lytecommentAttachmentWavBeforeMixin();
+	background-position: @bg-pos;
+	width: @w;
+}
+
+.lyteNoteComponentColorbox .lyteColorboxHeader {
+	justify-content: center;
+}
+.lyteNoteComponentColorbox .lyteColorboxWrapper {
+	display: flex;
+	flex-direction: column;
+}
+.lyteNoteComponentColorbox .lyteColorboxUtilDiv {
+	.lyteNoteComponentColorboxUtilDivMixin();
+	bottom: @bottom;
+}
+.lyteNoteComponentColorbox .lyteColorboxContent {
+	.lyteNoteComponentColorboxContentMixin();
+	height: @h;
+	flex-grow: 1;
+	width: @w;
+	box-sizing: border-box;
+	position: static;
+}
+.lyteNoteComponentFileDetailWrapper {
+	.lyteNoteComponentFileDetailWrapperMixin();
+	@{property-margin-left}: @margin-left;
+	text-align: center;
+}
+.lyteNoteComponentColorbox .lyteColorboxDownloadDiv {
+	.lyteNoteComponentColorboxDownloadDivMixin();
+	@{property-margin-left}: @margin-left;
+	align-self: center;
+}
+.lyteNoteComponentFileDetail {
+	.lyteNoteComponentFileDetailMixin();
+	margin-top: @margin-top;
+	color: @color;
+	display: flex;
+	justify-content: center;
+}
+.lyteNoteComponentFileDate {
+	.lyteNoteComponentFileDateMixin();
+	@{property-border-right}: @border-right;
+	@{property-padding-right}: @padding-right;
+}
+.lyteNoteComponentFileTime {    /*  This line may get removed */
+	.lyteNoteComponentFileTimeMixin();
+	padding: @padding;
+	@{property-border-right}: @border-right;
+	@{property-margin-right}: @margin-right;
+}
+.lyteNoteComponentFileSize {
+	.lyteNoteComponentFileSizeMixin();
+	@{property-padding-left}: @padding-left;
+}
+.lyteNoteComponentNoPreviewIcon {
+	.lyteNoteComponentNoPreviewIconMixin();
+	background-image: @bg-img;
+	background-position: @bg-pos;
+	width: @w;
+	height: @h;
+	display: block;
+	margin: @margin;
+	transform: @transform;
+}
+.lyteNoteComponentNoPreviewIcon.zip {
+	.lyteNoteComponentNoPreviewIconZipMixin();
+	background-position: @bg-pos;
+}
+.lyteNoteComponentColorbox .lyteColorboxTitle {
+	.lyteNoteComponentColorboxTitleMixin();
+	color: @color;
+}
+.lyteNoteComponentNoPreviewMessage {
+	.lyteNoteComponentNoPreviewMessageMixin();
+	font-size: @font-size;
+}
+.lyteColorboxThumbInnerWrapper {
+	.lyteColorboxThumbInnerWrapperMixin();
+	height: @h;
+	justify-content: center;
+}

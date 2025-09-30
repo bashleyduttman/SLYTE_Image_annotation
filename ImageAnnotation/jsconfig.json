@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "CommonJS",
+    "jsx": "preserve",
+    "checkJs": false,
+    "baseUrl": ".",
+    "paths": {
+      "/*": ["./*"],
+      "/@slyte/*" : ["./node_modules/@slyte/*"]
+    }
+  },
+  "exclude": ["dist"]
+}

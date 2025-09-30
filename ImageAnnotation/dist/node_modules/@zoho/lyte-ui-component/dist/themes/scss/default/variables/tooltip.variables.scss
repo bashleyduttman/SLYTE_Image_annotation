@@ -1,0 +1,118 @@
+@use "../global/global.variables.scss" as global;
+
+$lyteTooltipMap: (
+	"font-size": 13px,
+	"padding": 3px 8px,
+	"background": global.$lyteTooltipBg,
+	"color": global.$lyteTooltipTextColor,
+	"border-radius": 2px,
+	"z-index": global.$lyteTooltipzIndex,
+) !default;
+
+$lyteTooltipWhiteMap: (
+	"background": global.$lyteAlternateTooltipBg,
+	"border": 1px solid global.$lyteAlternateTooltipBorder,
+	"color": global.$lyteAlternateTooltipTextColor,
+) !default;
+
+$lyteTooltipBeforeMap: (
+    "width": 10px,
+    "height": 10px,
+) !default;
+
+$lyteTooltipInnerSpanMap: (
+    "transform": translateX(-5px) rotate(45deg),
+) !default;
+
+$lyteTooltipBeforeRightMap: (
+    "left": -5px,
+    "top": calc(50% - 5px),
+) !default;
+
+$lyteTooltipBeforeLeftMap: (
+    "right": -5px,
+    "top": calc(50% - 5px),
+) !default;
+
+$lyteTooltipBeforeBottomMap: (
+    "left": calc(50% - 5px),
+    "top": -5px,
+) !default;
+
+$lyteTooltipBeforeTopMap: (
+    "left": calc(50% - 5px),
+    "bottom": -5px,
+) !default;
+
+$lyteTooltipBeforeTopRightMap: (
+    "left": 20%,
+    "bottom": -5px,
+) !default;
+
+$lyteTooltipBeforeTopleftMap: (
+    "bottom": -5px,
+    "left": 80%,
+) !default;
+
+$lyteTooltipBeforeBottomrightMap: (
+    "top": -5px,
+    "left": 20%,
+) !default;
+
+$lyteTooltipBeforeBottomleftMap: (
+    "top": -5px,
+    "left": 80%,
+) !default;
+
+
+$lyteWhiteTooltipBeforeMap: (
+    "background": global.$lyteAlternateTooltipBg,
+) !default;
+
+$lyteWhiteTooltipBeforeRightMap: (
+    "box-shadow": -1px 1px 0 0 global.$lyteAlternateTooltipBorder,
+    "left": -4px,
+    "top": calc(50% - 4px),
+) !default;
+
+$lyteWhiteTooltipBeforeLeftMap: (
+    "box-shadow": 1px -1px 0 0 global.$lyteAlternateTooltipBorder,
+    "right": -4px,
+    "top": calc(50% - 4px),
+) !default;
+
+$lyteWhiteTooltipBeforeBottomMap: (
+    "box-shadow": -1px -1px 0 0 global.$lyteAlternateTooltipBorder,
+    "left": calc(50% - 4px),
+    "top": -4px,
+) !default;
+
+$lyteWhiteTooltipBeforeTopMap: (
+    "box-shadow": 1px 1px 0 0 global.$lyteAlternateTooltipBorder,
+    "left": calc(50% - 4px),
+    "bottom": -4px,
+) !default;
+
+$lyteWhiteTooltipBeforeToprightMap: (
+    "box-shadow": 1px 1px 0 0 global.$lyteAlternateTooltipBorder,
+    "left": 20%,
+    "bottom": -4px,
+) !default;
+
+$lyteWhiteTooltipBeforeTopleftMap: (
+    "box-shadow": 1px 1px 0 0 global.$lyteAlternateTooltipBorder,
+    "bottom": -4px,
+    "left": 80%,
+) !default;
+
+$lyteWhiteTooltipBeforeBottomrightMap: (
+    "box-shadow": -1px -1px 0 0 global.$lyteAlternateTooltipBorder,
+    "top": -4px,
+    "left": 20%,
+) !default;
+
+$lyteWhiteTooltipBeforeBottomleftMap: (
+    "box-shadow": -1px -1px 0 0 global.$lyteAlternateTooltipBorder,
+    "top": -4px,
+    "left": 80%,
+) !default;

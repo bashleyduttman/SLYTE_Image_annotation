@@ -1,0 +1,37 @@
+/* Default theme imported */
+/*	Icon Colors */
+/* Loading theme in configuration */
+/* Themes of components */
+/*	Icon Colors */
+/* Loading custom themes */
+/* import theme overrides */
+/* import custom css */
+.lyteFullScreenActive > *:not(.lyteFullScreenTraverse):not(.lyteFullScreenElement):not(.lyteTooltip):not(lyte-wormhole):not(lyte-menu-box):not(lyte-drop-box):not(.dateSelectcal):not(lyte-colorbox-container),
+.lyteFullScreenTraverse > *:not(.lyteFullScreenTraverse):not(.lyteFullScreenElement) {
+  display: none !important;
+}
+.lyteFullScreenTraverse {
+  display: block !important;
+  position: absolute;
+  top: 0px !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  box-sizing: border-box !important;
+  min-width: 0px !important;
+  max-width: none !important;
+  min-height: 0px !important;
+  max-height: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  overflow: visible !important;
+}
+.lyteFullScreenElement {
+  display: block !important;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+}

@@ -1,0 +1,109 @@
+@cssMaskIconReactionViewMainLikeIconColor: #48ACEB;
+.lyteNoteReactionViewModalCloseMixin() {
+	@top: 15px;
+	@right: 15px;
+}
+.lyteNoteReactionTableMixin() {
+	@w: 500px;
+}
+.lyteReactionAvatarMixin() {
+	@w: 40px;
+	@h: 40px;
+	@margin-left: 0;
+	@margin-right: 10px;
+}
+.lyteReactionAvatarAfterMixin() {
+	@w: 20px;
+	@h: 20px;
+	@border: 1px solid #ddd;
+	@border-radius: 50%;
+	@bottom: -5px;
+	@right: -5px;
+	@bg: #fff;
+	@font-size: 13px;
+}
+.lyteReactionAvatarMainLikeBeforeMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -304px -2px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconReactionViewMainLikeIconColor;
+	@w: 14px;
+	@h: 16px;
+	@right: -1px;
+	@bottom: -1px;
+	@z-index: 1;
+}
+.lyteReactionAvatarImgMixin() {
+	@w: 100%;
+	@h: 100%;
+	@border-radius: 50%;
+}
+.lyteNoteReactionViewModalHeaderMixin() {
+	@padding: 0;
+}
+.lyteNoteReactionTabHeaderMixin() {
+	@padding: 0 10px;
+}
+.lyteReactionTabMixin() {
+	@font-family: @primaryFont;
+	@padding: 20px 15px;
+	@border-bottom: 2px solid transparent;
+	@font-size: 15px;
+}
+.lyteReactionEmojiLikereactionMixin() {
+	@bg-img: @lyteNoteSprite;
+	@bg-pos: -304px -2px;
+	@mask-img: @bg-img;
+	@mask-pos: @bg-pos;
+	@bg-color: @cssMaskIconReactionViewMainLikeIconColor;
+	@w: 14px;
+	@h: 16px;
+}
+.lyteReactionActiveMixin() {
+	@border-bottom: 2px solid @lyteReactionViewActiveTabBorderColor;
+	@color: @lyteReactionViewActiveTabTextColor;
+}
+.lyteNoteReactionSearchWrapperMixin() {
+	@padding: 20px 25px 0;
+}
+.lyteNoteReactionViewModalContentMixin() {
+	@min-height: 50px;
+}
+.lyteNoteReactionTableTdMixin() {
+	@border-bottom: 0;
+	@padding: 10px 0;
+}
+.lyteReactionNameMixin() {
+	@color: @lyteReactionViewUserNameTextColor;
+}
+.lyteReactionEmailMixin() {
+	@color: @lyteReactionViewEmailTextColor;
+}
+.lyteReactionTimeMixin() {
+	@color: @lyteReactionViewTimeTextColor;
+	@font-size: 13px;
+}
+.lyteNoteReactionSearchInputMixin() {
+	@font-family: @primaryFont;
+	@font-size: 15px;
+	@color: #111;
+	@outline: none;
+	@bg: #fff;
+	@border: 1px solid #d6d6d6;
+	@border-radius: 2px;
+	@padding: 7px 10px;
+	@w: 100%;
+	@box-shadow: none;
+}
+.lyteNoteReactionSearchInputFocusMixin() {
+	@border: 1px solid #7fceef;
+}
+.lyteReactionNoResultMixin() {
+	@top: 0;
+	@left: 25px;
+	@right: 25px;
+	@h: 50px;
+	@line-height: 50px;
+	@color: @lyteReactionViewNoResultTextColor;
+}

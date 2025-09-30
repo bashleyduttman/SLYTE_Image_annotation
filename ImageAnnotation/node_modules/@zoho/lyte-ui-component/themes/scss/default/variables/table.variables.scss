@@ -1,0 +1,174 @@
+@use "sass:map";
+
+@use "../global/global.variables.scss" as global;
+
+$lyteTableStructureMap: (
+	"background": global.$lyteTableBg,
+) !default;
+
+$lyteThMap: (
+	"background": global.$lyteTableThBg,
+	"color": global.$lyteTableThTextColor,
+	"font-size": 14px,
+	"padding": 12px 15px,
+	"min-width": 50px,
+) !default;
+
+$lyteTableFixedMap: (
+    "box-shadow": 3px 0 7px -2px global.$lyteTableFixedBoxShadow,
+) !default;
+
+$lyteThLastOfTypeMap: (
+	"height": 0px,
+) !default;
+
+$lyteTdMap: (
+	"border-bottom": 1px solid global.$lyteTableBorderColor,
+	"background": global.$lyteTableBg,
+	"min-width": 50px,
+	"padding": 15px,
+	"font-size": 15px,
+	"color": global.$lyteTableTdTextColor,
+) !default;
+
+$lyteTableScrollMap: (
+    "border-bottom": 1px solid global.$lyteTableBorderColor,
+    "border-right": 1px solid global.$lyteTableBorderColor,
+) !default;
+
+$lyteTableBorderThMap: (
+	"border": 1px solid global.$lyteTableBorderColor,
+) !default;
+
+$lyteTableBorderTdMap: (
+	"border": 1px solid global.$lyteTableBorderColor,
+	"border-right": 0,
+	"border-top": 0,
+) !default;
+
+$lyteTableheadResizeMap: (
+    "width": 21px,
+    "height": 100%,
+    "right": -12px,
+) !default;
+
+$lyteTableDualResizeHeadResizeMap: (
+    "right": 0,
+) !default;
+
+$lyteTableheadResizeAfterMap: (
+    "width": 3px,
+    "height": 100%,
+    "right": 10px,
+) !default;
+
+$lyteTableDualResizeLastHeadResizeAfterMap: (
+    "right": 0,
+) !default;
+
+$lyteTableResizeHeadAfterMap: (
+    "background": global.$themeActiveElementBg,
+    "opacity": 0.7,
+) !default;
+
+$lyteTableResizeHeadHoverAfterMap: (
+    "background": global.$themeActiveElementBg,
+    "opacity": 1,
+) !default;
+
+$lyteTableResizeMap: (
+	"width": 15px,
+	"height": 15px,
+) !default;
+
+$lyteTableResizeHoverMap: (
+    "border-bottom": 2px solid global.$themeActiveElementBg,
+    "border-right": 2px solid global.$themeActiveElementBg,
+) !default;
+
+$lyteTableHorizontalResizeMap: (
+	"width": 15px,
+) !default;
+
+$lyteTableHorizontalResizeHoverMap: (
+    "border-right": 2px solid global.$themeActiveElementBg,
+) !default;
+
+$lyteTableVerticalResizeMap: (
+	"height": 15px,
+) !default;
+
+$lyteTableVerticalResizeHoverMap: (
+    "border-bottom": 2px solid global.$themeActiveElementBg,
+) !default;
+
+$lyteTableSortHelperMap: (
+	"background": global.$lyteTableBg,
+    "border": 1px solid global.$lyteTableSortHelperBg,
+    "padding": 12px 15px,
+    "font-size": 14px,
+    "color": #333,
+) !default;
+
+$lyteIntersectionDivMap: (
+	"width": 1px,
+	"height": 10px,
+	"opacity": 0,
+	"z-index": -1,
+) !default;
+
+$lyteStickyTableThMap: (
+	"top": 0,
+	"z-index": 6,
+) !default;
+
+$lyteStickyTableThFixedMap: (
+	"z-index": 8,
+) !default;
+
+$lyteTableRightFixedMap: (
+	"box-shadow": -3px 0 7px -2px global.$lyteTableFixedBoxShadow,
+) !default;
+
+$lyteTableInfiniteScrollBorderResetTdMap: (
+	"border": 0,
+	"padding": 0,
+) !default;
+
+$lyteTableInfiniteScrollBorderResetCellWrapperMap: map.merge($lyteTdMap, ("height": 100%));
+
+$lyteTableBorderInfiniteScrollBorderResetCellWrapperMap: map.merge($lyteTableBorderTdMap,());
+
+$lyteTableRowSortingTdMap: (
+	"border-top": 1px solid global.$lyteTableBorderColor,
+	"padding-top": 14px,
+) !default;
+
+$lyteTableInfiniteScrollBorderResetTableRowSortingTdMap: (
+	"border-top": 0,
+	"padding-top": 0,
+) !default;
+
+$lyteTableRowSortingTdLastOfTypeMap: (
+	"border-right": 1px solid global.$lyteTableBorderColor,
+) !default;
+
+$lyteTableRowSortingMap: (
+	"z-index": 10,
+) !default;
+
+$lyteTableSortingRowPlaceholderTdMap: (
+	"background": #f6fad2,
+	"border-left": 1px solid transparent,
+	"border-bottom": 1px solid global.$lyteTableBorderColor,
+) !default;
+
+$lyteTableSortingRowPlaceholderTdFirstOfTypeMap: (
+	"border-left": 1px solid global.$lyteTableBorderColor,
+) !default;
+
+$lyteTableSortablePlaceholderMap: (
+	"background": #f6fad2,
+	"border": 1px solid #edf2c3,
+	"z-index": 5,
+) !default;
