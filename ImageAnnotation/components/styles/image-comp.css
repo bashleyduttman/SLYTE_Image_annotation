@@ -27,6 +27,19 @@
 .edit-delete:hover {
     background-color: #c82333;
 } */
+ .annotation-input-box{
+/* background-color: rgb(255, 255, 255);
+color:rgb(0, 0, 0);
+border:none; */
+width: 99%;
+border: none;
+height: 20px;
+
+border-bottom: solid 2px black;
+
+/* display: flex; */
+
+ }
 .image-main{
   
    display: flex;
@@ -57,12 +70,12 @@
  border-radius: 10px;
 } */
 .image-label-items{
-    color:rgb(133, 126, 126);
+    color:rgb(254, 253, 253);
 }
 .image-label-items:hover{
 background-color: rgb(255, 255, 255);
 border-radius: 10px;
-color:grey;
+color:rgb(0, 0, 0);
 }
 .edit-image-container {
    flex:2;

@@ -41,15 +41,26 @@ router.post("/", upload.single("file"), async (req, res) => {
   }
 });
 
-router.get("/",async(req,res)=>{
+router.get("/:pageNumber",async(req,res)=>{
     try{
         console.log("Hello")
+        const {pageNumber}=req.params;
+        console.log("pageNumber",pageNumber);
         const catalystApp=catalyst.initialize(req);
         const fileStore=catalystApp.filestore();
         const folder=await fileStore.getFolderDetails("21787000000010203");
-        console.log(folder);
+        // console.log(folder);
+        var start=(pageNumber-1)*10
+        var end=pageNumber*10;
+        if(start>folder._folderDetails.file_details.length){
+          return res.sendStatus(400);
+        }
+        var len=folder._folderDetails.file_details.length;
+        const filtered=folder._folderDetails.file_details.slice(start,Math.min(len,end));
+        console.log(filtered)
         const result=await Promise.all(
-            folder._folderDetails.file_details.map(async(file)=>{
+        
+            filtered.map(async(file)=>{
                 const buffer=await folder.downloadFile(file.id);
                 
                 

@@ -1,6 +1,7 @@
 import { _defineProperty } from "@slyte/core/src/lyte-utils";
 import "../../node_modules/@zoho/lyte-ui-component/components/javascript/lyte-fileupload.js";
 import './loading-comp.js';
+import "../../node_modules/@slyte/component/src/directives/lyte-shadow.js";
 import {Component} from "../../node_modules/@slyte/component/index.js";
 import { prop } from "../../node_modules/@slyte/core/index.js";
 import { ImagesSchema } from "../../data-store/schemas/Images";
@@ -10,17 +11,29 @@ class HomeComp extends Component {
 		super();
 	}
     init(){
+		
 		this.setData("images",this.data.data)
 		// const temp=this.getData("images")
-		var images=this.getData("images");
-		this.setData("size",images.reduce((sum,img)=>sum+parseInt(img.size),0))
-		console.log("image. ",images)
+		// var images=this.getData("images");
+		var pagenumber=(parseInt(this.$app.Globals.get("pageNumber").number)+1).toString()
+		var prevNumber=(parseInt(this.$app.Globals.get("pageNumber").number)-1).toString()
+		var cn=parseInt(this.$app.Globals.get("pageNumber").number)
+		this.setData("current",cn);
+		console.log("route number",pagenumber)
+		this.setData("next",pagenumber)
+		// this.setData("size",images.reduce((sum,img)=>sum+parseInt(img.size),0))
+		this.setData("prev",prevNumber)
+		// console.log("image. ",images)
+
 		
 		
 		
 	}
     data(arg1) {
 		return Object.assign(super.data({
+			next:prop("string",{default:"0"}),
+			prev:prop('string',{default:"0"}),
+			current:prop("number",{default:0}),
 			images:prop("array",{watch:true}),
 			selectedFile:prop("object"),
 			previewUrl:prop("string",{default:"none"}),
@@ -45,6 +58,7 @@ class HomeComp extends Component {
     static actions(arg1) {
 		return Object.assign(super.actions({
 			onImageChange:function(event){
+				
 				console.log("event",event)
 				var file=event.target.files[0];
 				const urls=[];
@@ -111,11 +125,13 @@ class HomeComp extends Component {
 				localStorage.setItem("imageData",data)
 				localStorage.setItem("imageId",id)
 				// console.log("id. ",id)
-				this.$router.navigateTo("index.image")
+				this.$router.navigateTo("image");
+				
 			
 				
-			}
-		,
+			},
+			
+		
 		
 
 		}), arg1);
@@ -134,9 +150,20 @@ class HomeComp extends Component {
     }
 }
 
-HomeComp._template = "<template tag-name=\"home-comp\"> <div class=\"header\"> <p>Image Annotation</p> </div> <div class=\"home-details\"> <div class=\"home-details-sec\"> <div class=\"home-details-sec-first\"> Total Images </div> <div>{{expHandlers(total,'||',0)}}</div> </div> <span class=\"border\"></span> <div class=\"home-details-sec\"> <div> Total Size(Bytes) </div> <div> {{expHandlers(size,'||',0)}} </div> </div> </div> <div class=\"home-file-uploader\"> <!-- <input id=\"image-file\" onchange=\"{{action('onImageChange',event)}}\" type=\"file\" accept=\"image/*\"/> --> <lyte-fileupload lt-prop-retry-text=\"retry\" on-success=\"{{method('onSuccess')}}\" on-remove=\"{{method('onRemove')}}\" lt-prop-message=\"drag or drop images here\" lt-prop-accept=\"image/*\" lt-prop-multiple=\"false\" id=\"image-file\" lt-prop-ajax=\"{&quot;url&quot;:&quot;/Fileupload&quot;}\" onchange=\"{{action('onImageChange',event)}}\"> </lyte-fileupload> <div class=\"home-file-image-preview\"> <img class=\"{{if(ifNotEquals(previewUrl,'none'),'home-preview-available','home-preview-notAvailable')}}\" src=\"{{previewUrl}}\"> </div> <template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(previewUrl,'!=','none')}}\" is=\"case\" lc-id=\"lc_id_0\"><div> <button onclick=\"{{action('onUploadImage',event)}}\" class=\"home-img-upload-btn\">upload</button> </div></template></template> </div> <div class=\"home-images-container\"> <template items=\"{{images}}\" item=\"img\" index=\"index\" is=\"for\" _new=\"true\"><template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(images.length,'>',0)}}\" is=\"case\" lc-id=\"lc_id_0\"><div class=\"home-image-edit-container\"> <img src=\"{{img.data}}\"> <div class=\"home-image-edit\" onclick=\"{{action('handleEdit',event,img.data,img.id)}}\">edit</div> </div></template></template></template> <template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(images.length,'===',0)}}\" is=\"case\" lc-id=\"lc_id_0\"><div> <loading-comp></loading-comp> </div></template></template> </div> </template><style>*{\n    margin:0px;\n    padding: 0px;\n    \n}\nbody{\n  background-color: black;\n   overflow-x: hidden; \n}\n.header{\n    display: block;\n    width: 100%;\n    text-align: center;\n    background-color: black;\n    color:white;\n    padding: 20px;\n    \n}\n.home-details{\n    display: flex;\n    flex-direction: row;\n    background-color: white;\n    width:100vw;\n    height: 100px;\n    justify-content: space-between;\n    border-bottom: solid 2px black;\n}\n.home-image-edit-container{\n    position: relative;\n}\n.home-image-edit{\n    position: absolute;\n    top: 0px;\n    right:10px;\n    background-color: transparent;\n    -webkit-backdrop-filter: blur(3px);\n    cursor: pointer;\n}\n.border{\n    border: black 2px solid;\n}\n.home-images-container{\n    padding: 50px;\n    display: flex;\n   gap:10px;\n   width: 100%;\n    flex-wrap: wrap;\n    background-color: black;\n    justify-content: center;\n   \n\n}\n.home-images-container img{\n    \n    border-radius: 10px;\n    width: 500px;   \n    height: 300px;  \n        \n    \n    object-fit: cover; \n    flex: 1 1 auto;\n    \n}\n.home-details-sec{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background-color: white;\n    \n   \n    justify-content: space-around;\n\n}\n.home-file-uploader{\n    display: block;\n    text-align: center;\n    border-bottom: black solid 2px;\n    padding: 20px;\n    width: 100%;\n    background-color: white;\n}\n.home-details-sec div:first-child{\n    width: 100%;\n  background-color: white;\n    text-align: center;\n    border-bottom: black dashed 2px;\n   \n}\n.home-preview-available{\n    max-width:400px;\n    max-height: 400px;\n    height: auto;\n    border: black solid 2px;\n}\n.home-img-upload-btn{\n    width: 60px;\n    height: 30px;\n    background-color: black;\n    color:white;\n    cursor:pointer;\n    border-radius: 3px;\n}\n.home-preview-notAvailable{\n display: none;\n}</style>";;
-HomeComp._dynamicNodes = [{"t":"tX","p":[3,1,3,0]},{"t":"tX","p":[3,5,3,1]},{"t":"a","p":[5,3]},{"t":"cD","p":[5,3],"in":3,"sibl":[2]},{"t":"a","p":[5,5,1]},{"t":"s","p":[5,7],"c":{"lc_id_0":{"dN":[{"t":"a","p":[0,1],"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{}},"hd":true,"co":["lc_id_0"],"in":2,"sibl":[1]},{"t":"a","p":[7,1]},{"t":"f","p":[7,1],"dN":[{"t":"s","p":[0],"c":{"lc_id_0":{"dN":[{"t":"a","p":[0,1],"cn":"lc_id_0"},{"t":"a","p":[0,3],"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{}},"hd":true,"co":["lc_id_0"]}],"in":1,"sibl":[0]},{"t":"s","p":[7,3],"c":{"lc_id_0":{"dN":[{"t":"cD","p":[0,1],"in":0,"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{"dc":[0],"hc":true,"trans":true}},"hd":true,"co":["lc_id_0"],"hc":true,"trans":true,"in":0},{"type":"dc","trans":true,"hc":true,"p":[3,0]}];;
-HomeComp._observedAttributes = ["images", "selectedFile", "previewUrl", "total", "size"];
+HomeComp._template = "<template tag-name=\"home-comp\" @shadow-supported=\"\"> <div class=\"header\"> <p>Image Annotation</p> </div> <div class=\"home-details\"> <div class=\"home-details-sec\"> <div class=\"home-details-sec-first\"> Total Images </div> <div>{{expHandlers(total,'||',0)}}</div> </div> <span class=\"border\"></span> <div class=\"home-details-sec\"> <div> Total Size(Bytes) </div> <div> {{expHandlers(size,'||',0)}} </div> </div> </div> <div class=\"home-file-uploader\"> <!-- <input id=\"image-file\" onchange=\"{{action('onImageChange',event)}}\" type=\"file\" accept=\"image/*\"/> --> <lyte-fileupload lt-prop-retry-text=\"retry\" on-success=\"{{method('onSuccess')}}\" on-remove=\"{{method('onRemove')}}\" lt-prop-message=\"drag or drop images here\" lt-prop-accept=\"image/*\" lt-prop-multiple=\"false\" id=\"image-file\" lt-prop-ajax=\"{&quot;url&quot;:&quot;/Fileupload&quot;}\" onchange=\"{{action('onImageChange',event)}}\"> </lyte-fileupload> <div class=\"home-file-image-preview\"> <img class=\"{{if(ifNotEquals(previewUrl,'none'),'home-preview-available','home-preview-notAvailable')}}\" src=\"{{previewUrl}}\"> </div> <template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(previewUrl,'!=','none')}}\" is=\"case\" lc-id=\"lc_id_0\"><div> <button onclick=\"{{action('onUploadImage',event)}}\" class=\"home-img-upload-btn\">upload</button> </div></template></template> </div> <div class=\"home-images-container\"> <template items=\"{{images}}\" item=\"img\" index=\"index\" is=\"for\" _new=\"true\"><template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(images.length,'>',0)}}\" is=\"case\" lc-id=\"lc_id_0\"><div class=\"home-image-edit-container\"> <img src=\"{{img.data}}\"> <div class=\"home-image-edit\" onclick=\"{{action('handleEdit',event,img.data,img.id)}}\">edit</div> </div></template></template></template> <br> <template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(images.length,'===',0)}}\" is=\"case\" lc-id=\"lc_id_0\"><div> <loading-comp></loading-comp> </div></template></template> </div> <template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(images.length,'>',0)}}\" is=\"case\" lc-id=\"lc_id_0\"><div class=\"image-navigation\"> <template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(current,'>',1)}}\" is=\"case\" lc-id=\"lc_id_0\"><go-to class=\"navigate-btn\" lt-prop-route=\"index\" lt-prop-dp=\"[&quot;{{prev}}&quot;]\">prev</go-to></template></template> <template is=\"switch\" l-c=\"true\" _new=\"true\"><template case=\"{{expHandlers(images.length,'>=',10)}}\" is=\"case\" lc-id=\"lc_id_0\"><go-to class=\"navigate-btn\" lt-prop-route=\"index\" lt-prop-dp=\"[&quot;{{next}}&quot;]\">next</go-to></template></template> </div></template></template> </template><style>*{\n    margin:0px;\n    padding: 0px;\n    \n}\nbody{\n  background-color: black;\n   overflow-x: hidden; \n}\n.header{\n    display: block;\n    width: 100%;\n    text-align: center;\n    background-color: black;\n    color:white;\n    padding: 20px;\n    \n}\n.home-details{\n    display: flex;\n    flex-direction: row;\n    background-color: white;\n    width:100vw;\n    height: 100px;\n    justify-content: space-between;\n    border-bottom: solid 2px black;\n}\n.home-image-edit-container{\n    position: relative;\n}\n.home-image-edit{\n    position: absolute;\n    top: 0px;\n    right:10px;\n    background-color: transparent;\n    -webkit-backdrop-filter: blur(3px);\n    cursor: pointer;\n}\n.image-navigation{\n    display: flex;\n    text-align: center;\n    width: 100%;\n    gap: 20px;\n    justify-content: center;\n}\n.image-navigation .navigate-btn{\n    background-color: rgb(255, 255, 255);\n    color:rgb(6, 6, 6);\n    text-decoration: none;\n\n    width:100px;\n    height: 30px;\n    \n    border-radius: 10px;\n    cursor: pointer;\n}\n.border{\n    border: black 2px solid;\n}\n.home-images-container{\n    padding: 50px;\n    display: flex;\n   gap:10px;\n   width: 100%;\n    flex-wrap: wrap;\n    background-color: black;\n    justify-content: center;\n   \n\n}\n.home-images-container img{\n    \n    border-radius: 10px;\n    width: 500px;   \n    height: 300px;  \n        \n    \n    object-fit: cover; \n    flex: 1 1 auto;\n    \n}\n.home-details-sec{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background-color: white;\n    \n   \n    justify-content: space-around;\n\n}\n.home-file-uploader{\n    display: block;\n    text-align: center;\n    border-bottom: black solid 2px;\n    padding: 20px;\n    width: 100%;\n    background-color: white;\n}\n.home-details-sec div:first-child{\n    width: 100%;\n  background-color: white;\n    text-align: center;\n    border-bottom: black dashed 2px;\n   \n}\n.home-preview-available{\n    max-width:400px;\n    max-height: 400px;\n    height: auto;\n    border: black solid 2px;\n}\n.home-img-upload-btn{\n    width: 60px;\n    height: 30px;\n    background-color: black;\n    color:white;\n    cursor:pointer;\n    border-radius: 3px;\n}\n.home-preview-notAvailable{\n display: none;\n}</style>";;
+HomeComp._dynamicNodes = [{"t":"tX","p":[3,1,3,0]},{"t":"tX","p":[3,5,3,1]},{"t":"a","p":[5,3]},{"t":"cD","p":[5,3],"in":4,"sibl":[3]},{"t":"a","p":[5,5,1]},{"t":"s","p":[5,7],"c":{"lc_id_0":{"dN":[{"t":"a","p":[0,1],"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{}},"hd":true,"co":["lc_id_0"],"in":3,"sibl":[2]},{"t":"a","p":[7,1]},{"t":"f","p":[7,1],"dN":[{"t":"s","p":[0],"c":{"lc_id_0":{"dN":[{"t":"a","p":[0,1],"cn":"lc_id_0"},{"t":"a","p":[0,3],"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{}},"hd":true,"co":["lc_id_0"]}],"in":2,"sibl":[1]},{"t":"s","p":[7,5],"c":{"lc_id_0":{"dN":[{"t":"cD","p":[0,1],"in":0,"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{"dc":[0],"hc":true,"trans":true}},"hd":true,"co":["lc_id_0"],"hc":true,"trans":true,"in":1,"sibl":[0]},{"t":"s","p":[9],"c":{"lc_id_0":{"dN":[{"t":"s","p":[0,1],"c":{"lc_id_0":{"dN":[{"t":"a","p":[0],"cn":"lc_id_0"},{"t":"cD","p":[0],"in":0,"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{"dc":[0],"hc":true,"trans":true}},"hd":true,"co":["lc_id_0"],"hc":true,"trans":true,"in":1,"sibl":[0],"cn":"lc_id_0"},{"t":"s","p":[0,3],"c":{"lc_id_0":{"dN":[{"t":"a","p":[0],"cn":"lc_id_0"},{"t":"cD","p":[0],"in":0,"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{"dc":[0],"hc":true,"trans":true}},"hd":true,"co":["lc_id_0"],"hc":true,"trans":true,"in":0,"cn":"lc_id_0"}],"cdp":{"t":"a","p":[0]},"dcn":true}},"d":{},"dc":{"lc_id_0":{"dc":[1,0],"hc":true,"trans":true}},"hd":true,"co":["lc_id_0"],"hc":true,"trans":true,"in":0},{"type":"dc","trans":true,"hc":true,"p":[4,1,0]}];;
+
+HomeComp._observedAttributes = [
+    "next",
+    "prev",
+    "current",
+    "images",
+    "selectedFile",
+    "previewUrl",
+    "total",
+    "size"
+];
+
 export {HomeComp};
 HomeComp.register("home-comp", {
     hash: "HomeComp_4",

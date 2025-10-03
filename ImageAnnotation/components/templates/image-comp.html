@@ -1,4 +1,4 @@
-<template tag-name="image-comp">
+<template tag-name="image-comp" @shadow-supported>
  <!-- <div class="edit-header">
         <div class="edit-rectangle">Draw Rectangle</div>
         <div class="edit-download" onclick="{{action('handleDownload')}}">Download</div>
@@ -11,9 +11,9 @@
                     <lyte-drawer-body class="image-body" >
                         <lyte-drawer-label class="image-label"> Shapes</lyte-drawer-label>
                         
-                        <lyte-drawer-item onclick="{{action('handleRectangleClick')}}" data-value="sent" class="image-label-items image-rect"> Rectangle  </lyte-drawer-item>
-                        <lyte-drawer-item data-value="draft"  class="image-label-items"> circle  </lyte-drawer-item>
-                        <lyte-drawer-item data-value="spam"  class="image-label-items"> square  </lyte-drawer-item>
+                        <lyte-drawer-item onclick="{{action('handleRectangleClick',event)}}" data-value="sent" class="image-label-items image-rect"> Rectangle  </lyte-drawer-item>
+                        <!-- <lyte-drawer-item data-value="draft"  class="image-label-items"> circle  </lyte-drawer-item>
+                        <lyte-drawer-item data-value="spam"  class="image-label-items"> square  </lyte-drawer-item> -->
                     </lyte-drawer-body>
                 </template>
             </lyte-drawer>
@@ -21,7 +21,7 @@
         <div class="edit-image-container" 
          onmousedown="{{action('handleRectangleCreation', event)}}" 
          onmousemove="{{action('resizeRectangle', event)}}" 
-         onmouseup="{{action('handleRectangleRelease')}}">
+         onmouseup="{{action('handleRectangleRelease',event)}}">
         
     
         <img class="edit-image" 

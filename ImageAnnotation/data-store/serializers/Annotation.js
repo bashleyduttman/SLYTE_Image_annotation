@@ -5,7 +5,15 @@ normalizePayload({schemaName, type, payLoad, key, status, headers, queryParams, 
     console.log("hellooooo")
     console.log(payLoad)
     console.log(schemaName)
+    
+    if(type=="createEntity"){
+        const id=localStorage.getItem("uniqueId");
+    payLoad={id:id}
+    console.log("id ",payLoad)
+    }
+    
     return {[schemaName]:payLoad};
 }
+ 
 }
 export {AnnotationSerializer}

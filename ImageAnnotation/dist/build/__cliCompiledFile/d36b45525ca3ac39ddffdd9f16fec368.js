@@ -34,6 +34,6 @@ ViewSchema.Connector = ViewConnector;
 
 export { ViewSchema };
 ViewSchema.register({
-    hash: "ViewSchema_5",
+    hash: "ViewSchema_4",
     refHash: "db_lyte-ui-component_@zoho/lyte-ui-component_2"
 });

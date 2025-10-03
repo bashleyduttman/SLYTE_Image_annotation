@@ -8,17 +8,20 @@
    "/components/javascript/home-comp.js",
    "/components/javascript/loading-comp.js",
    "/data-store/schemas/Images.js",
+   "/lyte.js",
    "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
   ],
   "/components/javascript/image-comp.js": [
    "/components/javascript/image-comp.js",
    "/data-store/schemas/Annotation.js",
+   "/lyte.js",
    "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
   ],
   "/components/javascript/loading-comp.js": [
    "/components/javascript/loading-comp.js",
    "/components/javascript/home-comp.js",
    "/data-store/schemas/Images.js",
+   "/lyte.js",
    "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
   ],
   "/components/javascript/wildcard-comp.js": [
@@ -27,17 +30,25 @@
   "/data-store/schemas/Annotation.js": [
    "/data-store/schemas/Annotation.js",
    "/components/javascript/image-comp.js",
+   "/lyte.js",
    "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
   ],
   "/data-store/schemas/Images.js": [
    "/data-store/schemas/Images.js",
    "/components/javascript/home-comp.js",
    "/components/javascript/loading-comp.js",
+   "/lyte.js",
    "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
   ],
   "/lyte.js": [
    "/lyte.js",
-   "/app-init.js"
+   "/app-init.js",
+   "/components/javascript/home-comp.js",
+   "/components/javascript/image-comp.js",
+   "/components/javascript/loading-comp.js",
+   "/data-store/schemas/Annotation.js",
+   "/data-store/schemas/Images.js",
+   "/vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js.js"
   ],
   "/runtime.js": [
    "/runtime.js",
@@ -50,7 +61,8 @@
    "/components/javascript/image-comp.js",
    "/components/javascript/loading-comp.js",
    "/data-store/schemas/Annotation.js",
-   "/data-store/schemas/Images.js"
+   "/data-store/schemas/Images.js",
+   "/lyte.js"
   ]
  },
  "component": {}

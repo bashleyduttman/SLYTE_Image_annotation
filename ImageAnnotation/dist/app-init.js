@@ -7338,9 +7338,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ImageAnnotationMap": () => (/* binding */ ImageAnnotationMap)
 /* harmony export */ });
-/* harmony import */ var _router_routes_wildcard_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../router/routes/wildcard.js */ 30857568);
+/* harmony import */ var _router_routes_image_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../router/routes/image.js */ 95060606);
 /* harmony import */ var _router_routes_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../router/routes/index.js */ 12524841);
-/* harmony import */ var _router_routes_index_image_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../router/routes/index/image.js */ 82629477);
+/* harmony import */ var _router_routes_wildcard_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../router/routes/wildcard.js */ 30857568);
 /* harmony import */ var _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../node_modules/@slyte/router/index.js */ 14504106);
 
 
@@ -7351,19 +7351,18 @@ __webpack_require__.r(__webpack_exports__);
 
 class ImageAnnotationMap extends _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE_3__.RouterMap {
     map() {
+		 
         this.route("index",{
-            path:'/',
+            path:'/:page',
             handler: _router_routes_index_js__WEBPACK_IMPORTED_MODULE_1__.Index
-        },()=>{
-			this.route("image",{
-                path:"edit",
-                handler: _router_routes_index_image_js__WEBPACK_IMPORTED_MODULE_2__.Image
-            })
-		}),
-		
+        }),
+		this.route("image",{
+            path:'edit',
+            handler: _router_routes_image_js__WEBPACK_IMPORTED_MODULE_0__.Image
+        })
 		this.route("wildcard",{
             path:"/*wildcard",
-            handler: _router_routes_wildcard_js__WEBPACK_IMPORTED_MODULE_0__.Wildcard
+            handler: _router_routes_wildcard_js__WEBPACK_IMPORTED_MODULE_2__.Wildcard
         }) 
 	}
 
@@ -7440,6 +7439,66 @@ class ImageAnnotationRouter extends _node_modules_slyte_router_index_js__WEBPACK
 
 /***/ }),
 
+/***/ 95060606:
+/*!********************************!*\
+  !*** ./router/routes/image.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Image": () => (/* binding */ Image)
+/* harmony export */ });
+/* harmony import */ var _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/@slyte/router/index.js */ 14504106);
+
+
+let ImageComp, AnnotationSchema;
+
+class Image extends _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE_0__.Route {
+    beforeFetch(params){
+       
+        console.log(params);
+    }
+    fetch(){
+        
+        this.$db.getAll({schema:AnnotationSchema}).then(function(data){
+            console.log("fetched successfully ",data)
+        },function(){
+            console.log("not fetched successfully")
+        })
+        return this.$db.cache.getAll({schema:AnnotationSchema});
+    }
+    afterFetch(data,params){
+        this.currentData={"page":params.dynamicParam}
+       this.currentData={"imageAnnotations":data};
+    }
+    render(){
+        return {outlet:"#outlet",component:ImageComp}
+    }
+
+    _() {
+        _;
+    }
+
+    getRequirements() {
+        arguments[1].push(Promise.all(/*! import() | components/javascript/image-comp */[__webpack_require__.e("lyte"), __webpack_require__.e("vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js"), __webpack_require__.e("data-store/schemas/Annotation"), __webpack_require__.e("components/javascript/image-comp")]).then(__webpack_require__.bind(__webpack_require__, /*! ./components/javascript/image-comp.js */ 54259987)).then(function(res) {
+            ImageComp = res.ImageComp;
+        }));
+
+        arguments[2].push(__webpack_require__.e(/*! import() | data-store/schemas/Annotation */ "data-store/schemas/Annotation").then(__webpack_require__.bind(__webpack_require__, /*! ./data-store/schemas/Annotation.js */ 38834365)).then(function(res) {
+            AnnotationSchema = res.AnnotationSchema;
+        }));
+
+        
+    }
+}
+
+
+
+
+/***/ }),
+
 /***/ 12524841:
 /*!********************************!*\
   !*** ./router/routes/index.js ***!
@@ -7454,15 +7513,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/@slyte/router/index.js */ 14504106);
 
 
-let ImagesSchema, LoadingComp, HomeComp;
+let HomeComp, ImagesSchema, LoadingComp;
 
 class Index extends _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE_0__.Route {
     renderLoadingTemplate(paramsObject) {
+       
+       console.log("params",paramsObject)
+       this.$app.Globals.set("pageNumber", {number:paramsObject.dynamicParam});
        return {outlet:"#outlet",component:LoadingComp}
  }
-    fetch(){
+    fetch(paramsObject){
+		
 		console.log("fetched")
-		this.$db.getAll({schema:ImagesSchema}).then(function(data){
+		this.$db.getAll({schema:ImagesSchema,qP:{page:paramsObject.dynamicParam}}).then(function(data){
 			console.log(data)
 		},function(){
 			console.log("Cant able to fetch")
@@ -7471,6 +7534,7 @@ class Index extends _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE
 		
 	}
     afterFetch(data){
+		
 		this.currentData={"data":data};
 		console.log("after fetch ",data);
 		var size=0;
@@ -7479,11 +7543,21 @@ class Index extends _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE
 
 	}
     render() {
+		
 		return {outlet : "#outlet",component : HomeComp}
 	}
-
-    static actions(arg1) {
+    refreshRoute(){
+		var obj = {};
+		obj.refreshTemplate = true;
+		this.refresh(obj);
+	}
+    actions(arg1) {
 		return Object.assign(super.actions({
+			didNavigate : function(paramsObject) {
+        		
+      		}
+
+			
 			
 		}), arg1);
 	}
@@ -7493,6 +7567,10 @@ class Index extends _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE
     }
 
     getRequirements() {
+        arguments[1].push(Promise.all(/*! import() | components/javascript/home-comp */[__webpack_require__.e("lyte"), __webpack_require__.e("vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js"), __webpack_require__.e("data-store/schemas/Images"), __webpack_require__.e("components/javascript/loading-comp"), __webpack_require__.e("components/javascript/home-comp")]).then(__webpack_require__.bind(__webpack_require__, /*! ./components/javascript/home-comp.js */ 30003561)).then(function(res) {
+            HomeComp = res.HomeComp;
+        }));
+
         arguments[2].push(__webpack_require__.e(/*! import() | data-store/schemas/Images */ "data-store/schemas/Images").then(__webpack_require__.bind(__webpack_require__, /*! ./data-store/schemas/Images.js */ 42050514)).then(function(res) {
             ImagesSchema = res.ImagesSchema;
         }));
@@ -7501,72 +7579,10 @@ class Index extends _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE
             LoadingComp = res.LoadingComp;
         }));
 
-        arguments[1].push(Promise.all(/*! import() | components/javascript/home-comp */[__webpack_require__.e("vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js"), __webpack_require__.e("data-store/schemas/Images"), __webpack_require__.e("components/javascript/loading-comp"), __webpack_require__.e("components/javascript/home-comp")]).then(__webpack_require__.bind(__webpack_require__, /*! ./components/javascript/home-comp.js */ 30003561)).then(function(res) {
-            HomeComp = res.HomeComp;
-        }));
-
         
     }
 }
 
-
-
-
-
-/***/ }),
-
-/***/ 82629477:
-/*!**************************************!*\
-  !*** ./router/routes/index/image.js ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Image": () => (/* binding */ Image)
-/* harmony export */ });
-/* harmony import */ var _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/@slyte/router/index.js */ 14504106);
-
-
-let ImageComp, AnnotationSchema;
-
-class Image extends _node_modules_slyte_router_index_js__WEBPACK_IMPORTED_MODULE_0__.Route {
-    beforeFetch(params){
-        console.log(params);
-    }
-    fetch(){
-        this.$db.getAll({schema:AnnotationSchema}).then(function(data){
-            console.log("fetched successfully ",data)
-        },function(){
-            console.log("not fetched successfully")
-        })
-        return this.$db.cache.getAll({schema:AnnotationSchema});
-    }
-    afterFetch(data){
-        
-       this.currentData={"imageAnnotations":data};
-    }
-    render(){
-        return {outlet:"#outlet",component:ImageComp}
-    }
-
-    _() {
-        _;
-    }
-
-    getRequirements() {
-        arguments[1].push(Promise.all(/*! import() | components/javascript/image-comp */[__webpack_require__.e("vendors-node_modules_zoho_lyte-ui-component_components_javascript_lyte-wormhole_js"), __webpack_require__.e("data-store/schemas/Annotation"), __webpack_require__.e("components/javascript/image-comp")]).then(__webpack_require__.bind(__webpack_require__, /*! ./components/javascript/image-comp.js */ 54259987)).then(function(res) {
-            ImageComp = res.ImageComp;
-        }));
-
-        arguments[2].push(__webpack_require__.e(/*! import() | data-store/schemas/Annotation */ "data-store/schemas/Annotation").then(__webpack_require__.bind(__webpack_require__, /*! ./data-store/schemas/Annotation.js */ 38834365)).then(function(res) {
-            AnnotationSchema = res.AnnotationSchema;
-        }));
-
-        
-    }
-}
 
 
 

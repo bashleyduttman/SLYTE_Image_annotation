@@ -22,9 +22,10 @@ class AnnotationConnector extends _node_modules_slyte_data_index_js__WEBPACK_IMP
         this.withCredentials = false;
     }
 
-    requestURL({url,type}){
-        console.log("url is")
+    requestURL({url,type,queryParams}){
+        console.log("url is",url)
         console.log("type=",type)
+        console.log("queryParams",queryParams)
        if(type=="getAll"){
         var imageId=localStorage.getItem("imageId");
         console.log("url added",url+'/'+imageId)
@@ -35,9 +36,11 @@ class AnnotationConnector extends _node_modules_slyte_data_index_js__WEBPACK_IMP
         return url+'/';
        }
        
+       return url;
+       
         
     }
-    processRequest({url,cachedData,type}){
+    processRequest({url,cachedData,type,schemaName,payLoad}){
         // if(type=="createEntity"){
         //     return new Promise((resolve,reject)=>{
         //         console.log("cached data",cachedData)
@@ -61,53 +64,116 @@ class AnnotationConnector extends _node_modules_slyte_data_index_js__WEBPACK_IMP
                     
         
     // }
-     if (type == "createEntity") {
-        return fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cachedData)
+    console.log("cached data",cachedData)
+   if (type === "createEntity") {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json"); 
+
+    xhr.responseType = "json"; 
+
+    xhr.onload = function () {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        const savedRecord = xhr.response; 
+        localStorage.setItem("uniqueId",savedRecord)
+        console.log("saved Record",savedRecord);
+
+        
+        resolve(JSON.stringify(savedRecord));
+      } else {
+        reject(new Error(`Request failed with status ${xhr.status}`));
+      }
+    };
+
+    xhr.onerror = function () {
+      reject(new Error("Network error"));
+    };
+
+    // send JSON string
+    xhr.send(JSON.stringify(cachedData));
+  });
+}
+
+  
+
+    if(type==="updateEntity"){
+        console.log("cached data",cachedData);
+        return fetch(url,{
+            method:"PATCH",
+            headers:{
+                "Content-Type":"application/json"
+            }
+            ,body:JSON.stringify(cachedData)
+        }).then(res=>res.json());
+    }
+    else if(type=="deleteEntity"){
+        return fetch(url,{
+            method:"DELETE",
+            headers:{
+                "Content-Type":"application/json",
+
+            }
+        
         })
-        .then(res => res.json());
     }
 }
 
 
-    parseResponse({ payLoad ,type}) {
-        if(type!="createEntity"){
-             console.log("image payload ", payLoad);
+    parseResponse({ payLoad, type }) {
+    console.log("image payload ", payLoad);
+
+    if (!payLoad || !payLoad.result) {
+        return [];
+    }
 
     const filtered = payLoad.result.map((item) => {
         let bboxArray;
 
-       
-        if (typeof item.Bbox === "string") {
-            bboxArray = JSON.parse(item.Bbox);
-        } else {
-            bboxArray = item.Bbox;
+        if (Array.isArray(item.Bbox)) {
+            bboxArray = item.Bbox; // ✅ already array
+        } 
+        else if (typeof item.Bbox === "string") {
+            try {
+                // Only parse if it *looks* like JSON
+                if (item.Bbox.trim().startsWith("[") || item.Bbox.trim().startsWith("{")) {
+                    bboxArray = JSON.parse(item.Bbox);
+                } else {
+                    console.warn("Skipping non-JSON Bbox string:", item.Bbox);
+                    bboxArray = [0,0,0,0];
+                }
+            } catch (e) {
+                console.error("Invalid Bbox string:", item.Bbox, e);
+                bboxArray = [0,0,0,0];
+            }
+        } 
+        else if (typeof item.Bbox === "object" && item.Bbox !== null) {
+            // Already a proper object
+            bboxArray = [item.Bbox.x, item.Bbox.y, item.Bbox.width, item.Bbox.height];
+        } 
+        else {
+            bboxArray = [0,0,0,0]; // fallback
         }
-
-       
-        const bboxObject = {
-            x: bboxArray[0],
-            y: bboxArray[1],
-            width: bboxArray[2],
-            height: bboxArray[3]
-        };
 
         return {
             image_id: item.image_id,
-            Bbox: bboxObject,
-            id:item.ROWID,
+            Bbox: {
+                x: bboxArray[0],
+                y: bboxArray[1],
+                width: bboxArray[2],
+                height: bboxArray[3]
+            },
+            id: item.ROWID,
+            text: item.text
         };
     });
 
     console.log("filtered ", filtered);
     return filtered;
-        }
-    
 }
+
+
+
 
     _() {
         _;
@@ -146,6 +212,7 @@ class AnnotationSchema extends _node_modules_slyte_data_index_js__WEBPACK_IMPORT
            
             image_id:(0,_node_modules_slyte_core_index_js__WEBPACK_IMPORTED_MODULE_3__.prop)("string"),
             Bbox:(0,_node_modules_slyte_core_index_js__WEBPACK_IMPORTED_MODULE_3__.prop)("object"),
+            text:(0,_node_modules_slyte_core_index_js__WEBPACK_IMPORTED_MODULE_3__.prop)("string")
             // text:prop("string"),
             // created_time:prop("string"),
             // modified_time:prop("string"),
@@ -186,6 +253,13 @@ class AnnotationSerializer extends _node_modules_slyte_data_index_js__WEBPACK_IM
         console.log("hellooooo")
         console.log(payLoad)
         console.log(schemaName)
+        
+        if(type=="createEntity"){
+            const id=localStorage.getItem("uniqueId");
+        payLoad={id:id}
+        console.log("id ",payLoad)
+        }
+        
         return {[schemaName]:payLoad};
     }
 

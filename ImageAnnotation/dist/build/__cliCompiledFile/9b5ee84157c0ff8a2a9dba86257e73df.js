@@ -23,6 +23,6 @@ class NavigationSchema extends Schema {
 
 export { NavigationSchema };
 NavigationSchema.register({
-    hash: "NavigationSchema_4",
+    hash: "NavigationSchema_5",
     refHash: "db_lyte-ui-component_@zoho/lyte-ui-component_2"
 });

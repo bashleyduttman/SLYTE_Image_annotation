@@ -12,6 +12,7 @@ class AnnotationSchema extends Schema{
            
             image_id:prop("string"),
             Bbox:prop("object"),
+            text:prop("string")
             // text:prop("string"),
             // created_time:prop("string"),
             // modified_time:prop("string"),

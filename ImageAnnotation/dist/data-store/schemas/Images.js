@@ -23,17 +23,23 @@ class ImagesConnector extends _node_modules_slyte_data_index_js__WEBPACK_IMPORTE
   }
 
   requestURL({schemaName, type, queryParams, payLoad, url, actionName, customData, key}){
-    
-     if(type=="getAll" || type=="createEntity"){
-
-         return url;
+    console.log("query params ",queryParams)
+    const page=queryParams.page;
+     if(type=='getAll'){
+       return url+'/'+page;
      }
+     else if( type=="createEntity"){
+       return url;
+         
+     }
+     
      
      
      return url;
   }
   processRequest({ type, cachedData ,url,schemaName}) {
     console.log("url ",url)
+
     if (type === "createEntity") {
       return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();

@@ -1,4 +1,4 @@
-<template tag-name="home-comp">
+<template tag-name="home-comp" @shadow-supported>
 <div class="header">
 <p>Image Annotation</p>
 </div>
@@ -42,12 +42,18 @@
         <div class="home-image-edit" onclick="{{action('handleEdit',event,img.data,img.id)}}">edit</div>
 
     </div>
+    <br>
+    
     
     <div lyte-if="{{images.length===0}}">
         <loading-comp></loading-comp>
     </div>
    
 
+</div>
+<div class="image-navigation" lyte-if="{{images.length>0}}">
+        <go-to class="navigate-btn" lyte-if="{{current>1}}" lt-prop-route="index" lt-prop-dp='["{{prev}}"]'>prev</go-to>
+        <go-to class="navigate-btn" lyte-if="{{images.length>=10}}" lt-prop-route="index" lt-prop-dp='["{{next}}"]'>next</go-to>
 </div>
 
 

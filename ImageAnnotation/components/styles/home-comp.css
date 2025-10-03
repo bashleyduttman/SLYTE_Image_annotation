@@ -36,6 +36,24 @@ body{
     -webkit-backdrop-filter: blur(3px);
     cursor: pointer;
 }
+.image-navigation{
+    display: flex;
+    text-align: center;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+}
+.image-navigation .navigate-btn{
+    background-color: rgb(255, 255, 255);
+    color:rgb(6, 6, 6);
+    text-decoration: none;
+
+    width:100px;
+    height: 30px;
+    
+    border-radius: 10px;
+    cursor: pointer;
+}
 .border{
     border: black 2px solid;
 }

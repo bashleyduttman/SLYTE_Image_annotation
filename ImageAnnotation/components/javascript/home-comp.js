@@ -6,17 +6,29 @@ class HomeComp extends Component {
 		super();
 	}
 	init(){
+		
 		this.setData("images",this.data.data)
 		// const temp=this.getData("images")
-		var images=this.getData("images");
-		this.setData("size",images.reduce((sum,img)=>sum+parseInt(img.size),0))
-		console.log("image. ",images)
+		// var images=this.getData("images");
+		var pagenumber=(parseInt(this.$app.Globals.get("pageNumber").number)+1).toString()
+		var prevNumber=(parseInt(this.$app.Globals.get("pageNumber").number)-1).toString()
+		var cn=parseInt(this.$app.Globals.get("pageNumber").number)
+		this.setData("current",cn);
+		console.log("route number",pagenumber)
+		this.setData("next",pagenumber)
+		// this.setData("size",images.reduce((sum,img)=>sum+parseInt(img.size),0))
+		this.setData("prev",prevNumber)
+		// console.log("image. ",images)
+
 		
 		
 		
 	}
 	data() {
 		return {
+			next:prop("string",{default:"0"}),
+			prev:prop('string',{default:"0"}),
+			current:prop("number",{default:0}),
 			images:prop("array",{watch:true}),
 			selectedFile:prop("object"),
 			previewUrl:prop("string",{default:"none"}),
@@ -41,6 +53,7 @@ class HomeComp extends Component {
 	static actions() {
 		return {
 			onImageChange:function(event){
+				
 				console.log("event",event)
 				var file=event.target.files[0];
 				const urls=[];
@@ -107,11 +120,13 @@ class HomeComp extends Component {
 				localStorage.setItem("imageData",data)
 				localStorage.setItem("imageId",id)
 				// console.log("id. ",id)
-				this.$router.navigateTo("index.image")
+				this.$router.navigateTo("image");
+				
 			
 				
-			}
-		,
+			},
+			
+		
 		
 
 		}
